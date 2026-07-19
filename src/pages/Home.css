@@ -194,6 +194,62 @@ nav{
 .scroll-note{font-size:15px;letter-spacing:2px;text-transform:uppercase;color:#FFFFFF;display:flex;align-items:center;gap:13px;}
 .scroll-note::after{content:'';width:34px;height:1px;background:rgba(255,255,255,0.1);}
 
+/* Compact-height hero: laptops with short viewports (e.g. 1080p at 125% OS
+   scaling) can't fit the full-size hero in 100vh, so scale it down ~20%. */
+@media (min-width:761px) and (max-height:880px){
+  .hero-main{padding:96px 56px 4px;gap:48px;}
+  .tr{padding:9px 0;}
+  .tl{font-size:13px;letter-spacing:2.5px;}
+  .tl-row{gap:13px;margin-bottom:6px;}
+  .tl-icon{width:30px;height:30px;border-radius:9px;}
+  .tl-icon svg{width:17px;height:17px;}
+  .tc-dim{font-size:22px;}
+  .tc-mid{font-size:34px;}
+  .tc-big{font-size:54px;}
+  .bridge{font-size:15px;margin-bottom:8px;}
+  .value-bullets{gap:10px;}
+  .value-bullet{font-size:15px;gap:13px;}
+  .value-bullet::before{width:8px;height:8px;margin-top:6px;}
+  .stance-label{font-size:13px;}
+  .stance-text{font-size:22px;}
+  .btn-primary,.btn-secondary{padding:12px 24px;font-size:15px;}
+  .panel-label{font-size:13px;margin-bottom:9px;}
+  .card-header{padding:15px 20px;gap:13px;}
+  .card-header::after{left:20px;right:20px;}
+  .ch-icon{width:30px;height:30px;border-radius:9px;}
+  .ch-icon svg{width:16px;height:16px;}
+  .card-title{font-size:14px;}
+  .pattern-row{padding:16px 20px;gap:18px;}
+  .pattern-icon{width:50px;height:50px;border-radius:13px;}
+  .pattern-icon svg{width:25px;height:25px;}
+  .pattern-icon img{width:28px;height:33px;}
+  .pattern-tag{font-size:14px;}
+  .pattern-desc{font-size:14px;}
+  .pattern-flow{width:100px;height:38px;}
+  .card-foot{padding:14px 20px;gap:14px;}
+  .cf-icon{width:32px;height:32px;}
+  .cf-icon svg{width:16px;height:16px;}
+  .foot-q{font-size:14px;}
+  .foot-q-top{font-size:12.5px;}
+  .hero-foot{padding:4px 56px 8px;}
+  .scroll-note{font-size:13px;}
+}
+@media (min-width:761px) and (max-height:740px){
+  .hero-main{padding:90px 56px 4px;gap:40px;}
+  .tc-dim{font-size:19px;}
+  .tc-mid{font-size:29px;}
+  .tc-big{font-size:46px;}
+  .tr{padding:7px 0;}
+  .value-bullet{font-size:14px;}
+  .stance-text{font-size:19px;}
+  .btn-primary,.btn-secondary{padding:10px 20px;font-size:14px;}
+  .pattern-row{padding:12px 20px;}
+  .pattern-icon{width:44px;height:44px;}
+  .pattern-icon svg{width:22px;height:22px;}
+  .pattern-icon img{width:25px;height:29px;}
+  .card-foot{padding:11px 20px;}
+}
+
 /* ══════════════════════════════
    S2 - PATTERNS  (navy)
 ══════════════════════════════ */
