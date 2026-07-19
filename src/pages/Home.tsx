@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type ChangeEvent, type SubmitEvent } from 'react';
 import './Home.css';
 import { sendContactEmail } from '../lib/email';
 
@@ -20,10 +20,10 @@ export default function Home() {
   const [contactError, setContactError] = useState('');
 
   const updateContactField = (field: keyof typeof contactForm) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
       setContactForm(prev => ({ ...prev, [field]: e.target.value }));
 
-  const submitContactForm = async (e: React.FormEvent) => {
+  const submitContactForm = async (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     setContactStatus('sending');
     setContactError('');
@@ -705,8 +705,9 @@ export default function Home() {
         <div className="site-footer">
           <div className="foot-brand">{"Simplicytas"}</div>
           <div className="foot-links">
-            <a className="foot-link" href="https://simplicytas.com/privacy-policy/" target="_blank">{"Privacy policy"}</a>
-            <a className="foot-link" href="https://simplicytas.com/terms-of-use/" target="_blank">{"Terms of use"}</a>
+            <a className="foot-link" href="/privacy.html">{"Privacy policy"}</a>
+            <a className="foot-link" href="/terms.html">{"Terms of use"}</a>
+            <a className="foot-link" href="/cookies.html">{"Cookie policy"}</a>
             <a className="foot-link" href="mailto:hello@simplicytas.com">{"hello@simplicytas.com"}</a>
           </div>
         </div>

@@ -216,6 +216,15 @@ export default function About() {
           </div>
         </div>
       </section>
+      <footer className="site-footer">
+        <div className="foot-brand">{"Simplicytas"}</div>
+        <div className="foot-links">
+          <a className="foot-link" href="/privacy.html">{"Privacy policy"}</a>
+          <a className="foot-link" href="/terms.html">{"Terms of use"}</a>
+          <a className="foot-link" href="/cookies.html">{"Cookie policy"}</a>
+          <a className="foot-link" href="mailto:hello@simplicytas.com">{"hello@simplicytas.com"}</a>
+        </div>
+      </footer>
     </>
   );
 }
