@@ -1,25 +1,23 @@
 {
-  "name": "simplicytas-native",
+  "name": "simplicytas-web",
   "version": "1.0.0",
-  "main": "index.ts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
-    "expo": "~57.0.6",
-    "expo-status-bar": "~57.0.1",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "react-native": "0.86.0",
-    "react-native-svg": "^15.15.5",
-    "react-native-web": "^0.21.2"
+    "@emailjs/browser": "^4.4.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
   },
   "devDependencies": {
-    "@types/react": "~19.2.2",
-    "typescript": "~6.0.3"
-  },
-  "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
-  },
-  "private": true
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.0"
+  }
 }
