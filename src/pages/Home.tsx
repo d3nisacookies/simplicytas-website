@@ -315,20 +315,20 @@ export default function Home() {
                   </div>
                   <div className="pattern-flow">
                     <svg viewBox="0 0 90 32" fill="none">
-                      <circle cx="12" cy="18" r="5.6" stroke="#6E67B0" strokeWidth="1.3" />
-                      <circle cx="12" cy="16.9" r="1.9" stroke="#6E67B0" strokeWidth="1" />
-                      <path d="M12 18.8v2.2" stroke="#6E67B0" strokeWidth="1" strokeLinecap="round" />
-                      <path d="M14.6 13.5C18.5 6.8 26 5.4 32 10" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
-                      <path d="M17.9 18H32" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
-                      <path d="M14.6 22.5C18.5 29.2 26 30.6 32 22" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
-                      <rect x="32" y="3" width="27" height="26" rx="6" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
-                      <circle cx="32" cy="10" r="0.8" fill="rgba(73,172,181,0.7)" />
-                      <circle cx="59" cy="13" r="0.8" fill="rgba(73,172,181,0.7)" />
+                      <circle cx="11.5" cy="17" r="5.6" stroke="#6E67B0" strokeWidth="1.3" />
+                      <circle cx="11.5" cy="15.9" r="1.9" stroke="#6E67B0" strokeWidth="1" />
+                      <path d="M11.5 17.8v2.2" stroke="#6E67B0" strokeWidth="1" strokeLinecap="round" />
+                      <rect x="33" y="4" width="27" height="25" rx="6" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
+                      <path d="M14.8 12.6C19.5 5.2 27.5 3.6 35.2 5.3" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
+                      <path d="M17.2 17H33" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
+                      <path d="M14.8 21.4C19.5 28.6 27.5 29.9 35.2 27.7" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
+                      <circle cx="33" cy="12" r="0.8" fill="rgba(73,172,181,0.7)" />
+                      <circle cx="60" cy="13" r="0.8" fill="rgba(73,172,181,0.7)" />
                       <circle cx="52" cy="29" r="0.8" fill="rgba(73,172,181,0.7)" />
-                      <path d="M59 18h6.5" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
-                      <path d="M67.5 18h2.3" stroke="rgba(228,80,107,0.8)" strokeWidth="1.2" strokeLinecap="round" />
-                      <circle cx="77.8" cy="18" r="7" stroke="#E4506B" strokeWidth="1.6" />
-                      <path d="M75.2 15.4l5.2 5.2M80.4 15.4l-5.2 5.2" stroke="#E4506B" strokeWidth="1.5" strokeLinecap="round" />
+                      <path d="M60 17h6.5" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
+                      <path d="M68.5 17h2.2" stroke="rgba(228,80,107,0.8)" strokeWidth="1.2" strokeLinecap="round" />
+                      <circle cx="78.5" cy="17" r="7" stroke="#E4506B" strokeWidth="1.6" />
+                      <path d="M75.9 14.4l5.2 5.2M81.1 14.4l-5.2 5.2" stroke="#E4506B" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
                   </div>
                 </div>
