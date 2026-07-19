@@ -171,10 +171,12 @@ nav{
 .pattern-row:last-child{border-bottom:none;}
 .pattern-icon{width:63px;height:63px;border-radius:16px;border:1px solid rgba(73,172,181,0.3);background:rgba(73,172,181,0.06);display:flex;align-items:center;justify-content:center;color:var(--teal);flex-shrink:0;}
 .pattern-icon svg{width:31px;height:31px;}
+.pattern-icon img{width:34px;height:40px;object-fit:contain;display:block;}
 .pattern-text{flex:1;min-width:0;}
 .pattern-tag{font-family:'Roboto',sans-serif;font-weight:700;font-size:16px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:5px;}
 .pattern-desc{font-size:16px;color:#FFFFFF;line-height:1.5;}
 .pattern-flow{flex-shrink:0;width:113px;height:44px;display:none;}
+.pattern-flow img{width:100%;height:100%;object-fit:contain;display:block;}
 @media(min-width:1150px){.pattern-flow{display:block;}}
 .card-foot{display:flex;align-items:center;gap:18px;padding:22px 26px;border-top:1px solid rgba(73,172,181,0.12);background:rgba(22,21,46,0.6);}
 .cf-icon{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,0.32);color:#FFFFFF;flex-shrink:0;display:flex;align-items:center;justify-content:center;}

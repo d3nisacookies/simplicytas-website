@@ -26,6 +26,9 @@ npm-debug.*
 yarn-debug.*
 yarn-error.*
 
+# Office temp lock files
+~$*
+
 # macOS
 .DS_Store
 *.pem

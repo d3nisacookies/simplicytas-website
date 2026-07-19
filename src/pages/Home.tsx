@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState, type ChangeEvent, type SubmitEvent } from 'react';
 import './Home.css';
 import { sendContactEmail } from '../lib/email';
+import transformationIcon from '../../assets/transformation_icon.png';
+import transformationDiagram from '../../assets/transformation_diagram.png';
 
 // Converted 1:1 from simplicytas_website_v5.html
 // The patterns data below is copied verbatim from the original <script>.
@@ -306,25 +308,14 @@ export default function Home() {
                 </div>
                 <div className="pattern-row">
                   <div className="pattern-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round">
-                      <path d="M12 3l9 5-9 5-9-5 9-5z" />
-                      <path d="M3 13l9 5 9-5" />
-                    </svg>
+                    <img src={transformationIcon} alt="Transformation icon" />
                   </div>
                   <div className="pattern-text">
                     <div className="pattern-tag">{"Transformation"}</div>
                     <div className="pattern-desc">{"The programme ran. The board is asking why nothing changed."}</div>
                   </div>
                   <div className="pattern-flow">
-                    <svg viewBox="0 0 90 32" fill="none">
-                      <path d="M13 8a10 10 0 0 0 0 16" stroke="rgba(255,255,255,0.3)" strokeWidth="1.2" strokeDasharray="3 3" strokeLinecap="round" />
-                      <path d="M17 16Q35 16 50 16" stroke="rgba(73,172,181,0.45)" strokeWidth="1.2" strokeDasharray="3 3" />
-                      <circle cx="58" cy="16" r="7.5" fill="none" stroke="#5FB4E0" strokeWidth="1.5" />
-                      <text x="58" y="19.5" textAnchor="middle" fontSize="9" fill="#5FB4E0" fontFamily="Roboto, sans-serif" fontWeight="700">{"?"}</text>
-                      <path d="M65.5 16Q70 16 72 16" stroke="rgba(224,80,80,0.45)" strokeWidth="1.2" strokeDasharray="3 3" />
-                      <circle cx="79" cy="16" r="7.5" fill="none" stroke="#E05050" strokeWidth="1.6" />
-                      <path d="M76.3 13.3l5.4 5.4M81.7 13.3l-5.4 5.4" stroke="#E05050" strokeWidth="1.6" strokeLinecap="round" />
-                    </svg>
+                    <img src={transformationDiagram} alt="Transformation flow diagram" />
                   </div>
                 </div>
               </div>
