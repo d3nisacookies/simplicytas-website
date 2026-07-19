@@ -2,6 +2,9 @@ import { useEffect, useRef, useState, type ChangeEvent, type SubmitEvent } from 
 import './Home.css';
 import { sendContactEmail } from '../lib/email';
 import transformationIcon from '../../assets/transformation_icon.png';
+import dataReportingIcon from '../../assets/data_and_reporting_icon.png';
+import executionIcon from '../../assets/execution_icon.png';
+import executionDiagram from '../../assets/execution_diagram.png';
 
 // Converted 1:1 from simplicytas_website_v5.html
 // The patterns data below is copied verbatim from the original <script>.
@@ -254,11 +257,7 @@ export default function Home() {
               <div className="pattern-list">
                 <div className="pattern-row">
                   <div className="pattern-icon">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <rect x="4" y="10" width="3.2" height="8" fill="currentColor" />
-                      <rect x="10.4" y="5.5" width="3.2" height="12.5" fill="currentColor" />
-                      <rect x="16.8" y="13" width="3.2" height="5" fill="currentColor" />
-                    </svg>
+                    <img src={dataReportingIcon} alt="Data and reporting icon" />
                   </div>
                   <div className="pattern-text">
                     <div className="pattern-tag">{"Data & Reporting"}</div>
@@ -266,43 +265,33 @@ export default function Home() {
                   </div>
                   <div className="pattern-flow">
                     <svg viewBox="0 0 90 32" fill="none">
-                      <rect x="2" y="2" width="12" height="8" rx="1.5" stroke="rgba(255,255,255,0.35)" strokeWidth="1.1" />
-                      <path d="M4.5 5h7M4.5 7.5h4.5" stroke="rgba(255,255,255,0.35)" strokeWidth="1" strokeLinecap="round" />
-                      <rect x="2" y="12" width="12" height="8" rx="1.5" stroke="rgba(255,255,255,0.35)" strokeWidth="1.1" />
-                      <path d="M4.5 15h7M4.5 17.5h4.5" stroke="rgba(255,255,255,0.35)" strokeWidth="1" strokeLinecap="round" />
-                      <rect x="2" y="22" width="12" height="8" rx="1.5" stroke="rgba(255,255,255,0.35)" strokeWidth="1.1" />
-                      <path d="M4.5 25h7M4.5 27.5h4.5" stroke="rgba(255,255,255,0.35)" strokeWidth="1" strokeLinecap="round" />
-                      <path d="M14 6Q45 6 68 16" stroke="rgba(73,172,181,0.45)" strokeWidth="1.2" strokeDasharray="3 3" />
-                      <path d="M14 16Q45 16 68 16" stroke="rgba(73,172,181,0.45)" strokeWidth="1.2" strokeDasharray="3 3" />
-                      <path d="M14 26Q45 26 68 16" stroke="rgba(73,172,181,0.45)" strokeWidth="1.2" strokeDasharray="3 3" />
-                      <circle cx="76" cy="16" r="8" fill="none" stroke="#E05050" strokeWidth="1.6" />
-                      <path d="M73 13l6 6M79 13l-6 6" stroke="#E05050" strokeWidth="1.6" strokeLinecap="round" />
+                      <rect x="2" y="2" width="11" height="8" rx="2.5" stroke="#6B62D6" strokeWidth="1.2" />
+                      <rect x="5" y="3.8" width="5" height="4.4" rx="0.8" stroke="#6B62D6" strokeWidth="0.8" />
+                      <path d="M6.2 5.2h2.6M6.2 6.4h2.6M6.2 7.4h1.6" stroke="#6B62D6" strokeWidth="0.7" strokeLinecap="round" />
+                      <rect x="2" y="12" width="11" height="8" rx="2.5" stroke="#6B62D6" strokeWidth="1.2" />
+                      <rect x="5" y="13.8" width="5" height="4.4" rx="0.8" stroke="#6B62D6" strokeWidth="0.8" />
+                      <path d="M6.2 15.2h2.6M6.2 16.4h2.6M6.2 17.4h1.6" stroke="#6B62D6" strokeWidth="0.7" strokeLinecap="round" />
+                      <rect x="2" y="22" width="11" height="8" rx="2.5" stroke="#6B62D6" strokeWidth="1.2" />
+                      <rect x="5" y="23.8" width="5" height="4.4" rx="0.8" stroke="#6B62D6" strokeWidth="0.8" />
+                      <path d="M6.2 25.2h2.6M6.2 26.4h2.6M6.2 27.4h1.6" stroke="#6B62D6" strokeWidth="0.7" strokeLinecap="round" />
+                      <path d="M13 6Q45 6 65.5 14.5" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
+                      <path d="M13 16H65.5" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
+                      <path d="M13 26Q45 26 65.5 17.5" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
+                      <circle cx="74" cy="16" r="7" stroke="#E4506B" strokeWidth="1.6" />
+                      <path d="M71.4 13.4l5.2 5.2M76.6 13.4l-5.2 5.2" stroke="#E4506B" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
                   </div>
                 </div>
                 <div className="pattern-row">
                   <div className="pattern-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <circle cx="9" cy="8" r="3" />
-                      <path d="M3 20c0-3.5 2.5-6 6-6s6 2.5 6 6" />
-                      <circle cx="17" cy="9.2" r="2.4" />
-                      <path d="M15 20c0-2.5 1-4.3 3-5.2" />
-                    </svg>
+                    <img src={executionIcon} alt="Execution icon" />
                   </div>
                   <div className="pattern-text">
                     <div className="pattern-tag">{"Execution"}</div>
                     <div className="pattern-desc">{"HQ decided. The country office didn't follow. Margin leaks quietly."}</div>
                   </div>
                   <div className="pattern-flow">
-                    <svg viewBox="0 0 90 32" fill="none">
-                      <rect x="2" y="4" width="9" height="9" rx="2" stroke="rgba(255,255,255,0.28)" strokeWidth="1.2" />
-                      <rect x="2" y="19" width="9" height="9" rx="2" stroke="rgba(255,255,255,0.28)" strokeWidth="1.2" />
-                      <path d="M11 8.5Q40 8.5 68 16" stroke="rgba(73,172,181,0.45)" strokeWidth="1.2" strokeDasharray="3 3" />
-                      <path d="M11 23.5Q40 23.5 68 16" stroke="rgba(73,172,181,0.45)" strokeWidth="1.2" strokeDasharray="3 3" />
-                      <circle cx="76" cy="16" r="8" fill="none" stroke="#E0A83C" strokeWidth="1.6" />
-                      <path d="M76 12.5v5" stroke="#E0A83C" strokeWidth="1.6" strokeLinecap="round" />
-                      <circle cx="76" cy="20.3" r="0.9" fill="#E0A83C" />
-                    </svg>
+                    <img src={executionDiagram} alt="Execution flow diagram" />
                   </div>
                 </div>
                 <div className="pattern-row">
