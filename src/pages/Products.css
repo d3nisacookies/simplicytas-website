@@ -21,7 +21,8 @@ body{font-family:'Open Sans',sans-serif;color:#2D2B55;overflow-x:hidden;}
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;align-items:stretch;
-  height:86px;
+  height:68px;
+  background:var(--navy);
   box-shadow:0 2px 16px rgba(45,43,85,0.12);
 }
 .nav-logo-panel{
@@ -63,19 +64,28 @@ nav{
 .nav-toggle-checkbox:checked ~ .nav-toggle .nav-toggle-icon span:nth-child(2){opacity:0;}
 .nav-toggle-checkbox:checked ~ .nav-toggle .nav-toggle-icon span:nth-child(3){transform:translateY(-10px) rotate(-45deg);}
 
-/* HERO */
+/* HERO - a true fixed wall. It never scrolls: it's pinned below the nav for
+   as long as the page is open. Everything else lives in .scroll-pane, a
+   separate fixed region below it with its own scrollbar, so scrolling the
+   page can never slide content over the hero. */
 .p-hero{
   background:var(--navy);
-  padding:190px 76px 118px;
-  min-height:100vh;
+  padding:24px 76px 20px;
+  height:22vh;
+  min-height:170px;
   display:flex;flex-direction:column;justify-content:center;
-  position:sticky;top:0;z-index:0;
+  position:fixed;top:68px;left:0;right:0;z-index:1;
   overflow:hidden;
 }
+.scroll-pane{
+  position:fixed;top:calc(68px + max(22vh,170px));left:0;right:0;bottom:0;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
+  z-index:2;
+}
 .p-hero-scroll{
-  position:absolute;left:76px;right:76px;bottom:36px;z-index:2;
+  position:absolute;left:76px;right:76px;bottom:16px;z-index:2;
   display:flex;align-items:center;justify-content:flex-end;
-  font-size:15px;letter-spacing:2px;text-transform:uppercase;color:#FFFFFF;gap:13px;
+  font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#FFFFFF;gap:13px;
 }
 .p-hero-scroll::after{content:'';width:34px;height:1px;background:rgba(255,255,255,0.2);}
 .hero-gl{
@@ -86,15 +96,15 @@ nav{
   background-size:72px 72px;pointer-events:none;
 }
 .p-hero-inner{max-width:1055px;margin:0 auto;position:relative;z-index:2;}
-.p-eyebrow{font-size:15px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:20px;font-weight:500;}
+.p-eyebrow{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:6px;font-weight:500;}
 .p-headline{
   font-family:'Roboto',sans-serif;font-weight:700;
-  font-size:clamp(38px,5vw,62px);
-  color:#fff;line-height:1.1;margin-bottom:20px;
+  font-size:clamp(20px,2.8vw,34px);
+  color:#fff;line-height:1.08;margin-bottom:6px;
 }
 .p-headline .teal{color:var(--teal);}
 .p-hero-sub{
-  font-size:20px;line-height:1.7;
+  font-size:14px;line-height:1.4;
   color:rgba(255,255,255,0.9);
   max-width:722px;
 }
@@ -102,8 +112,7 @@ nav{
 /* BODY */
 .p-body{
   background:var(--lavender);
-  padding:100px 76px 147px;
-  position:relative;z-index:1;
+  padding:70px 76px 147px;
 }
 .p-body-inner{max-width:1055px;margin:0 auto;}
 .p-lede{
@@ -187,7 +196,7 @@ nav{
   .nav-logo-panel{padding:0 24px;}
   .nav-toggle{display:flex;}
   .nav-links-panel{
-    position:fixed;top:86px;left:0;right:0;z-index:199;
+    position:fixed;top:68px;left:0;right:0;z-index:199;
     flex-direction:column;align-items:stretch;justify-content:flex-start;
     background:var(--navy);padding:0 29px;gap:2px;
     max-height:0;overflow:hidden;transition:max-height .25s ease;
@@ -195,8 +204,10 @@ nav{
   .nav-toggle-checkbox:checked ~ .nav-links-panel{max-height:70vh;overflow-y:auto;padding:22px 29px 34px;box-shadow:0 12px 24px rgba(45,43,85,0.25);}
   .nav-link{padding:20px 22px;font-size:20px;}
 
-  .p-hero{padding:207px 36px 94px;}
-  .p-body{padding:82px 36px 106px;}
+  .p-hero{padding:22px 36px 18px;height:30vh;min-height:170px;}
+  .scroll-pane{top:calc(68px + max(30vh,170px));}
+  .p-hero-scroll{left:36px;right:36px;bottom:12px;}
+  .p-body{padding:56px 36px 106px;}
   .p-lede{font-size:24px;}
   .product-card{grid-template-columns:1fr;}
   .product-side{border-right:none;border-bottom:1px solid rgba(54,178,176,0.18);}

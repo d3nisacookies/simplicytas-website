@@ -55,6 +55,7 @@ export default function About() {
         </div>
         <div className="about-hero-scroll">{"Scroll to explore"}</div>
       </section>
+      <div className="scroll-pane">
       <section className="about-body">
         <div className="about-body-inner">
           <div className="lede">
@@ -225,6 +226,7 @@ export default function About() {
           <a className="foot-link" href="mailto:hello@simplicytas.com">{"hello@simplicytas.com"}</a>
         </div>
       </footer>
+      </div>
     </>
   );
 }

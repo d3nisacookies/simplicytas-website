@@ -21,7 +21,8 @@ body{font-family:'Open Sans',sans-serif;color:#2D2B55;overflow-x:hidden;}
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;align-items:stretch;
-  height:86px;
+  height:68px;
+  background:var(--navy);
   box-shadow:0 2px 16px rgba(45,43,85,0.12);
 }
 .nav-logo-panel{
@@ -74,7 +75,7 @@ nav{
 .legal-updated{font-size:16px;letter-spacing:1px;color:rgba(255,255,255,0.72);}
 
 /* BODY */
-.legal-body{background:var(--white);padding:74px 76px 96px;}
+.legal-body{background:var(--lavender);padding:74px 76px 96px;}
 .legal-body-inner{max-width:920px;margin:0 auto;}
 .legal-h2{font-family:'Roboto',sans-serif;font-weight:700;font-size:27px;color:var(--navy);margin:46px 0 16px;}
 .legal-h2:first-child{margin-top:0;}
@@ -88,7 +89,7 @@ nav{
 .legal-address a:hover{text-decoration:underline;}
 
 /* Cookie table */
-.legal-table-wrap{overflow-x:auto;margin:22px 0 30px;}
+.legal-table-wrap{overflow-x:auto;overflow-y:hidden;margin:22px 0 30px;background:var(--white);border-radius:12px;border:1px solid var(--grey-bg);}
 .legal-table{width:100%;border-collapse:collapse;min-width:640px;}
 .legal-table th{
   font-family:'Roboto',sans-serif;font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;
@@ -116,7 +117,7 @@ nav{
   .nav-logo-panel{padding:0 24px;}
   .nav-toggle{display:flex;background:var(--navy);}
   .nav-links-panel{
-    position:fixed;top:86px;left:0;right:0;z-index:199;
+    position:fixed;top:68px;left:0;right:0;z-index:199;
     flex-direction:column;align-items:stretch;justify-content:flex-start;
     background:var(--navy);padding:0 29px;gap:2px;
     max-height:0;overflow:hidden;transition:max-height .25s ease;

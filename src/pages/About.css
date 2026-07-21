@@ -21,7 +21,8 @@ body{font-family:'Open Sans',sans-serif;color:#2D2B55;overflow-x:hidden;}
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;align-items:stretch;
-  height:86px;
+  height:68px;
+  background:var(--navy);
   box-shadow:0 2px 16px rgba(45,43,85,0.12);
 }
 .nav-logo-panel{
@@ -69,18 +70,28 @@ nav{
 /* ══════════════════════════════
    HERO - dark navy, matches site hero treatment
 ══════════════════════════════ */
+/* HERO - a true fixed wall. It never scrolls: it's pinned below the nav for
+   as long as the page is open. Everything else lives in .scroll-pane, a
+   separate fixed region below it with its own scrollbar, so scrolling the
+   page can never slide content over the hero. */
 .about-hero{
   background:var(--navy);
-  padding:190px 76px 118px;
-  min-height:100vh;
+  padding:24px 76px 20px;
+  height:22vh;
+  min-height:170px;
   display:flex;flex-direction:column;justify-content:center;
-  position:sticky;top:0;z-index:0;
+  position:fixed;top:68px;left:0;right:0;z-index:1;
   overflow:hidden;
 }
+.scroll-pane{
+  position:fixed;top:calc(68px + max(22vh,170px));left:0;right:0;bottom:0;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
+  z-index:2;
+}
 .about-hero-scroll{
-  position:absolute;left:76px;right:76px;bottom:36px;z-index:2;
+  position:absolute;left:76px;right:76px;bottom:16px;z-index:2;
   display:flex;align-items:center;justify-content:flex-end;
-  font-size:15px;letter-spacing:2px;text-transform:uppercase;color:#FFFFFF;gap:13px;
+  font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#FFFFFF;gap:13px;
 }
 .about-hero-scroll::after{content:'';width:34px;height:1px;background:rgba(255,255,255,0.2);}
 .hero-gl{
@@ -91,10 +102,10 @@ nav{
   background-size:72px 72px;pointer-events:none;
 }
 .about-hero-inner{max-width:1055px;margin:0 auto;position:relative;z-index:2;}
-.about-eyebrow{font-size:15px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:20px;font-weight:500;}
+.about-eyebrow{font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:10px;font-weight:500;}
 .about-headline{
   font-family:'Roboto',sans-serif;font-weight:700;
-  font-size:clamp(38px,5vw,62px);
+  font-size:clamp(28px,4.2vw,50px);
   color:#fff;line-height:1.1;margin-bottom:0;
 }
 .about-headline .teal{color:var(--teal);}
@@ -104,22 +115,21 @@ nav{
 ══════════════════════════════ */
 .about-body{
   background:var(--lavender);
-  padding:100px 76px 147px;
-  position:relative;z-index:1;
+  padding:36px 76px 147px;
 }
 .about-body-inner{max-width:942px;margin:0 auto;}
 .lede{
   font-family:'Roboto',sans-serif;font-weight:600;
-  font-size:31px;line-height:1.45;
+  font-size:25px;line-height:1.4;
   color:var(--navy);
-  margin-bottom:44px;
-  padding-bottom:36px;
+  margin-bottom:20px;
+  padding-bottom:18px;
   border-bottom:1px solid rgba(87,69,128,0.15);
 }
 .body-para{
-  font-size:21px;line-height:1.85;
+  font-size:18px;line-height:1.65;
   color:var(--navy);
-  margin-bottom:28px;
+  margin-bottom:16px;
 }
 .body-para:last-child{margin-bottom:0;}
 .body-para.muted{color:var(--text-muted);}
@@ -147,11 +157,11 @@ nav{
   border:1px solid rgba(87,69,128,0.12);
   border-radius:16px;
   overflow:hidden;
-  margin:70px 0;
+  margin:24px 0 44px;
 }
 .stat-cell{
   background:#fff;
-  padding:36px 29px;
+  padding:22px 29px;
   text-align:center;
 }
 .stat-num{
@@ -189,7 +199,7 @@ nav{
   .nav-logo-panel{padding:0 24px;}
   .nav-toggle{display:flex;}
   .nav-links-panel{
-    position:fixed;top:86px;left:0;right:0;z-index:199;
+    position:fixed;top:68px;left:0;right:0;z-index:199;
     flex-direction:column;align-items:stretch;justify-content:flex-start;
     background:var(--navy);padding:0 29px;gap:2px;
     max-height:0;overflow:hidden;transition:max-height .25s ease;
@@ -198,9 +208,11 @@ nav{
   .nav-link{padding:20px 22px;font-size:20px;}
 
   .stat-strip{grid-template-columns:repeat(2,1fr);}
-  .about-hero{padding:207px 36px 94px;}
-  .about-body{padding:82px 36px 106px;}
-  .lede{font-size:25px;}
+  .about-hero{padding:22px 36px 18px;height:26vh;min-height:150px;}
+  .scroll-pane{top:calc(68px + max(26vh,150px));}
+  .about-hero-scroll{left:36px;right:36px;bottom:12px;}
+  .about-body{padding:28px 36px 106px;}
+  .lede{font-size:22px;}
 }
 /* WHO WORKS ON THIS */
 .team-label{font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:10px;margin-top:56px;}

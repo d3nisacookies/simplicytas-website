@@ -4,7 +4,9 @@ import { sendContactEmail } from '../lib/email';
 import transformationIcon from '../../assets/transformation_icon.png';
 import dataReportingIcon from '../../assets/data_and_reporting_icon.png';
 import executionIcon from '../../assets/execution_icon.png';
-import executionDiagram from '../../assets/execution_diagram.png';
+import executionDiagram from '../../assets/execution_diagram.webp';
+import dataReportingDiagram from '../../assets/data_and_reporting_diagram.webp';
+import transformationDiagram from '../../assets/transformation_diagram.webp';
 
 // Converted 1:1 from simplicytas_website_v5.html
 // The patterns data below is copied verbatim from the original <script>.
@@ -263,23 +265,8 @@ export default function Home() {
                     <div className="pattern-tag">{"Data & Reporting"}</div>
                     <div className="pattern-desc">{"The numbers don't reconcile. Nobody trusts the report enough to act on it."}</div>
                   </div>
-                  <div className="pattern-flow">
-                    <svg viewBox="0 0 90 32" fill="none">
-                      <rect x="2" y="2" width="11" height="8" rx="2.5" stroke="#6B62D6" strokeWidth="1.2" />
-                      <rect x="5" y="3.8" width="5" height="4.4" rx="0.8" stroke="#6B62D6" strokeWidth="0.8" />
-                      <path d="M6.2 5.2h2.6M6.2 6.4h2.6M6.2 7.4h1.6" stroke="#6B62D6" strokeWidth="0.7" strokeLinecap="round" />
-                      <rect x="2" y="12" width="11" height="8" rx="2.5" stroke="#6B62D6" strokeWidth="1.2" />
-                      <rect x="5" y="13.8" width="5" height="4.4" rx="0.8" stroke="#6B62D6" strokeWidth="0.8" />
-                      <path d="M6.2 15.2h2.6M6.2 16.4h2.6M6.2 17.4h1.6" stroke="#6B62D6" strokeWidth="0.7" strokeLinecap="round" />
-                      <rect x="2" y="22" width="11" height="8" rx="2.5" stroke="#6B62D6" strokeWidth="1.2" />
-                      <rect x="5" y="23.8" width="5" height="4.4" rx="0.8" stroke="#6B62D6" strokeWidth="0.8" />
-                      <path d="M6.2 25.2h2.6M6.2 26.4h2.6M6.2 27.4h1.6" stroke="#6B62D6" strokeWidth="0.7" strokeLinecap="round" />
-                      <path d="M13 6Q45 6 65.5 14.5" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
-                      <path d="M13 16H65.5" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
-                      <path d="M13 26Q45 26 65.5 17.5" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
-                      <circle cx="74" cy="16" r="7" stroke="#E4506B" strokeWidth="1.6" />
-                      <path d="M71.4 13.4l5.2 5.2M76.6 13.4l-5.2 5.2" stroke="#E4506B" strokeWidth="1.5" strokeLinecap="round" />
-                    </svg>
+                  <div className="pattern-flow pattern-flow-xl">
+                    <img src={dataReportingDiagram} alt="Data and reporting flow diagram" />
                   </div>
                 </div>
                 <div className="pattern-row">
@@ -290,7 +277,7 @@ export default function Home() {
                     <div className="pattern-tag">{"Execution"}</div>
                     <div className="pattern-desc">{"HQ decided. The country office didn't follow. Margin leaks quietly."}</div>
                   </div>
-                  <div className="pattern-flow">
+                  <div className="pattern-flow pattern-flow-lg">
                     <img src={executionDiagram} alt="Execution flow diagram" />
                   </div>
                 </div>
@@ -302,23 +289,8 @@ export default function Home() {
                     <div className="pattern-tag">{"Transformation"}</div>
                     <div className="pattern-desc">{"The programme ran. The board is asking why nothing changed."}</div>
                   </div>
-                  <div className="pattern-flow">
-                    <svg viewBox="0 0 90 32" fill="none">
-                      <circle cx="11.5" cy="17" r="5.6" stroke="#6E67B0" strokeWidth="1.3" />
-                      <circle cx="11.5" cy="15.9" r="1.9" stroke="#6E67B0" strokeWidth="1" />
-                      <path d="M11.5 17.8v2.2" stroke="#6E67B0" strokeWidth="1" strokeLinecap="round" />
-                      <rect x="33" y="4" width="27" height="25" rx="6" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
-                      <path d="M14.8 12.6C19.5 5.2 27.5 3.6 35.2 5.3" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
-                      <path d="M17.2 17H33" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
-                      <path d="M14.8 21.4C19.5 28.6 27.5 29.9 35.2 27.7" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
-                      <circle cx="33" cy="12" r="0.8" fill="rgba(73,172,181,0.7)" />
-                      <circle cx="60" cy="13" r="0.8" fill="rgba(73,172,181,0.7)" />
-                      <circle cx="52" cy="29" r="0.8" fill="rgba(73,172,181,0.7)" />
-                      <path d="M60 17h6.5" stroke="rgba(73,172,181,0.45)" strokeWidth="1.1" strokeDasharray="2 3" strokeLinecap="round" />
-                      <path d="M68.5 17h2.2" stroke="rgba(228,80,107,0.8)" strokeWidth="1.2" strokeLinecap="round" />
-                      <circle cx="78.5" cy="17" r="7" stroke="#E4506B" strokeWidth="1.6" />
-                      <path d="M75.9 14.4l5.2 5.2M81.1 14.4l-5.2 5.2" stroke="#E4506B" strokeWidth="1.5" strokeLinecap="round" />
-                    </svg>
+                  <div className="pattern-flow pattern-flow-lg">
+                    <img src={transformationDiagram} alt="Transformation flow diagram" />
                   </div>
                 </div>
               </div>
@@ -596,21 +568,23 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="s4-divider" />
-          <div className="case-note-solo">
-            <div className="case-note-label">{"Case studies"}</div>
-            <div className="case-note-num">
-              {"18 "}
-              <span>{"total"}</span>
-            </div>
-            <div className="case-note-text">
-              {"Across financial services, commercial real estate, logistics, technology, and industrial sectors. The three above are a representative sample. Tell us what you're dealing with below, and we'll send the ones most relevant to your situation, or set up time to talk it through."}
-            </div>
-            <a className="case-cta" href="#s5">
-              {"Get the relevant case studies, or start a conversation "}
-              <span className="case-arrow">{"→"}</span>
-            </a>
+        </div>
+      </section>
+      {/* CASE STUDIES */}
+      <section className="case-section">
+        <div className="case-note-solo">
+          <div className="case-note-label">{"Case studies"}</div>
+          <div className="case-note-num">
+            {"18 "}
+            <span>{"total"}</span>
           </div>
+          <div className="case-note-text">
+            {"Across financial services, commercial real estate, logistics, technology, and industrial sectors. The three above are a representative sample. Tell us what you're dealing with below, and we'll send the ones most relevant to your situation, or set up time to talk it through."}
+          </div>
+          <a className="case-cta" href="#s5">
+            {"Get the relevant case studies, or start a conversation "}
+            <span className="case-arrow">{"→"}</span>
+          </a>
         </div>
       </section>
       {/* S5 CONTACT */}
