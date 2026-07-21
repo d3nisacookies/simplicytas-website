@@ -674,9 +674,9 @@ export default function Home() {
           <div className="foot-brand">{"Simplicytas"}</div>
           <div className="foot-links">
             <a className="foot-link" href="/privacy.html">{"Privacy policy"}</a>
+            <a className="foot-link" href="/cookies.html">{"Cookie policy/setting"}</a>
             <a className="foot-link" href="/terms.html">{"Terms of use"}</a>
-            <a className="foot-link" href="/cookies.html">{"Cookie policy"}</a>
-            <a className="foot-link" href="mailto:hello@simplicytas.com">{"hello@simplicytas.com"}</a>
+            <a className="foot-link" href="mailto:contact@simplicytas.com">{"contact@simplicytas.com"}</a>
           </div>
         </div>
       </section>
