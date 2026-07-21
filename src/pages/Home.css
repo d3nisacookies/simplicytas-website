@@ -464,6 +464,15 @@ nav{
   .hero-foot{padding:22px 29px 29px;}
   .cols,.metrics{grid-template-columns:1fr 1fr;}
 
+  /* Show the flow diagrams on mobile too (desktop-only above 1150px),
+     stacked full-width below the icon+text instead of squeezed beside it. */
+  .pattern-row{flex-wrap:wrap;}
+  .pattern-flow,.pattern-flow-lg,.pattern-flow-xl{
+    display:block;width:100%;max-width:220px;height:auto;
+    margin:12px auto 0;
+  }
+  .pattern-flow img{height:auto;}
+
   #s2{padding:82px 29px;}
   .cards-grid{grid-template-columns:1fr;}
   .pcard{min-height:0;}
