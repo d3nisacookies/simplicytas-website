@@ -373,7 +373,7 @@ nav{
 #s4{background:#E4EDF8;padding:75px 76px 0;min-height:100vh;display:flex;flex-direction:column;}
 .s4-inner{max-width:1332px;margin:0 auto;width:100%;}
 .results-stack{display:flex;flex-direction:column;gap:3px;margin-bottom:6px;}
-.rcard{background:#fff;border-radius:16px;border:1px solid var(--lavender-mid);overflow:hidden;display:grid;grid-template-columns:270px 1fr 240px;transition:border-color .2s,box-shadow .2s;}
+.rcard{background:#fff;border-radius:16px;border:1px solid var(--lavender-mid);overflow:hidden;display:grid;grid-template-columns:250px 1fr 220px;transition:border-color .2s,box-shadow .2s;}
 .rcard:hover{border-color:rgba(73,172,181,0.4);box-shadow:0 4px 16px rgba(45,43,85,0.08);}
 .rc-left{padding:8px 22px;border-right:1px solid var(--lavender-mid);display:flex;flex-direction:column;background:var(--lavender-light);}
 .rc-sector{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);opacity:0.85;margin-bottom:4px;}
@@ -388,6 +388,21 @@ nav{
 .rc-stat{font-family:'Roboto',sans-serif;font-weight:700;font-size:clamp(24px,3vw,34px);color:var(--navy);line-height:1;margin-bottom:4px;}
 .rc-stat span{color:var(--teal);}
 .rc-stat-label{font-size:13px;color:rgba(45,43,85,0.68);line-height:1.35;max-width:220px;}
+
+/* Narrow-desktop fix: rc-mid is the only flexible column in the 3-column
+   card (the sides are fixed), so it absorbs 100% of the squeeze as the
+   viewport narrows below the ~1366px reference width - it just wraps
+   into more lines instead, which grows every card and can push the third
+   card past the min-height:100vh budget on common 13" laptop widths.
+   Trim the card's own padding/type-size a notch here to compensate. */
+@media (max-width:1300px) and (min-width:769px){
+  .rc-left{padding:8px 16px;}
+  .rc-situation{font-size:15px;}
+  .rc-mid{padding:6px 16px;}
+  .rc-before{font-size:12px;line-height:1.3;}
+  .rc-after{font-size:13px;line-height:1.35;}
+  .rc-right{padding:8px 14px;}
+}
 .bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start;}
 .case-section{background:var(--lavender-light);padding:150px 76px;text-align:center;display:flex;align-items:center;justify-content:center;min-height:100vh;}
 .case-note-solo{max-width:780px;margin:0 auto;}
@@ -420,7 +435,7 @@ nav{
 #s5{background:#2D2B55;padding:90px 76px 40px;position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column;}
 .s5-gl{position:absolute;inset:0;background-image:linear-gradient(rgba(73,172,181,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(73,172,181,0.04) 1px,transparent 1px);background-size:72px 72px;pointer-events:none;}
 .s5-pg{position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:70%;height:80%;background:radial-gradient(ellipse at center,rgba(35,33,70,0.6) 0%,transparent 70%);pointer-events:none;}
-.s5-inner{max-width:1332px;margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:1fr 453px;gap:90px;align-items:center;width:100%;}
+.s5-inner{max-width:1332px;margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:1fr minmax(340px,453px);gap:70px;align-items:center;width:100%;}
 .s5-tag{font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);opacity:0.7;margin-bottom:10px;}
 .s5-heading{font-family:'Roboto',sans-serif;font-weight:700;font-size:clamp(27px,3.2vw,44px);color:#fff;line-height:1.08;margin-bottom:14px;}
 .s5-heading span{color:var(--teal);}
