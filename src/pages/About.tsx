@@ -217,6 +217,20 @@ export default function About() {
           </div>
         </div>
       </section>
+      <section className="p-cta">
+        <div className="hero-gl" />
+        <div className="p-cta-inner">
+          <div>
+            <div className="cta-heading">{"Ready to see what your organisation is missing?"}</div>
+            <div className="cta-body">{"For CEOs, CFOs, and COOs who want operators in the room, not consultants studying it from outside, the next step is simple:"}</div>
+            <div className="cta-bullets">
+              <div className="cta-bullet">{"Tell us where head office and the ground floor disagree."}</div>
+              <div className="cta-bullet">{"We respond with the judgment call, not a framework."}</div>
+            </div>
+          </div>
+          <a href="/#s5" className="cta-btn">{"Start the conversation →"}</a>
+        </div>
+      </section>
       <footer className="site-footer">
         <div className="foot-brand">{"Simplicytas"}</div>
         <div className="foot-links">

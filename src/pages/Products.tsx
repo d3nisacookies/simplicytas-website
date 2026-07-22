@@ -133,7 +133,7 @@ export default function Products() {
                 <div className="cta-bullet">{"We respond with a structured diagnosis that becomes the basis for the conversation."}</div>
               </div>
             </div>
-            <a href="mailto:contact@simplicytas.com" className="cta-btn">{"Start the conversation →"}</a>
+            <a href="/#s5" className="cta-btn">{"Start the conversation →"}</a>
           </div>
         </section>
         <footer className="site-footer">

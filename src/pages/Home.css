@@ -176,14 +176,13 @@ nav{
 .pattern-text{flex:1;min-width:0;}
 .pattern-tag{font-family:'Roboto',sans-serif;font-weight:700;font-size:16px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:5px;}
 .pattern-desc{font-size:16px;color:#FFFFFF;line-height:1.5;}
-.pattern-flow{flex-shrink:0;width:113px;height:44px;display:none;}
+.pattern-flow{flex-shrink:0;width:113px;height:44px;display:block;}
 .pattern-flow img{width:100%;height:100%;object-fit:contain;display:block;}
 .pattern-flow-lg{width:168px;height:66px;}
 /* Data & Reporting's artwork is squarer (taller relative to width) than the
    other two diagrams, so at the shared box size it renders visibly smaller.
    Give it extra height so it fills the same width as its neighbours. */
 .pattern-flow-xl{width:168px;height:104px;}
-@media(min-width:1150px){.pattern-flow{display:block;}}
 .card-foot{display:flex;align-items:center;gap:18px;padding:22px 26px;border-top:1px solid rgba(73,172,181,0.12);background:rgba(22,21,46,0.6);}
 .cf-icon{width:38px;height:38px;border-radius:50%;border:1px solid rgba(73,172,181,0.22);color:var(--teal);flex-shrink:0;display:flex;align-items:center;justify-content:center;}
 .cf-icon svg{width:19px;height:19px;}
@@ -256,6 +255,17 @@ nav{
   .pattern-icon svg{width:27px;height:27px;}
   .pattern-icon img{width:40px;height:47px;}
   .card-foot{padding:11px 20px;}
+}
+
+/* Tablet / narrow-window fix: the hero's right panel is a fixed 559px wide
+   card. Below 1150px there was no reflow rule at all (only the <=768px
+   phone block stacked it), so any window narrower than 1150px squeezed
+   hero-left into whatever space was left over. Stack to one column here
+   too, same as phones, just without the phone-specific font/padding cuts. */
+@media (min-width:769px) and (max-width:1150px){
+  .hero-main{grid-template-columns:1fr;gap:48px;}
+  .hero-left{max-width:100%;}
+  .contra-wrap{max-width:620px;width:100%;margin:0 auto;}
 }
 
 /* ══════════════════════════════
