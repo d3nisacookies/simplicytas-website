@@ -97,7 +97,7 @@ nav{
 }
 .hero-main{
   position:relative;z-index:10;flex:1;
-  display:grid;grid-template-columns:1fr 559px;
+  display:grid;grid-template-columns:1fr minmax(360px,559px);
   gap:70px;align-items:center;
   padding:104px 76px 4px;
 }
@@ -257,12 +257,30 @@ nav{
   .card-foot{padding:11px 20px;}
 }
 
-/* Tablet / narrow-window fix: the hero's right panel is a fixed 559px wide
-   card. Below 1150px there was no reflow rule at all (only the <=768px
-   phone block stacked it), so any window narrower than 1150px squeezed
-   hero-left into whatever space was left over. Stack to one column here
-   too, same as phones, just without the phone-specific font/padding cuts. */
-@media (min-width:769px) and (max-width:1150px){
+/* Narrow-desktop fix: the hero's right panel used to be a hard-fixed 559px
+   card with no reflow rule below 1150px, so any window in the 768-1150px
+   gap (e.g. a 13" laptop at 125% OS scaling, ~1090px real viewport) squeezed
+   hero-left into whatever space was left over. The base rule above is now
+   fluid (minmax(360px,559px)) so the card can shrink gracefully instead of
+   starving hero-left; the two tiers below handle the rest of the gap:
+   - 1000-1149px: still side-by-side, but the pattern list's icons/diagrams
+     shrink a notch so they keep fitting next to their text as the card
+     narrows towards its 360px floor.
+   - 769-999px: even the shrunk card no longer leaves hero-left enough room
+     side-by-side, so stack to one column here, same as phones get, just
+     without the phone-specific font/padding cuts. */
+@media (min-width:1000px) and (max-width:1149px){
+  .hero-main{gap:56px;}
+  .pattern-row{padding:22px 22px;gap:18px;}
+  .pattern-icon{width:64px;height:64px;border-radius:15px;}
+  .pattern-icon svg{width:31px;height:31px;}
+  .pattern-icon img{width:47px;height:55px;}
+  .pattern-tag,.pattern-desc{font-size:14px;}
+  .pattern-flow{width:90px;height:35px;}
+  .pattern-flow-lg{width:130px;height:50px;}
+  .pattern-flow-xl{width:130px;height:80px;}
+}
+@media (min-width:769px) and (max-width:999px){
   .hero-main{grid-template-columns:1fr;gap:48px;}
   .hero-left{max-width:100%;}
   .contra-wrap{max-width:620px;width:100%;margin:0 auto;}
