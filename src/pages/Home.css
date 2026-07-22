@@ -196,7 +196,7 @@ nav{
   padding:4px 76px 8px;
   border-top:1px solid rgba(73,172,181,0.1);
 }
-.scroll-note{font-size:15px;letter-spacing:2px;text-transform:uppercase;color:#FFFFFF;display:flex;align-items:center;gap:13px;}
+.scroll-note{position:sticky;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:#FFFFFF;gap:13px;}
 .scroll-note::after{content:'';width:34px;height:1px;background:rgba(255,255,255,0.1);}
 
 /* Compact-height hero: laptops with short viewports (e.g. 1080p at 125% OS
