@@ -96,15 +96,15 @@ nav{
   background-size:72px 72px;pointer-events:none;
 }
 .p-hero-inner{max-width:1055px;margin:0 auto;position:relative;z-index:2;}
-.p-eyebrow{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:6px;font-weight:500;}
+.p-eyebrow{font-size:15px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:8px;font-weight:500;}
 .p-headline{
   font-family:'Roboto',sans-serif;font-weight:700;
-  font-size:clamp(19px,2.2vw,27px);
-  color:#fff;line-height:1.1;margin-bottom:6px;
+  font-size:clamp(23px,2.8vw,34px);
+  color:#fff;line-height:1.1;margin-bottom:8px;
 }
 .p-headline .teal{color:var(--teal);}
 .p-hero-sub{
-  font-size:14px;line-height:1.4;
+  font-size:16px;line-height:1.45;
   color:rgba(255,255,255,0.9);
   max-width:722px;
 }
@@ -138,10 +138,10 @@ nav{
   display:flex;flex-direction:column;justify-content:center;
 }
 .product-index{font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:8px;}
-.product-name{font-family:'Roboto',sans-serif;font-weight:700;font-size:24px;color:var(--navy);line-height:1.2;}
+.product-name{font-family:'Roboto',sans-serif;font-weight:700;font-size:21px;color:var(--navy);line-height:1.2;}
 .product-main{padding:42px 47px;background:#fff;display:flex;flex-direction:column;justify-content:center;}
-.product-tagline{font-family:'Roboto',sans-serif;font-weight:600;font-size:23px;color:var(--purple);line-height:1.4;margin-bottom:12px;}
-.product-body{font-size:16px;color:var(--text-muted);line-height:1.7;}
+.product-tagline{font-family:'Roboto',sans-serif;font-weight:600;font-size:18px;color:var(--purple);line-height:1.45;margin-bottom:10px;}
+.product-body{font-size:14px;color:var(--text-muted);line-height:1.65;}
 
 .pull-block{
   margin:64px 0 0;
