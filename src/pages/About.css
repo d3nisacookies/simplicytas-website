@@ -101,7 +101,7 @@ nav{
     linear-gradient(90deg,rgba(54,178,176,0.04) 1px,transparent 1px);
   background-size:72px 72px;pointer-events:none;
 }
-.about-hero-inner{max-width:1055px;margin:0 auto;position:relative;z-index:2;}
+.about-hero-inner{max-width:1055px;width:100%;margin:0 auto;position:relative;z-index:2;}
 .about-eyebrow{font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:10px;font-weight:500;}
 .about-headline{
   font-family:'Roboto',sans-serif;font-weight:700;
@@ -161,7 +161,7 @@ nav{
 }
 .stat-cell{
   background:#fff;
-  padding:15px 29px;
+  padding:18px 29px;
   text-align:center;
 }
 .stat-num{
