@@ -483,7 +483,7 @@ export default function Home() {
             <br />
             <span>{"Here is what that looked like."}</span>
           </div>
-          <div style={{ fontSize: "14px", color: "rgba(45,43,85,0.82)", lineHeight: "1.65", marginBottom: "26px", maxWidth: "520px" }}>
+          <div style={{ fontSize: "14px", color: "rgba(45,43,85,0.82)", lineHeight: "1.65", marginBottom: "14px", maxWidth: "520px" }}>
             {"Three situations. Three different regions. The same gap between what the data showed and what was actually happening, and the same outcome when someone stayed long enough to close it."}
           </div>
           <div className="results-stack">
