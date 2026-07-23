@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ChangeEvent, type SubmitEvent } from 'react';
 import './Home.css';
 import { sendContactEmail } from '../lib/email';
+import targetIcon from '../../assets/target.png';
 import transformationIcon from '../../assets/transformation_icon.png';
 import dataReportingIcon from '../../assets/data_and_reporting_icon.png';
 import executionIcon from '../../assets/execution_icon.png';
@@ -248,12 +249,7 @@ export default function Home() {
             <div className="panel-label">{"Same root cause · Three ways it shows up"}</div>
             <div className="contra-card">
               <div className="card-header">
-                <span className="ch-icon">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.4" />
-                    <circle cx="12" cy="12" r="3" fill="currentColor" />
-                  </svg>
-                </span>
+                <img className="ch-icon" src={targetIcon} alt="Target icon" />
                 <div className="card-title">{"Where It's Actually Breaking"}</div>
               </div>
               <div className="pattern-list">
