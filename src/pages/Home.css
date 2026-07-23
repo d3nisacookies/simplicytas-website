@@ -277,8 +277,9 @@ nav{
      shrink a notch so they keep fitting next to their text as the card
      narrows towards its 360px floor.
    - 769-999px: even the shrunk card no longer leaves hero-left enough room
-     side-by-side, so stack to one column here, same as phones get, just
-     without the phone-specific font/padding cuts. */
+     side-by-side - unlike S3's stat-row, hero-left has no natural wrap
+     floor (tc-big alone forces single-word lines below ~350px), so this
+     one has to stack rather than stay consistent with wider screens. */
 @media (min-width:1000px) and (max-width:1149px){
   .hero-main{gap:56px;}
   .pattern-row{padding:22px 22px;gap:18px;}
@@ -417,21 +418,13 @@ nav{
   .s3-right{gap:12px;}
   .diff-block{padding:14px 18px;}
   .diff-text{font-size:14px;line-height:1.4;}
-  .stat-row{grid-template-columns:1fr;gap:6px;}
-  .stat-cell{padding:8px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
-  .stat-num{margin-bottom:0;}
-  .stat-label{text-align:right;}
   .method-link{padding:12px 18px;}
 }
 
-/* Narrow-desktop fix: s3-inner is two equal fr columns, and stat-row
-   nests ANOTHER three equal columns inside that already-halved right
-   column - at common 13" laptop widths (~1000-1100px) each stat-cell
-   was down to ~120px, wrapping "Structured diagnostics from source data
-   to business case" onto many lines and blowing the min-height:100vh
-   budget well before the 768px mobile stack. Switch stat-row to a
-   compact single-column, num-and-label-side-by-side layout here instead
-   of forcing it to keep wrapping in three narrow slivers. */
+/* Narrow-desktop fix: s3-inner is two equal fr columns, so at common 13"
+   laptop widths (~1000-1100px) the right column is tight. stat-row stays
+   the same 3-card grid as everywhere else (consistency matters more here
+   than the extra text wrap this causes at these widths). */
 @media (max-width:1150px) and (min-width:769px){
   .s3-inner{gap:40px;}
   .timeline{padding-left:28px;}
@@ -441,10 +434,6 @@ nav{
   .s3-right{gap:16px;}
   .diff-block{padding:18px 20px;}
   .diff-text{font-size:14px;line-height:1.5;}
-  .stat-row{grid-template-columns:1fr;gap:8px;}
-  .stat-cell{padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
-  .stat-num{margin-bottom:0;}
-  .stat-label{text-align:right;}
   .method-link{padding:16px 20px;}
 }
 
