@@ -573,8 +573,14 @@ nav{
   .cc-form{gap:6px;margin-bottom:6px;}
 }
 
-/* FOOTER */
-.site-footer{position:absolute;bottom:68px;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:20px 76px;border-top:1px solid rgba(73,172,181,0.1);}
+/* FOOTER - was position:absolute;bottom:68px, which pins it a fixed
+   distance off #s5's box regardless of how tall the CTA content above it
+   renders. At widths/heights where that content grows (narrower desktop,
+   shorter viewports), the footer stayed put and the content grew into it.
+   Keep it in normal flow instead - margin-top:auto still pushes it to the
+   bottom of the flex column when there's slack, but it can never overlap
+   the content above it. */
+.site-footer{position:relative;margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding:20px 76px 88px;border-top:1px solid rgba(73,172,181,0.1);}
 .foot-brand{font-family:'Roboto',sans-serif;font-size:16px;letter-spacing:2px;text-transform:uppercase;color:#FFFFFF;}
 .foot-latin{font-size:16px;color:#FFFFFF;font-style:italic;}
 .foot-links{display:flex;gap:29px;}
