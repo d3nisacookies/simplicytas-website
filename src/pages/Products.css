@@ -111,7 +111,7 @@ nav{
     linear-gradient(90deg,rgba(54,178,176,0.04) 1px,transparent 1px);
   background-size:72px 72px;pointer-events:none;
 }
-.p-hero-inner{max-width:650px;width:100%;margin:0 auto;position:relative;z-index:2;}
+.p-hero-inner{max-width:650px;width:100%;margin:0;position:relative;z-index:2;}
 .p-eyebrow{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:14px;font-weight:500;}
 .p-headline{
   font-family:'Roboto',sans-serif;font-weight:700;
