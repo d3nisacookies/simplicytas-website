@@ -15,13 +15,23 @@ body{font-family:'Open Sans',sans-serif;color:#2D2B55;overflow-x:hidden;}
   --white:#FFFFFF;
   --text-muted:rgba(45,43,85,0.82);
   --text-dim:rgba(45,43,85,0.68);
-  /* Height of .p-body's top padding + lede + first product card at rest
-     (measured at wide desktop widths, where the card is at its shortest).
-     .p-hero is sized to whatever's left of the viewport above this, so the
-     fold lands right after Procurement360 regardless of viewport height or
-     browser zoom - both cancel out of the calc() below. */
-  --hero-fold:440px;
-  --hero-fold-mobile:810px;
+  /* Height of .p-body's top padding + lede + first product card, measured at
+     the width where that block is shortest (wide desktop, where the card's
+     text wraps to the fewest lines). .p-hero's height is whatever's left of
+     the viewport above this, so the visible slice below it never exceeds
+     this figure - a pure vh-percentage height can't promise that, since on
+     a tall enough viewport the leftover space keeps growing and eventually
+     spills into Data360. That's true for any viewport height or browser
+     zoom, since both wash out of the calc() below the same way. The
+     min-height floor below is what makes the hero actually look bigger
+     day-to-day (most laptop windows sit under the crossover and hit the
+     floor); it necessarily costs some of the card at the bottom on those
+     shorter windows, since there isn't room for a bigger hero and the full
+     card at once. */
+  --hero-fold:432px;
+  --hero-fold-mobile:552px;
+  --hero-floor:340px;
+  --hero-floor-mobile:230px;
 }
 
 /* NAV - matches existing site exactly */
@@ -78,13 +88,13 @@ nav{
 .p-hero{
   background:var(--navy);
   padding:26px 76px 22px;
-  height:clamp(250px,calc(100vh - 68px - var(--hero-fold)),85vh);
+  height:clamp(var(--hero-floor),calc(100vh - 68px - var(--hero-fold)),85vh);
   display:flex;flex-direction:column;justify-content:center;
   position:fixed;top:68px;left:0;right:0;z-index:1;
   overflow:hidden;
 }
 .scroll-pane{
-  position:fixed;top:calc(68px + clamp(250px,calc(100vh - 68px - var(--hero-fold)),85vh));left:0;right:0;bottom:0;
+  position:fixed;top:calc(68px + clamp(var(--hero-floor),calc(100vh - 68px - var(--hero-fold)),85vh));left:0;right:0;bottom:0;
   overflow-y:auto;-webkit-overflow-scrolling:touch;
   z-index:2;
 }
@@ -223,8 +233,8 @@ nav{
 }
 
 @media (max-width:760px){
-  .p-hero{padding:22px 36px 18px;height:clamp(195px,calc(100vh - 68px - var(--hero-fold-mobile)),80vh);}
-  .scroll-pane{top:calc(68px + clamp(195px,calc(100vh - 68px - var(--hero-fold-mobile)),80vh));}
+  .p-hero{padding:22px 36px 18px;height:clamp(var(--hero-floor-mobile),calc(100vh - 68px - var(--hero-fold-mobile)),80vh);}
+  .scroll-pane{top:calc(68px + clamp(var(--hero-floor-mobile),calc(100vh - 68px - var(--hero-fold-mobile)),80vh));}
   .p-hero-scroll{left:36px;right:36px;bottom:12px;}
   .p-body{padding:56px 36px 106px;}
   .p-lede{font-size:24px;}

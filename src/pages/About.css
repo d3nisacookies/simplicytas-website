@@ -15,6 +15,14 @@ body{font-family:'Open Sans',sans-serif;color:#2D2B55;overflow-x:hidden;}
   --white:#FFFFFF;
   --text-muted:rgba(45,43,85,0.82);
   --text-dim:rgba(45,43,85,0.68);
+  /* See Products.css for how these are derived and why: same
+     clamp(floor, calc(100vh - navbar - fold), cap) technique, sized here to
+     the lede + intro paragraphs + stat-strip table instead of a product
+     card. */
+  --hero-fold:628px;
+  --hero-fold-mobile:633px;
+  --hero-floor:340px;
+  --hero-floor-mobile:230px;
 }
 
 /* NAV - matches existing site exactly */
@@ -77,14 +85,13 @@ nav{
 .about-hero{
   background:var(--navy);
   padding:24px 76px 20px;
-  height:25vh;
-  min-height:180px;
+  height:clamp(var(--hero-floor),calc(100vh - 68px - var(--hero-fold)),85vh);
   display:flex;flex-direction:column;justify-content:center;
   position:fixed;top:68px;left:0;right:0;z-index:1;
   overflow:hidden;
 }
 .scroll-pane{
-  position:fixed;top:calc(68px + max(25vh,180px));left:0;right:0;bottom:0;
+  position:fixed;top:calc(68px + clamp(var(--hero-floor),calc(100vh - 68px - var(--hero-fold)),85vh));left:0;right:0;bottom:0;
   overflow-y:auto;-webkit-overflow-scrolling:touch;
   z-index:2;
 }
@@ -246,8 +253,8 @@ nav{
 
 @media (max-width:760px){
   .stat-strip{grid-template-columns:repeat(2,1fr);}
-  .about-hero{padding:22px 36px 18px;height:28vh;min-height:160px;}
-  .scroll-pane{top:calc(68px + max(28vh,160px));}
+  .about-hero{padding:22px 36px 18px;height:clamp(var(--hero-floor-mobile),calc(100vh - 68px - var(--hero-fold-mobile)),80vh);}
+  .scroll-pane{top:calc(68px + clamp(var(--hero-floor-mobile),calc(100vh - 68px - var(--hero-fold-mobile)),80vh));}
   .about-hero-scroll{left:36px;right:36px;bottom:12px;}
   .about-body{padding:28px 36px 106px;}
   .lede{font-size:22px;}
