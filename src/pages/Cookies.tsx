@@ -3,7 +3,7 @@ import LegalLayout from './LegalLayout';
 // Content converted from the live simplicytas.com Cookie Policy/Setting page.
 export default function Cookies() {
   return (
-    <LegalLayout title="Cookie Policy" updated="Updated: 1 September 2024">
+    <LegalLayout title="Cookie Policy/Setting" updated="Updated: 1 September 2024">
       <p className="legal-p">{"Welcome to the cookie policy of SIMPLICYTAS Consulting Pte Ltd (collectively referred to as “SIMPLICYTAS”/”we”/”us”)."}</p>
 
       <h2 className="legal-h2">{"Information about our use of cookies"}</h2>
