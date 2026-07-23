@@ -115,15 +115,15 @@ nav{
 ══════════════════════════════ */
 .about-body{
   background:var(--lavender);
-  padding:20px 76px 147px;
+  padding:56px 76px 147px;
 }
-.about-body-inner{max-width:942px;margin:0 auto;}
+.about-body-inner{max-width:690px;margin:0 auto;}
 .lede{
   font-family:'Roboto',sans-serif;font-weight:600;
-  font-size:24px;line-height:1.32;
+  font-size:24px;line-height:1.5;
   color:var(--navy);
-  margin-bottom:14px;
-  padding-bottom:13px;
+  margin-bottom:40px;
+  padding-bottom:24px;
   border-bottom:1px solid rgba(87,69,128,0.15);
 }
 .body-para{
