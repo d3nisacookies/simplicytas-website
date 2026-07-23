@@ -15,6 +15,13 @@ body{font-family:'Open Sans',sans-serif;color:#2D2B55;overflow-x:hidden;}
   --white:#FFFFFF;
   --text-muted:rgba(45,43,85,0.82);
   --text-dim:rgba(45,43,85,0.68);
+  /* Height of .p-body's top padding + lede + first product card at rest
+     (measured at wide desktop widths, where the card is at its shortest).
+     .p-hero is sized to whatever's left of the viewport above this, so the
+     fold lands right after Procurement360 regardless of viewport height or
+     browser zoom - both cancel out of the calc() below. */
+  --hero-fold:440px;
+  --hero-fold-mobile:810px;
 }
 
 /* NAV - matches existing site exactly */
@@ -71,14 +78,13 @@ nav{
 .p-hero{
   background:var(--navy);
   padding:26px 76px 22px;
-  height:34vh;
-  min-height:250px;
+  height:clamp(250px,calc(100vh - 68px - var(--hero-fold)),85vh);
   display:flex;flex-direction:column;justify-content:center;
   position:fixed;top:68px;left:0;right:0;z-index:1;
   overflow:hidden;
 }
 .scroll-pane{
-  position:fixed;top:calc(68px + max(34vh,250px));left:0;right:0;bottom:0;
+  position:fixed;top:calc(68px + clamp(250px,calc(100vh - 68px - var(--hero-fold)),85vh));left:0;right:0;bottom:0;
   overflow-y:auto;-webkit-overflow-scrolling:touch;
   z-index:2;
 }
@@ -96,11 +102,11 @@ nav{
   background-size:72px 72px;pointer-events:none;
 }
 .p-hero-inner{max-width:650px;width:100%;margin:0 auto;position:relative;z-index:2;}
-.p-eyebrow{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:8px;font-weight:500;}
+.p-eyebrow{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:14px;font-weight:500;}
 .p-headline{
   font-family:'Roboto',sans-serif;font-weight:700;
   font-size:clamp(34px,4.2vw,52px);
-  color:#fff;line-height:1.1;margin-bottom:8px;
+  color:#fff;line-height:1.1;margin-bottom:16px;
 }
 .p-headline .teal{color:var(--teal);}
 .p-hero-sub{
@@ -119,7 +125,7 @@ nav{
   font-family:'Roboto',sans-serif;font-weight:600;
   font-size:28px;line-height:1.5;
   color:var(--navy);
-  margin-bottom:32px;
+  margin-bottom:40px;
   padding-bottom:24px;
   border-bottom:1px solid rgba(87,69,128,0.15);
   max-width:833px;
@@ -140,7 +146,7 @@ nav{
 .product-index{font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:8px;}
 .product-name{font-family:'Roboto',sans-serif;font-weight:700;font-size:21px;color:var(--navy);line-height:1.2;}
 .product-main{padding:34px 56px;background:#fff;display:flex;flex-direction:column;justify-content:center;}
-.product-tagline{font-family:'Roboto',sans-serif;font-weight:600;font-size:18px;color:var(--purple);line-height:1.45;margin-bottom:10px;}
+.product-tagline{font-family:'Roboto',sans-serif;font-weight:600;font-size:18px;color:var(--purple);line-height:1.45;margin-bottom:16px;}
 .product-body{font-size:14px;color:var(--text-muted);line-height:1.65;}
 
 .pull-block{
@@ -217,8 +223,8 @@ nav{
 }
 
 @media (max-width:760px){
-  .p-hero{padding:22px 36px 18px;height:35vh;min-height:195px;}
-  .scroll-pane{top:calc(68px + max(35vh,195px));}
+  .p-hero{padding:22px 36px 18px;height:clamp(195px,calc(100vh - 68px - var(--hero-fold-mobile)),80vh);}
+  .scroll-pane{top:calc(68px + clamp(195px,calc(100vh - 68px - var(--hero-fold-mobile)),80vh));}
   .p-hero-scroll{left:36px;right:36px;bottom:12px;}
   .p-body{padding:56px 36px 106px;}
   .p-lede{font-size:24px;}
