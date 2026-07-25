@@ -1,15 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import './Products.css';
 
 // Converted 1:1 from simplicytas_products_v3.html
 export default function Products() {
-  const navToggleRef = useRef<HTMLInputElement>(null);
-
-  // Original script: clicking any .nav-link closes the mobile menu checkbox
-  const closeMenu = () => {
-    if (navToggleRef.current) navToggleRef.current.checked = false;
-  };
-
   useEffect(() => {
     document.title = "Simplicytas | Intelligence360 Suite";
   }, []);
@@ -26,22 +19,14 @@ export default function Products() {
             <div className="nav-tagline">{"See what others miss"}</div>
           </div>
         </a>
-        <input type="checkbox" id="navToggle" className="nav-toggle-checkbox" ref={navToggleRef} />
-        <label htmlFor="navToggle" className="nav-toggle" aria-label="Menu">
-          <span className="nav-toggle-icon">
-            <span />
-            <span />
-            <span />
-          </span>
-        </label>
         <div className="nav-links-panel">
-          <a className="nav-link" href="/#s1" onClick={closeMenu}>{"The Problem"}</a>
-          <a className="nav-link" href="/#s2" onClick={closeMenu}>{"Where It Breaks"}</a>
-          <a className="nav-link" href="/#s3" onClick={closeMenu}>{"How We Work"}</a>
-          <a className="nav-link active" href="/products.html" onClick={closeMenu}>{"Products"}</a>
-          <a className="nav-link" href="/#s4" onClick={closeMenu}>{"Results"}</a>
-          <a className="nav-link" href="/about.html" onClick={closeMenu}>{"About"}</a>
-          <a className="nav-link" href="/#s5" onClick={closeMenu}>{"Talk to Us"}</a>
+          <a className="nav-link" href="/#s1">{"The Problem"}</a>
+          <a className="nav-link" href="/#s2">{"Where It Breaks"}</a>
+          <a className="nav-link" href="/#s3">{"How We Work"}</a>
+          <a className="nav-link active" href="/products.html">{"Products"}</a>
+          <a className="nav-link" href="/#s4">{"Results"}</a>
+          <a className="nav-link" href="/about.html">{"About"}</a>
+          <a className="nav-link" href="/#s5">{"Talk to Us"}</a>
         </div>
       </nav>
       <section className="p-hero">
@@ -57,8 +42,7 @@ export default function Products() {
         </div>
         <div className="p-hero-scroll">{"Scroll to explore"}</div>
       </section>
-      <div className="scroll-pane">
-        <section className="p-body">
+      <section className="p-body">
           <div className="p-body-inner">
             <div className="p-lede">
               {"Each product solves one structural problem: procurement, data, portfolios, or governance. Start with one, or run all four together."}
@@ -145,7 +129,6 @@ export default function Products() {
             <a className="foot-link" href="mailto:contact@simplicytas.com">{"contact@simplicytas.com"}</a>
           </div>
         </footer>
-      </div>
     </>
   );
 }

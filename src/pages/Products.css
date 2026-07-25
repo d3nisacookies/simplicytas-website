@@ -15,23 +15,6 @@ body{font-family:'Open Sans',sans-serif;color:#2D2B55;overflow-x:hidden;}
   --white:#FFFFFF;
   --text-muted:rgba(45,43,85,0.82);
   --text-dim:rgba(45,43,85,0.68);
-  /* Height of .p-body's top padding + lede + first product card, measured at
-     the width where that block is shortest (wide desktop, where the card's
-     text wraps to the fewest lines). .p-hero's height is whatever's left of
-     the viewport above this, so the visible slice below it never exceeds
-     this figure - a pure vh-percentage height can't promise that, since on
-     a tall enough viewport the leftover space keeps growing and eventually
-     spills into Data360. That's true for any viewport height or browser
-     zoom, since both wash out of the calc() below the same way. The
-     min-height floor below is what makes the hero actually look bigger
-     day-to-day (most laptop windows sit under the crossover and hit the
-     floor); it necessarily costs some of the card at the bottom on those
-     shorter windows, since there isn't room for a bigger hero and the full
-     card at once. */
-  --hero-fold:432px;
-  --hero-fold-mobile:552px;
-  --hero-floor:340px;
-  --hero-floor-mobile:230px;
 }
 
 /* NAV - matches existing site exactly */
@@ -81,22 +64,13 @@ nav{
 .nav-toggle-checkbox:checked ~ .nav-toggle .nav-toggle-icon span:nth-child(2){opacity:0;}
 .nav-toggle-checkbox:checked ~ .nav-toggle .nav-toggle-icon span:nth-child(3){transform:translateY(-10px) rotate(-45deg);}
 
-/* HERO - a true fixed wall. It never scrolls: it's pinned below the nav for
-   as long as the page is open. Everything else lives in .scroll-pane, a
-   separate fixed region below it with its own scrollbar, so scrolling the
-   page can never slide content over the hero. */
+/* HERO - normal-flow section like the legal pages: the nav stays fixed on
+   top, but the hero and everything below it scroll together as one page
+   instead of being split into a frozen band plus an isolated scroll pane. */
 .p-hero{
   background:var(--navy);
-  padding:26px 76px 22px;
-  height:clamp(var(--hero-floor),calc(100vh - 68px - var(--hero-fold)),85vh);
-  display:flex;flex-direction:column;justify-content:center;
-  position:fixed;top:68px;left:0;right:0;z-index:1;
-  overflow:hidden;
-}
-.scroll-pane{
-  position:fixed;top:calc(68px + clamp(var(--hero-floor),calc(100vh - 68px - var(--hero-fold)),85vh));left:0;right:0;bottom:0;
-  overflow-y:auto;-webkit-overflow-scrolling:touch;
-  z-index:2;
+  padding:170px 76px 74px;
+  position:relative;overflow:hidden;
 }
 .p-hero-scroll{
   position:absolute;left:76px;right:76px;bottom:16px;z-index:2;
@@ -154,10 +128,10 @@ nav{
   display:flex;flex-direction:column;justify-content:center;
 }
 .product-index{font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:8px;}
-.product-name{font-family:'Roboto',sans-serif;font-weight:700;font-size:21px;color:var(--navy);line-height:1.2;}
+.product-name{font-family:'Roboto',sans-serif;font-weight:700;font-size:26px;color:var(--navy);line-height:1.2;}
 .product-main{padding:34px 56px;background:#fff;display:flex;flex-direction:column;justify-content:center;}
-.product-tagline{font-family:'Roboto',sans-serif;font-weight:600;font-size:18px;color:var(--purple);line-height:1.45;margin-bottom:16px;}
-.product-body{font-size:14px;color:var(--text-muted);line-height:1.65;}
+.product-tagline{font-family:'Roboto',sans-serif;font-weight:600;font-size:21px;color:var(--purple);line-height:1.45;margin-bottom:16px;}
+.product-body{font-size:16px;color:var(--text-muted);line-height:1.65;}
 
 .pull-block{
   margin:64px 0 0;
@@ -218,23 +192,19 @@ nav{
   .nav-links-panel{padding:0 20px;gap:2px;}
   .nav-link{padding:8px 12px;font-size:14px;}
 }
+/* No hamburger here: below 999px the link row just scrolls horizontally
+   instead of collapsing behind a toggle. */
 @media(max-width:999px){
-  nav{justify-content:space-between;}
   .nav-logo-panel{padding:0 24px;}
-  .nav-toggle{display:flex;}
   .nav-links-panel{
-    position:fixed;top:68px;left:0;right:0;z-index:199;
-    flex-direction:column;align-items:stretch;justify-content:flex-start;
-    background:var(--navy);padding:0 29px;gap:2px;
-    max-height:0;overflow:hidden;transition:max-height .25s ease;
+    justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    padding:0 24px;
   }
-  .nav-toggle-checkbox:checked ~ .nav-links-panel{max-height:70vh;overflow-y:auto;padding:22px 29px 34px;box-shadow:0 12px 24px rgba(45,43,85,0.25);}
-  .nav-link{padding:20px 22px;font-size:20px;}
+  .nav-link{flex-shrink:0;}
 }
 
 @media (max-width:760px){
-  .p-hero{padding:22px 36px 18px;height:clamp(var(--hero-floor-mobile),calc(100vh - 68px - var(--hero-fold-mobile)),80vh);}
-  .scroll-pane{top:calc(68px + clamp(var(--hero-floor-mobile),calc(100vh - 68px - var(--hero-fold-mobile)),80vh));}
+  .p-hero{padding:150px 36px 54px;}
   .p-hero-scroll{left:36px;right:36px;bottom:12px;}
   .p-body{padding:56px 36px 106px;}
   .p-lede{font-size:24px;}

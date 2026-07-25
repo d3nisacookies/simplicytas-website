@@ -450,10 +450,10 @@ nav{
 .rc-situation{font-family:'Roboto',sans-serif;font-weight:700;font-size:16px;color:var(--navy);line-height:1.2;margin-bottom:6px;}
 .rc-tag{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim);letter-spacing:0.5px;}
 .rc-tag-dot{width:6px;height:6px;border-radius:50%;background:rgba(73,172,181,0.5);flex-shrink:0;}
-.rc-mid{padding:4px 22px;display:flex;flex-direction:column;justify-content:center;gap:3px;}
-.rc-before{font-size:13px;color:rgba(45,43,85,0.68);font-style:italic;line-height:1.4;padding-left:9px;border-left:2px solid rgba(224,80,80,0.3);}
-.rc-arrow{font-size:16px;color:var(--lavender-mid);padding-left:9px;}
-.rc-after{font-size:14px;color:rgba(45,43,85,0.82);line-height:1.45;padding-left:9px;border-left:2px solid rgba(73,172,181,0.4);}
+.rc-mid{padding:4px 22px;display:flex;flex-direction:column;justify-content:center;gap:5px;}
+.rc-before{font-size:16px;color:rgba(45,43,85,0.68);font-style:italic;line-height:1.4;padding-left:9px;border-left:2px solid rgba(224,80,80,0.3);}
+.rc-arrow{font-size:18px;color:var(--lavender-mid);padding-left:9px;}
+.rc-after{font-size:17px;color:rgba(45,43,85,0.82);line-height:1.45;padding-left:9px;border-left:2px solid rgba(73,172,181,0.4);}
 .rc-right{padding:6px 20px;border-left:1px solid var(--lavender-mid);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--lavender-light);}
 .rc-stat{font-family:'Roboto',sans-serif;font-weight:700;font-size:clamp(24px,3vw,34px);color:var(--navy);line-height:1;margin-bottom:4px;}
 .rc-stat span{color:var(--teal);}
@@ -469,8 +469,8 @@ nav{
   .rc-left{padding:8px 16px;}
   .rc-situation{font-size:15px;}
   .rc-mid{padding:6px 16px;}
-  .rc-before{font-size:12px;line-height:1.3;}
-  .rc-after{font-size:13px;line-height:1.35;}
+  .rc-before{font-size:15px;line-height:1.3;}
+  .rc-after{font-size:16px;line-height:1.35;}
   .rc-right{padding:8px 14px;}
 }
 /* Below ~1050px even that trim isn't enough - the sides are still fixed
@@ -481,8 +481,8 @@ nav{
   .rc-situation{font-size:14px;margin-bottom:4px;}
   .rc-sector{margin-bottom:2px;}
   .rc-mid{padding:4px 12px;gap:2px;}
-  .rc-before{font-size:11px;}
-  .rc-after{font-size:12px;}
+  .rc-before{font-size:14px;}
+  .rc-after{font-size:15px;}
   .rc-right{padding:6px 10px;}
   .rc-stat-label{font-size:12px;}
 }
