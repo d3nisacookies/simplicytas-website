@@ -110,13 +110,10 @@ export default function About() {
                 <div className="person-role">{"CEO, Global Head of Strategy"}</div>
               </div>
               <div className="person-main">
-                <div className="person-bio">
-                  {"John has spent more than 30 years leading transformation, operational excellence, and performance improvement inside some of the world's largest consulting, banking, and professional services organisations, across financial services, commercial real estate, pharmaceuticals, energy, and infrastructure. His career is built on execution, not strategy design alone: he has run large-scale transformations end to end from Singapore across Asia-Pacific and beyond, managing multi-million-dollar portfolios and staying accountable for outcomes long after the plan is signed off. Three decades of pattern recognition, being in the room when programmes succeeded and when they didn't, gives him the ability to spot problems early and keep a room focused on outcomes. At Simplicytas, John is the constant: every engagement starts with him, every major decision passes through him, and he stays until the outcome is real."}
-                </div>
-                <div className="person-when">
-                  <div className="person-dot" />
-                  <div className="person-when-text">{"Present on every engagement, from first diagnostic through to final handover."}</div>
-                </div>
+                <p className="person-bio">{"John has spent more than 30 years leading transformation, operational excellence, and performance improvement inside some of the world's largest consulting, banking, and professional services organisations, across financial services, commercial real estate, pharmaceuticals, energy, and infrastructure."}</p>
+                <p className="person-bio">{"His career is built on execution, not strategy design alone: he has run large-scale transformations end to end from Singapore across Asia-Pacific and beyond, managing multi-million-dollar portfolios and staying accountable for outcomes long after the plan is signed off."}</p>
+                <p className="person-bio">{"Three decades of pattern recognition, being in the room when programmes succeeded and when they didn't, gives him the ability to spot problems early and keep a room focused on outcomes."}</p>
+                <p className="person-bio">{"At Simplicytas, John is the constant: every engagement starts with him, every major decision passes through him, and he stays until the outcome is real."}</p>
               </div>
             </div>
             <div className="person">
@@ -126,13 +123,9 @@ export default function About() {
                 <div className="person-role">{"Senior Advisor, CRE"}</div>
               </div>
               <div className="person-main">
-                <div className="person-bio">
-                  {"Jim spent over 25 years across a top-tier global investment bank and a leading commercial real estate advisory firm, managing over $5B in commercial real estate transactions and overseeing fund platforms with $15B+ in NAV across the US, EMEA, and Asia-Pacific. He worked the deals in each region directly, not from a head office removed from them. He has held CIO, CFO, and COO roles simultaneously, which means he has operated at the intersection of investment decision-making, data infrastructure, and operational control that most CRE organisations treat as three separate functions. When a CRE fund board needs to know the person across the table has been inside their specific world before, Jim is that person."}
-                </div>
-                <div className="person-when">
-                  <div className="person-dot" />
-                  <div className="person-when-text">{"Engaged on CRE fund, asset management, and investor reporting mandates."}</div>
-                </div>
+                <p className="person-bio">{"Jim spent over 25 years across a top-tier global investment bank and a leading commercial real estate advisory firm, managing over $5B in commercial real estate transactions and overseeing fund platforms with $15B+ in NAV across the US, EMEA, and Asia-Pacific."}</p>
+                <p className="person-bio">{"He worked the deals in each region directly, not from a head office removed from them. He has held CIO, CFO, and COO roles simultaneously, which means he has operated at the intersection of investment decision-making, data infrastructure, and operational control that most CRE organisations treat as three separate functions."}</p>
+                <p className="person-bio">{"When a CRE fund board needs to know the person across the table has been inside their specific world before, Jim is that person."}</p>
               </div>
             </div>
             <div className="person">
@@ -142,15 +135,9 @@ export default function About() {
                 <div className="person-role">{"Senior Advisor, Finance"}</div>
               </div>
               <div className="person-main">
-                <div className="person-bio">
-                  {"Ian is an internationally experienced CFO and finance transformation leader who has delivered financial performance, growth, and operational turnaround across Europe, the Middle East, Africa, Asia, and the Americas. As CFO for a Big Four firm's Southeast Asia consulting business, he led finance across a $110M operation spanning 10 countries; as CFO for another top-tier professional services firm's MENA business, he oversaw a $500M, 16-country operation that achieved 7x revenue growth during his tenure. At an energy services company, he reduced debtor days from 223 to 65 in 12 months while restructuring financing to support more than 200% growth. He delivered a $750M refinancing programme at a major Middle East automotive group, generating $10M in annual savings, and led ERP and finance transformation work that cut reporting close cycles by 70%. Ian is the proof point that Simplicytas engagements produce measurable financial outcomes, not just process change. He has personally sat in the CFO seat, not advised from outside it, across Latin America, the Middle East, and Asia alike."}
-                </div>
-                <div className="person-when">
-                  <div className="person-dot" />
-                  <div className="person-when-text">
-                    {"Engaged on mandates where financial outcomes, cash flow, and CFO-level credibility are central to the buying decision."}
-                  </div>
-                </div>
+                <p className="person-bio">{"Ian is an internationally experienced CFO and finance transformation leader who has delivered financial performance, growth, and operational turnaround across Europe, the Middle East, Africa, Asia, and the Americas."}</p>
+                <p className="person-bio">{"As CFO for a Big Four firm's Southeast Asia consulting business, he led finance across a $110M operation spanning 10 countries; as CFO for another top-tier professional services firm's MENA business, he oversaw a $500M, 16-country operation that achieved 7x revenue growth during his tenure. At an energy services company, he reduced debtor days from 223 to 65 in 12 months while restructuring financing to support more than 200% growth. He delivered a $750M refinancing programme at a major Middle East automotive group, generating $10M in annual savings, and led ERP and finance transformation work that cut reporting close cycles by 70%."}</p>
+                <p className="person-bio">{"Ian is the proof point that Simplicytas engagements produce measurable financial outcomes, not just process change. He has personally sat in the CFO seat, not advised from outside it, across Latin America, the Middle East, and Asia alike."}</p>
               </div>
             </div>
             <div className="person">
@@ -160,13 +147,10 @@ export default function About() {
                 <div className="person-role">{"Senior Advisor, Emerging Technology"}</div>
               </div>
               <div className="person-main">
-                <div className="person-bio">
-                  {"René has spent more than 25 years leading some of the world's most recognised organisations, running operations across North America and Europe rather than directing them from a single base. As CEO and Chairman of a major European telecom operator, he led one of the largest telco businesses in Europe through significant transformation, later taking on global operating responsibility as Group COO of a major telecom group. He was a partner at a Big Four firm leading consulting across Europe and the Middle East, served as global marketing director at a leading telecom group, held a senior global role at an HR and staffing services company, and played a central role in one of the technology industry's largest acquisitions. Alongside his corporate career, he completed a PhD in Artificial Intelligence in 2022, specialising in computer vision and autonomous systems, so he understands both the strategic ambition and the practical limits of applying AI inside a real operation. René is engaged where the conversation needs to start at CEO, Regional President, or board level, and where the buyer needs to know someone at their level has navigated this before."}
-                </div>
-                <div className="person-when">
-                  <div className="person-dot" />
-                  <div className="person-when-text">{"Engaged when the entry point is CEO, Regional President, or board level."}</div>
-                </div>
+                <p className="person-bio">{"René has spent more than 25 years leading some of the world's most recognised organisations, running operations across North America and Europe rather than directing them from a single base."}</p>
+                <p className="person-bio">{"As CEO and Chairman of a major European telecom operator, he led one of the largest telco businesses in Europe through significant transformation, later taking on global operating responsibility as Group COO of a major telecom group. He was a partner at a Big Four firm leading consulting across Europe and the Middle East, served as global marketing director at a leading telecom group, held a senior global role at an HR and staffing services company, and played a central role in one of the technology industry's largest acquisitions."}</p>
+                <p className="person-bio">{"Alongside his corporate career, he completed a PhD in Artificial Intelligence in 2022, specialising in computer vision and autonomous systems, so he understands both the strategic ambition and the practical limits of applying AI inside a real operation."}</p>
+                <p className="person-bio">{"René is engaged where the conversation needs to start at CEO, Regional President, or board level, and where the buyer needs to know someone at their level has navigated this before."}</p>
               </div>
             </div>
             <div className="person">
@@ -176,15 +160,9 @@ export default function About() {
                 <div className="person-role">{"Head of Program Delivery"}</div>
               </div>
               <div className="person-main">
-                <div className="person-bio">
-                  {"Danny has spent over 20 years turning strategy into sustained execution across financial services, telecoms, technology, automotive, energy, and digital businesses. As SVP of Delivery & Operations at a global automation consultancy, he reshaped the operating model of the business, scaling it from 120 to 160+ staff while lifting gross margin by more than 10% and delivery efficiency by 20%. He built a global energy major's Automation Centre of Excellence, creating a $6M+ savings pipeline across multiple regions, led transformation at a global financial services firm that identified over $20M in operational benefits, and established automation and transformation capabilities at a major telecom operator and two global professional services firms. He is the operator who takes a structural diagnosis and turns it into a working delivery cadence, staying inside the programme until benefits are realised, not just planned."}
-                </div>
-                <div className="person-when">
-                  <div className="person-dot" />
-                  <div className="person-when-text">
-                    {"Engaged to lead programme delivery and embed operating discipline once the diagnostic is agreed."}
-                  </div>
-                </div>
+                <p className="person-bio">{"Danny has spent over 20 years turning strategy into sustained execution across financial services, telecoms, technology, automotive, energy, and digital businesses."}</p>
+                <p className="person-bio">{"As SVP of Delivery & Operations at a global automation consultancy, he reshaped the operating model of the business, scaling it from 120 to 160+ staff while lifting gross margin by more than 10% and delivery efficiency by 20%. He built a global energy major's Automation Centre of Excellence, creating a $6M+ savings pipeline across multiple regions, led transformation at a global financial services firm that identified over $20M in operational benefits, and established automation and transformation capabilities at a major telecom operator and two global professional services firms."}</p>
+                <p className="person-bio">{"He is the operator who takes a structural diagnosis and turns it into a working delivery cadence, staying inside the programme until benefits are realised, not just planned."}</p>
               </div>
             </div>
           </div>
