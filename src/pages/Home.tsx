@@ -49,6 +49,22 @@ export default function Home() {
     if (navToggleRef.current) navToggleRef.current.checked = false;
   };
 
+  // Native #anchor scrolling only supports aligning to the top (via
+  // scroll-padding-top), which lands inconsistently across phones - iOS
+  // Safari's address bar grows/shrinks the visible viewport as it
+  // scrolls, so "top" can end up anywhere depending on the device and
+  // scroll state at click time. Centering the target in the viewport is
+  // far more forgiving of that, so drive it explicitly instead of
+  // relying on the browser's default hash-scroll behaviour.
+  const scrollToEmailField = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    const el = document.getElementById('cc-email-field');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      history.pushState(null, '', '#cc-email-field');
+    }
+  };
+
   // Original script: openOverlay(i) / closeOverlay()
   const openOverlay = (i: number) => setOverlayIndex(i);
   const closeOverlay = () => setOverlayIndex(null);
@@ -84,13 +100,14 @@ export default function Home() {
     document.title = "Simplicytas | See What Others Miss";
   }, []);
 
-  // Cross-page links (e.g. /#s5 from Products/About) land here before the browser's
-  // native hash-scroll fires, since #s5 doesn't exist in the static HTML yet. Scroll
-  // to it manually once mounted so the first click lands on the right section.
+  // Cross-page links (e.g. /#cc-email-field from Products/About) land here before
+  // the browser's native hash-scroll fires, since the target doesn't exist in the
+  // static HTML yet. Scroll to it manually once mounted, centered for the same
+  // reason as scrollToEmailField above.
   useEffect(() => {
     if (window.location.hash) {
       const el = document.querySelector(window.location.hash);
-      if (el) el.scrollIntoView();
+      if (el) el.scrollIntoView({ block: 'center' });
     }
   }, []);
 
@@ -122,7 +139,7 @@ export default function Home() {
           <a className="nav-link" href="/products.html" onClick={closeMenu}>{"Products"}</a>
           <a className={`nav-link${activeSection === "#s4" ? ' active' : ''}`} href="#s4" onClick={closeMenu}>{"Results"}</a>
           <a className="nav-link" href="/about.html" onClick={closeMenu}>{"About"}</a>
-          <a className={`nav-link${activeSection === "#s5" ? ' active' : ''}`} href="#cc-email-field" onClick={closeMenu}>{"Talk to Us"}</a>
+          <a className={`nav-link${activeSection === "#s5" ? ' active' : ''}`} href="#cc-email-field" onClick={(e) => { closeMenu(); scrollToEmailField(e); }}>{"Talk to Us"}</a>
         </div>
       </nav>
       {/* OVERLAY */}
@@ -239,7 +256,7 @@ export default function Home() {
                 {"See Where It Breaks "}
                 <span className="btn-arrow">{"→"}</span>
               </a>
-              <a href="#cc-email-field" className="btn-secondary">
+              <a href="#cc-email-field" className="btn-secondary" onClick={scrollToEmailField}>
                 {"Talk to Us "}
                 <span className="btn-arrow">{"→"}</span>
               </a>
@@ -577,7 +594,7 @@ export default function Home() {
           <div className="case-note-text">
             {"Across financial services, commercial real estate, logistics, technology, and industrial sectors. The three above are a representative sample. Tell us what you're dealing with below, and we'll send the ones most relevant to your situation, or set up time to talk it through."}
           </div>
-          <a className="case-cta" href="#cc-email-field">
+          <a className="case-cta" href="#cc-email-field" onClick={scrollToEmailField}>
             {"Get the relevant case studies, or start a conversation "}
             <span className="case-arrow">{"→"}</span>
           </a>
