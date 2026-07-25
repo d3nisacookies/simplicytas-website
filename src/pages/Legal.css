@@ -103,12 +103,12 @@ nav{
 /* FOOTER - navy bar with legal links, mirrors home footer */
 .legal-footer{
   background:var(--navy);
-  display:flex;align-items:center;justify-content:space-between;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:14px;
   padding:26px 76px;
   border-top:1px solid rgba(73,172,181,0.1);
 }
 .foot-brand{font-family:'Roboto',sans-serif;font-size:16px;letter-spacing:2px;text-transform:uppercase;color:#FFFFFF;}
-.foot-links{display:flex;gap:29px;}
+.foot-links{display:flex;flex-wrap:wrap;gap:14px 29px;}
 .foot-link{font-size:16px;color:#FFFFFF;text-decoration:none;transition:color .2s;}
 .foot-link:hover{color:var(--teal);}
 
