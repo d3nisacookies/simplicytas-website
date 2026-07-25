@@ -351,9 +351,16 @@ nav{
 }
 
 /* OVERLAY */
-.overlay{position:fixed;inset:0;z-index:300;background:#2D2B55;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s;overflow-y:auto;}
+/* display:flex + align-items/justify-content:center here would center
+   .ov-inner but clip it symmetrically when content is taller than the
+   screen (common on phones) - the browser lets you scroll into the
+   bottom overflow but not the top, trapping the back button above the
+   reachable area. margin:auto on the child instead: still centers when
+   there's room, but collapses to 0 and aligns to the top - fully
+   scrollable - the moment content overflows. */
+.overlay{position:fixed;inset:0;z-index:300;background:#2D2B55;display:flex;opacity:0;pointer-events:none;transition:opacity .25s;overflow-y:auto;}
 .overlay.open{opacity:1;pointer-events:all;}
-.ov-inner{max-width:1193px;margin:0 auto;padding:clamp(18px,5vh,56px) 76px;width:100%;}
+.ov-inner{max-width:1193px;margin:auto;padding:clamp(18px,5vh,56px) 76px;width:100%;}
 .ov-back{display:inline-flex;align-items:center;gap:13px;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);cursor:pointer;margin-bottom:clamp(14px,2.5vh,32px);transition:opacity .2s;border:none;background:none;opacity:0.85;}
 .ov-back:hover{opacity:1;}
 .ov-tag{font-size:15px;color:#FFFFFF;margin-bottom:clamp(6px,1.2vh,18px);font-style:italic;}
