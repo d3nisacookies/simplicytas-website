@@ -26,7 +26,7 @@ export default function Products() {
           <a className="nav-link active" href="/products.html">{"Products"}</a>
           <a className="nav-link" href="/#s4">{"Results"}</a>
           <a className="nav-link" href="/about.html">{"About"}</a>
-          <a className="nav-link" href="/#s5">{"Talk to Us"}</a>
+          <a className="nav-link" href="/#cc-email-field">{"Talk to Us"}</a>
         </div>
       </nav>
       <section className="p-hero">
@@ -117,7 +117,7 @@ export default function Products() {
                 <div className="cta-bullet">{"We respond with a structured diagnosis that becomes the basis for the conversation."}</div>
               </div>
             </div>
-            <a href="/#s5" className="cta-btn">{"Start the conversation →"}</a>
+            <a href="/#cc-email-field" className="cta-btn">{"Start the conversation →"}</a>
           </div>
         </section>
         <footer className="site-footer">

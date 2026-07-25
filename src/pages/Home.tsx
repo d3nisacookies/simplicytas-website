@@ -122,7 +122,7 @@ export default function Home() {
           <a className="nav-link" href="/products.html" onClick={closeMenu}>{"Products"}</a>
           <a className={`nav-link${activeSection === "#s4" ? ' active' : ''}`} href="#s4" onClick={closeMenu}>{"Results"}</a>
           <a className="nav-link" href="/about.html" onClick={closeMenu}>{"About"}</a>
-          <a className={`nav-link${activeSection === "#s5" ? ' active' : ''}`} href="#s5" onClick={closeMenu}>{"Talk to Us"}</a>
+          <a className={`nav-link${activeSection === "#s5" ? ' active' : ''}`} href="#cc-email-field" onClick={closeMenu}>{"Talk to Us"}</a>
         </div>
       </nav>
       {/* OVERLAY */}
@@ -239,7 +239,7 @@ export default function Home() {
                 {"See Where It Breaks "}
                 <span className="btn-arrow">{"→"}</span>
               </a>
-              <a href="#s5" className="btn-secondary">
+              <a href="#cc-email-field" className="btn-secondary">
                 {"Talk to Us "}
                 <span className="btn-arrow">{"→"}</span>
               </a>
@@ -577,7 +577,7 @@ export default function Home() {
           <div className="case-note-text">
             {"Across financial services, commercial real estate, logistics, technology, and industrial sectors. The three above are a representative sample. Tell us what you're dealing with below, and we'll send the ones most relevant to your situation, or set up time to talk it through."}
           </div>
-          <a className="case-cta" href="#s5">
+          <a className="case-cta" href="#cc-email-field">
             {"Get the relevant case studies, or start a conversation "}
             <span className="case-arrow">{"→"}</span>
           </a>
@@ -637,7 +637,7 @@ export default function Home() {
                     <div className="cc-label">{"Your name"}</div>
                     <input className="cc-input" type="text" placeholder="Name" required value={contactForm.name} onChange={updateContactField('name')} />
                   </div>
-                  <div className="cc-field">
+                  <div className="cc-field" id="cc-email-field">
                     <div className="cc-label">{"Your email"}</div>
                     <input className="cc-input" type="email" placeholder="email@company.com" required value={contactForm.email} onChange={updateContactField('email')} />
                   </div>

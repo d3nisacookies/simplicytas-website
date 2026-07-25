@@ -48,7 +48,7 @@ export default function LegalLayout({ title, updated, children }: LegalLayoutPro
           <a className="nav-link" href="/products.html" onClick={closeMenu}>{"Products"}</a>
           <a className="nav-link" href="/#s4" onClick={closeMenu}>{"Results"}</a>
           <a className="nav-link" href="/about.html" onClick={closeMenu}>{"About"}</a>
-          <a className="nav-link" href="/#s5" onClick={closeMenu}>{"Talk to Us"}</a>
+          <a className="nav-link" href="/#cc-email-field" onClick={closeMenu}>{"Talk to Us"}</a>
         </div>
       </nav>
       <section className="legal-hero">
