@@ -43,7 +43,7 @@ export default function About() {
       <section className="about-body">
         <div className="about-body-inner">
           <div className="lede">
-            {"Most consulting firms sell a framework. We sell judgment that changes what your organisation can see and do: how value leakage gets measured, how execution gets controlled."}
+            {"Most consulting firms sell a framework. We bring the judgment and insight that change what your organisation can see and do: how value leakage gets measured, how execution gets controlled."}
           </div>
           <div className="body-para">
             {"Between us, we've sat as CEO, CFO, COO, and CIO inside organisations spanning financial services, commercial real estate, industrials, and technology. We've managed $5 billion in real estate transactions. Reduced debtor days from 223 to 65. Moved a production plant from Germany to India in nine months, and resolved the cultural friction that came with it. Closed a major acquisition from the inside."}
