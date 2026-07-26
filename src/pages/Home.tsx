@@ -56,18 +56,33 @@ export default function Home() {
   // under the nav and a dead gap below it before the next section peeks
   // in. On phones, that same top-alignment also landed inconsistently,
   // since iOS Safari's address bar resizes the viewport mid-scroll.
-  // Centering the section's actual content block fixes both - except when
-  // that block (e.g. S2/S3 on a phone, stacked cards well taller than the
-  // screen) is itself taller than the viewport: block:'center' still
-  // centers it exactly, which crops the same amount off the top and
-  // bottom, landing mid-card with the heading scrolled past. Fall back to
-  // top-alignment there, same as the overlay back-button fix.
+  // Centering the target fixes both - except plain block:'center' doesn't
+  // know about the section it lives in: since the target usually isn't
+  // flush with its section's own top (contact-card sits well inside #s5,
+  // for instance), centering it can land with the section's top edge still
+  // a little below the nav, exposing a sliver of whatever section came
+  // before it. Compute the scroll delta by hand instead, clamped so the
+  // enclosing section's top is never pushed lower than the nav.
+  const centerOnElement = (el: Element, behavior: ScrollBehavior) => {
+    const elRect = el.getBoundingClientRect();
+    if (elRect.height > window.innerHeight) {
+      // Taller than the viewport - centering would crop the same amount
+      // off both ends and land mid-content with the heading scrolled
+      // past. Top-align instead, same as the overlay back-button fix.
+      el.scrollIntoView({ behavior, block: 'start' });
+    } else {
+      const navHeight = 68;
+      const centeredDelta = elRect.top + elRect.height / 2 - window.innerHeight / 2;
+      const section = el.closest('section');
+      const seamFreeDelta = section ? section.getBoundingClientRect().top - navHeight : centeredDelta;
+      window.scrollBy({ top: Math.max(centeredDelta, seamFreeDelta), behavior });
+    }
+  };
   const scrollToCentered = (targetId: string) => (e: { preventDefault: () => void }) => {
     e.preventDefault();
     const el = document.getElementById(targetId);
     if (el) {
-      const fitsInViewport = el.getBoundingClientRect().height <= window.innerHeight;
-      el.scrollIntoView({ behavior: 'smooth', block: fitsInViewport ? 'center' : 'start' });
+      centerOnElement(el, 'smooth');
       history.pushState(null, '', '#' + targetId);
     }
   };
@@ -110,15 +125,12 @@ export default function Home() {
 
   // Cross-page links (e.g. /#contact-card from Products/About) land here before
   // the browser's native hash-scroll fires, since the target doesn't exist in the
-  // static HTML yet. Scroll to it manually once mounted, same centered-unless-
-  // taller-than-the-viewport logic as scrollToCentered above.
+  // static HTML yet. Scroll to it manually once mounted, via the same
+  // centerOnElement logic scrollToCentered above uses.
   useEffect(() => {
     if (window.location.hash) {
       const el = document.querySelector(window.location.hash);
-      if (el) {
-        const fitsInViewport = el.getBoundingClientRect().height <= window.innerHeight;
-        el.scrollIntoView({ block: fitsInViewport ? 'center' : 'start' });
-      }
+      if (el) centerOnElement(el, 'auto');
     }
   }, []);
 
