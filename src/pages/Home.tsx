@@ -58,11 +58,15 @@ export default function Home() {
   // since iOS Safari's address bar resizes the viewport mid-scroll.
   // Centering the target fixes both - except plain block:'center' doesn't
   // know about the section it lives in: since the target usually isn't
-  // flush with its section's own top (contact-card sits well inside #s5,
-  // for instance), centering it can land with the section's top edge still
-  // a little below the nav, exposing a sliver of whatever section came
-  // before it. Compute the scroll delta by hand instead, clamped so the
-  // enclosing section's top is never pushed lower than the nav.
+  // flush with its section's own edges (contact-card sits well inside
+  // #s5, and the cards grid inside #s2 has a heading above it), centering
+  // it can land with the section's top OR bottom edge still inside the
+  // viewport, exposing a sliver of the section before or after it.
+  // Compute the scroll delta by hand instead, clamped so the enclosing
+  // section always fills the viewport top-to-bottom whenever it's tall
+  // enough to (only impossible if the section itself is shorter than the
+  // viewport, in which case some sliver is unavoidable either way and we
+  // fall back to plain centering).
   const centerOnElement = (el: Element, behavior: ScrollBehavior) => {
     const elRect = el.getBoundingClientRect();
     if (elRect.height > window.innerHeight) {
@@ -74,8 +78,14 @@ export default function Home() {
       const navHeight = 68;
       const centeredDelta = elRect.top + elRect.height / 2 - window.innerHeight / 2;
       const section = el.closest('section');
-      const seamFreeDelta = section ? section.getBoundingClientRect().top - navHeight : centeredDelta;
-      window.scrollBy({ top: Math.max(centeredDelta, seamFreeDelta), behavior });
+      let delta = centeredDelta;
+      if (section) {
+        const sectionRect = section.getBoundingClientRect();
+        const minDelta = sectionRect.top - navHeight; // don't reveal the section before this one
+        const maxDelta = sectionRect.bottom - window.innerHeight; // don't reveal the section after it
+        delta = minDelta <= maxDelta ? Math.min(Math.max(centeredDelta, minDelta), maxDelta) : centeredDelta;
+      }
+      window.scrollBy({ top: delta, behavior });
     }
   };
   const scrollToCentered = (targetId: string) => (e: { preventDefault: () => void }) => {
