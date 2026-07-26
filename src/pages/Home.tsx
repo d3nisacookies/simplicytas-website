@@ -49,18 +49,21 @@ export default function Home() {
     if (navToggleRef.current) navToggleRef.current.checked = false;
   };
 
-  // Native #anchor scrolling only supports aligning to the top (via
-  // scroll-padding-top), which lands inconsistently across phones - iOS
-  // Safari's address bar grows/shrinks the visible viewport as it
-  // scrolls, so "top" can end up anywhere depending on the device and
-  // scroll state at click time. Centering the target in the viewport is
-  // far more forgiving of that, so drive it explicitly instead of
-  // relying on the browser's default hash-scroll behaviour.
+  // Below 768px, #s5 stacks into one column (text block above the contact
+  // card), and native #anchor scrolling only supports aligning to the top
+  // (via scroll-padding-top) - which lands inconsistently across phones,
+  // since iOS Safari's address bar grows/shrinks the visible viewport as
+  // it scrolls. Centering the target is far more forgiving of that. Above
+  // 768px the text block and card sit side by side and already fit the
+  // viewport together, so centering on the email field specifically would
+  // scroll past the top of the card (and, on shorter windows, push the
+  // submit button below the fold) - keep the plain top-alignment there.
   const scrollToEmailField = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     const el = document.getElementById('cc-email-field');
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      el.scrollIntoView({ behavior: 'smooth', block: isMobile ? 'center' : 'start' });
       history.pushState(null, '', '#cc-email-field');
     }
   };
@@ -102,12 +105,15 @@ export default function Home() {
 
   // Cross-page links (e.g. /#cc-email-field from Products/About) land here before
   // the browser's native hash-scroll fires, since the target doesn't exist in the
-  // static HTML yet. Scroll to it manually once mounted, centered for the same
-  // reason as scrollToEmailField above.
+  // static HTML yet. Scroll to it manually once mounted, same mobile-vs-desktop
+  // split as scrollToEmailField above.
   useEffect(() => {
     if (window.location.hash) {
       const el = document.querySelector(window.location.hash);
-      if (el) el.scrollIntoView({ block: 'center' });
+      if (el) {
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        el.scrollIntoView({ block: isMobile ? 'center' : 'start' });
+      }
     }
   }, []);
 
