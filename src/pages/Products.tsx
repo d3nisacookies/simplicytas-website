@@ -21,12 +21,12 @@ export default function Products() {
         </a>
         <div className="nav-links-panel">
           <a className="nav-link" href="/#s1">{"The Problem"}</a>
-          <a className="nav-link" href="/#s2">{"Where It Breaks"}</a>
-          <a className="nav-link" href="/#s3">{"How We Work"}</a>
+          <a className="nav-link" href="/#s2-inner">{"Where It Breaks"}</a>
+          <a className="nav-link" href="/#s3-inner">{"How We Work"}</a>
           <a className="nav-link active" href="/products.html">{"Products"}</a>
-          <a className="nav-link" href="/#s4">{"Results"}</a>
+          <a className="nav-link" href="/#s4-inner">{"Results"}</a>
           <a className="nav-link" href="/about.html">{"About"}</a>
-          <a className="nav-link" href="/#cc-email-field">{"Talk to Us"}</a>
+          <a className="nav-link" href="/#contact-card">{"Talk to Us"}</a>
         </div>
       </nav>
       <section className="p-hero">
@@ -117,7 +117,7 @@ export default function Products() {
                 <div className="cta-bullet">{"We respond with a structured diagnosis that becomes the basis for the conversation."}</div>
               </div>
             </div>
-            <a href="/#cc-email-field" className="cta-btn">{"Start the conversation →"}</a>
+            <a href="/#contact-card" className="cta-btn">{"Start the conversation →"}</a>
           </div>
         </section>
         <footer className="site-footer">

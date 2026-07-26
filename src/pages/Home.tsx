@@ -49,24 +49,23 @@ export default function Home() {
     if (navToggleRef.current) navToggleRef.current.checked = false;
   };
 
-  // Below 768px, #s5 stacks into one column (text block above the contact
-  // card), and native #anchor scrolling only supports aligning to the top
-  // (via scroll-padding-top) - which lands inconsistently across phones,
-  // since iOS Safari's address bar grows/shrinks the visible viewport as
-  // it scrolls. Centering the target is far more forgiving of that. Above
-  // 768px the text block and card sit side by side and already fit the
-  // viewport together, so centering on the email field specifically would
-  // scroll past the top of the card (and, on shorter windows, push the
-  // submit button below the fold) - keep the plain top-alignment there.
-  const scrollToEmailField = (e: { preventDefault: () => void }) => {
+  // Every section is min-height:100vh with its content top-aligned inside
+  // (no vertical centering of its own), so on any screen taller than that
+  // content - which is most desktop monitors - native #anchor scrolling
+  // (block:'start', via scroll-padding-top) lands with the content pinned
+  // under the nav and a dead gap below it before the next section peeks
+  // in. On phones, that same top-alignment also landed inconsistently,
+  // since iOS Safari's address bar resizes the viewport mid-scroll.
+  // Centering the section's actual content block fixes both.
+  const scrollToCentered = (targetId: string) => (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    const el = document.getElementById('cc-email-field');
+    const el = document.getElementById(targetId);
     if (el) {
-      const isMobile = window.matchMedia('(max-width: 768px)').matches;
-      el.scrollIntoView({ behavior: 'smooth', block: isMobile ? 'center' : 'start' });
-      history.pushState(null, '', '#cc-email-field');
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      history.pushState(null, '', '#' + targetId);
     }
   };
+  const scrollToContactCard = scrollToCentered('contact-card');
 
   // Original script: openOverlay(i) / closeOverlay()
   const openOverlay = (i: number) => setOverlayIndex(i);
@@ -103,17 +102,14 @@ export default function Home() {
     document.title = "Simplicytas | See What Others Miss";
   }, []);
 
-  // Cross-page links (e.g. /#cc-email-field from Products/About) land here before
+  // Cross-page links (e.g. /#contact-card from Products/About) land here before
   // the browser's native hash-scroll fires, since the target doesn't exist in the
-  // static HTML yet. Scroll to it manually once mounted, same mobile-vs-desktop
-  // split as scrollToEmailField above.
+  // static HTML yet. Scroll to it manually once mounted, centered for the same
+  // reason as scrollToContactCard above.
   useEffect(() => {
     if (window.location.hash) {
       const el = document.querySelector(window.location.hash);
-      if (el) {
-        const isMobile = window.matchMedia('(max-width: 768px)').matches;
-        el.scrollIntoView({ block: isMobile ? 'center' : 'start' });
-      }
+      if (el) el.scrollIntoView({ block: 'center' });
     }
   }, []);
 
@@ -140,12 +136,12 @@ export default function Home() {
         </label>
         <div className="nav-links-panel">
           <a className={`nav-link${activeSection === "#s1" ? ' active' : ''}`} href="#s1" onClick={closeMenu}>{"The Problem"}</a>
-          <a className={`nav-link${activeSection === "#s2" ? ' active' : ''}`} href="#s2" onClick={closeMenu}>{"Where It Breaks"}</a>
-          <a className={`nav-link${activeSection === "#s3" ? ' active' : ''}`} href="#s3" onClick={closeMenu}>{"How We Work"}</a>
+          <a className={`nav-link${activeSection === "#s2" ? ' active' : ''}`} href="#s2-inner" onClick={(e) => { closeMenu(); scrollToCentered('s2-inner')(e); }}>{"Where It Breaks"}</a>
+          <a className={`nav-link${activeSection === "#s3" ? ' active' : ''}`} href="#s3-inner" onClick={(e) => { closeMenu(); scrollToCentered('s3-inner')(e); }}>{"How We Work"}</a>
           <a className="nav-link" href="/products.html" onClick={closeMenu}>{"Products"}</a>
-          <a className={`nav-link${activeSection === "#s4" ? ' active' : ''}`} href="#s4" onClick={closeMenu}>{"Results"}</a>
+          <a className={`nav-link${activeSection === "#s4" ? ' active' : ''}`} href="#s4-inner" onClick={(e) => { closeMenu(); scrollToCentered('s4-inner')(e); }}>{"Results"}</a>
           <a className="nav-link" href="/about.html" onClick={closeMenu}>{"About"}</a>
-          <a className={`nav-link${activeSection === "#s5" ? ' active' : ''}`} href="#cc-email-field" onClick={(e) => { closeMenu(); scrollToEmailField(e); }}>{"Talk to Us"}</a>
+          <a className={`nav-link${activeSection === "#s5" ? ' active' : ''}`} href="#contact-card" onClick={(e) => { closeMenu(); scrollToContactCard(e); }}>{"Talk to Us"}</a>
         </div>
       </nav>
       {/* OVERLAY */}
@@ -258,11 +254,11 @@ export default function Home() {
               <span className="teal">{"stay until it's fixed."}</span>
             </div>
             <div className="hero-cta-row">
-              <a href="#s2" className="btn-primary">
+              <a href="#s2-inner" className="btn-primary" onClick={scrollToCentered('s2-inner')}>
                 {"See Where It Breaks "}
                 <span className="btn-arrow">{"→"}</span>
               </a>
-              <a href="#cc-email-field" className="btn-secondary" onClick={scrollToEmailField}>
+              <a href="#contact-card" className="btn-secondary" onClick={scrollToContactCard}>
                 {"Talk to Us "}
                 <span className="btn-arrow">{"→"}</span>
               </a>
@@ -336,7 +332,7 @@ export default function Home() {
       {/* S2 PATTERNS */}
       <section id="s2">
         <div className="s2-gl" />
-        <div className="s2-inner">
+        <div className="s2-inner" id="s2-inner">
           <div className="section-tag">{"Where it breaks"}</div>
           <div className="sh-dark">
             {"Three situations."}
@@ -412,7 +408,7 @@ export default function Home() {
       </section>
       {/* S3 HOW WE WORK */}
       <section id="s3">
-        <div className="s3-inner">
+        <div className="s3-inner" id="s3-inner">
           <div>
             <div className="section-tag">{"How we work"}</div>
             <div className="sh-light">
@@ -495,7 +491,7 @@ export default function Home() {
       </section>
       {/* S4 RESULTS */}
       <section id="s4">
-        <div className="s4-inner">
+        <div className="s4-inner" id="s4-inner">
           <div className="section-tag">{"Results"}</div>
           <div className="sh-light" style={{ marginBottom: "6px" }}>
             {"It has worked before."}
@@ -600,7 +596,7 @@ export default function Home() {
           <div className="case-note-text">
             {"Across financial services, commercial real estate, logistics, technology, and industrial sectors. The three above are a representative sample. Tell us what you're dealing with below, and we'll send the ones most relevant to your situation, or set up time to talk it through."}
           </div>
-          <a className="case-cta" href="#cc-email-field" onClick={scrollToEmailField}>
+          <a className="case-cta" href="#contact-card" onClick={scrollToContactCard}>
             {"Get the relevant case studies, or start a conversation "}
             <span className="case-arrow">{"→"}</span>
           </a>
@@ -649,7 +645,7 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <div className="contact-card">
+            <div className="contact-card" id="contact-card">
               <div className="cc-head">
                 <div className="cc-name">{"Start the conversation"}</div>
                 <div className="cc-role">{"See what others miss"}</div>
@@ -660,7 +656,7 @@ export default function Home() {
                     <div className="cc-label">{"Your name"}</div>
                     <input className="cc-input" type="text" placeholder="Name" required value={contactForm.name} onChange={updateContactField('name')} />
                   </div>
-                  <div className="cc-field" id="cc-email-field">
+                  <div className="cc-field">
                     <div className="cc-label">{"Your email"}</div>
                     <input className="cc-input" type="email" placeholder="email@company.com" required value={contactForm.email} onChange={updateContactField('email')} />
                   </div>
