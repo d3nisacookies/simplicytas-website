@@ -56,12 +56,18 @@ export default function Home() {
   // under the nav and a dead gap below it before the next section peeks
   // in. On phones, that same top-alignment also landed inconsistently,
   // since iOS Safari's address bar resizes the viewport mid-scroll.
-  // Centering the section's actual content block fixes both.
+  // Centering the section's actual content block fixes both - except when
+  // that block (e.g. S2/S3 on a phone, stacked cards well taller than the
+  // screen) is itself taller than the viewport: block:'center' still
+  // centers it exactly, which crops the same amount off the top and
+  // bottom, landing mid-card with the heading scrolled past. Fall back to
+  // top-alignment there, same as the overlay back-button fix.
   const scrollToCentered = (targetId: string) => (e: { preventDefault: () => void }) => {
     e.preventDefault();
     const el = document.getElementById(targetId);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const fitsInViewport = el.getBoundingClientRect().height <= window.innerHeight;
+      el.scrollIntoView({ behavior: 'smooth', block: fitsInViewport ? 'center' : 'start' });
       history.pushState(null, '', '#' + targetId);
     }
   };
@@ -104,12 +110,15 @@ export default function Home() {
 
   // Cross-page links (e.g. /#contact-card from Products/About) land here before
   // the browser's native hash-scroll fires, since the target doesn't exist in the
-  // static HTML yet. Scroll to it manually once mounted, centered for the same
-  // reason as scrollToContactCard above.
+  // static HTML yet. Scroll to it manually once mounted, same centered-unless-
+  // taller-than-the-viewport logic as scrollToCentered above.
   useEffect(() => {
     if (window.location.hash) {
       const el = document.querySelector(window.location.hash);
-      if (el) el.scrollIntoView({ block: 'center' });
+      if (el) {
+        const fitsInViewport = el.getBoundingClientRect().height <= window.innerHeight;
+        el.scrollIntoView({ block: fitsInViewport ? 'center' : 'start' });
+      }
     }
   }, []);
 
