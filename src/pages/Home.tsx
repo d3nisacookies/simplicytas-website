@@ -141,6 +141,25 @@ export default function Home() {
   // neighbouring section peeks in until the user clicks a nav link and
   // the centering math reruns. Recompute it ourselves on resize (which
   // fires for zoom too) instead of waiting for that click.
+  //
+  // stableSectionRef mirrors activeSection for the resize-correction below,
+  // but freezes for the duration of a resize: the reflow a resize causes is
+  // exactly what makes the IntersectionObserver above re-fire (a further
+  // section can cross the 40% threshold purely from layout changing size
+  // under an unmoved scroll position), and reading activeSection directly
+  // during that window meant occasionally correcting to a section the user
+  // was never actually on. Freezing it while resizing and resuming once
+  // the corrected position has had a moment to settle keeps it accurate
+  // the rest of the time, for both click and scroll navigation.
+  const stableSectionRef = useRef(activeSection);
+  const resizingRef = useRef(false);
+  useEffect(() => {
+    if (!resizingRef.current) stableSectionRef.current = activeSection;
+  }, [activeSection]);
+
+  const overlayIndexRef = useRef(overlayIndex);
+  useEffect(() => { overlayIndexRef.current = overlayIndex; }, [overlayIndex]);
+
   useEffect(() => {
     const sectionTargets: Record<string, string> = {
       '#s2': 's2-inner',
@@ -148,23 +167,37 @@ export default function Home() {
       '#s4': 's4-inner',
       '#s5': 'contact-card',
     };
-    let timeoutId: number | undefined;
+    let debounceId: number | undefined;
+    let settleId: number | undefined;
     const onResize = () => {
-      window.clearTimeout(timeoutId);
-      timeoutId = window.setTimeout(() => {
-        if (overlayIndex !== null) return;
-        const targetId = sectionTargets[activeSection];
-        if (!targetId) return; // #s1 needs no correction - it's simply the top of the page
-        const el = document.getElementById(targetId);
-        if (el) centerOnElement(el, 'auto');
+      resizingRef.current = true;
+      window.clearTimeout(settleId);
+      window.clearTimeout(debounceId);
+      debounceId = window.setTimeout(() => {
+        if (overlayIndexRef.current === null) {
+          const targetId = sectionTargets[stableSectionRef.current];
+          if (targetId) { // #s1 needs no correction - it's simply the top of the page
+            const el = document.getElementById(targetId);
+            // 'auto' would defer to the global html{scroll-behavior:smooth}
+            // rule and animate - which a later resize event (e.g. the next
+            // step of a multi-stage zoom) can then interrupt mid-flight,
+            // leaving the page stuck partway through the correction.
+            // 'instant' forces a real, non-interruptible jump regardless.
+            if (el) centerOnElement(el, 'instant');
+          }
+        }
+        // Give the IntersectionObserver a moment to confirm the corrected
+        // position before trusting its updates again.
+        settleId = window.setTimeout(() => { resizingRef.current = false; }, 200);
       }, 150);
     };
     window.addEventListener('resize', onResize);
     return () => {
-      window.clearTimeout(timeoutId);
+      window.clearTimeout(debounceId);
+      window.clearTimeout(settleId);
       window.removeEventListener('resize', onResize);
     };
-  }, [activeSection, overlayIndex]);
+  }, []);
 
   // Cross-page links (e.g. /#contact-card from Products/About) land here before
   // the browser's native hash-scroll fires, since the target doesn't exist in the
