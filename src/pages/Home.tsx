@@ -133,6 +133,39 @@ export default function Home() {
     document.title = "Simplicytas | See What Others Miss";
   }, []);
 
+  // centerOnElement's scroll offset is computed once, from the viewport
+  // size and element positions at that instant. Browser zoom changes the
+  // effective CSS-px viewport size and reflows every section under the
+  // page's existing (unchanged) scroll position, so a section that was
+  // centered before a zoom change no longer is after one - the
+  // neighbouring section peeks in until the user clicks a nav link and
+  // the centering math reruns. Recompute it ourselves on resize (which
+  // fires for zoom too) instead of waiting for that click.
+  useEffect(() => {
+    const sectionTargets: Record<string, string> = {
+      '#s2': 's2-inner',
+      '#s3': 's3-inner',
+      '#s4': 's4-inner',
+      '#s5': 'contact-card',
+    };
+    let timeoutId: number | undefined;
+    const onResize = () => {
+      window.clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(() => {
+        if (overlayIndex !== null) return;
+        const targetId = sectionTargets[activeSection];
+        if (!targetId) return; // #s1 needs no correction - it's simply the top of the page
+        const el = document.getElementById(targetId);
+        if (el) centerOnElement(el, 'auto');
+      }, 150);
+    };
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.clearTimeout(timeoutId);
+      window.removeEventListener('resize', onResize);
+    };
+  }, [activeSection, overlayIndex]);
+
   // Cross-page links (e.g. /#contact-card from Products/About) land here before
   // the browser's native hash-scroll fires, since the target doesn't exist in the
   // static HTML yet. Scroll to it manually once mounted, via the same
