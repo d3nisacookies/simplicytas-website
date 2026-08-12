@@ -235,15 +235,18 @@ nav{
   .nav-links-panel{padding:0 20px;gap:2px;}
   .nav-link{padding:8px 12px;font-size:var(--text-caption);}
 }
-/* No hamburger here: below 999px the link row just scrolls horizontally
-   instead of collapsing behind a toggle. */
 @media(max-width:999px){
+  nav{justify-content:space-between;}
   .nav-logo-panel{padding:0 24px;}
+  .nav-toggle{display:flex;background:var(--navy);}
   .nav-links-panel{
-    justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch;
-    padding:0 24px;
+    position:fixed;top:68px;left:0;right:0;z-index:199;
+    flex-direction:column;align-items:stretch;justify-content:flex-start;
+    background:var(--navy);padding:0 29px;gap:2px;
+    max-height:0;overflow:hidden;transition:max-height .25s ease;
   }
-  .nav-link{flex-shrink:0;}
+  .nav-toggle-checkbox:checked ~ .nav-links-panel{max-height:70vh;overflow-y:auto;padding:22px 29px 34px;box-shadow:0 12px 24px rgba(45,43,85,0.25);}
+  .nav-link{padding:20px 22px;font-size:var(--text-h3);}
 }
 
 @media (max-width:760px){
