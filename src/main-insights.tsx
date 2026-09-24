@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/site.css';
-import Products from './pages/Products';
+import Insights from './pages/Insights';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Products />
+    <Insights />
   </React.StrictMode>
 );

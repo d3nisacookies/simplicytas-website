@@ -1,81 +1,6 @@
 
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;scroll-padding-top:68px;font-size:100%;}
-body{font-family:'Open Sans',sans-serif;color:#2D2B55;overflow-x:hidden;}
-
-/* ── COLOUR TOKENS ── */
-:root{
-  --navy:#2D2B55;
-  --navy-dark:#2D2B55;
-  --teal:#3AB6B3;
-  --teal-light:#4FC5C2;
-  --lavender:#EDE8F5;
-  --lavender-light:#EDE8F5;
-  --lavender-mid:#D8D0EE;
-  --white:#FFFFFF;
-  --body-dark:#2D2B55;
-  --text-muted:rgba(45,43,85,0.82);
-  --text-dim:rgba(45,43,85,0.68);
-
-  /* ── TYPE SCALE ── one scale, five steps, everything else pulls from
-     these instead of one-off px values per section. */
-  --text-h1:2.5rem;      /* 40px */
-  --text-h2:1.75rem;     /* 28px */
-  --text-h3:1.25rem;     /* 20px */
-  --text-body:1rem;      /* 16px */
-  --text-caption:0.875rem; /* 14px */
-}
-
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;align-items:stretch;
-  height:68px;
-  background:var(--navy);
-  box-shadow:0 2px 16px rgba(45,43,85,0.12);
-}
-.nav-logo-panel{
-  background:var(--navy);
-  padding:0 36px;
-  display:flex;align-items:center;gap:14px;
-  flex-shrink:0;
-  text-decoration:none;
-}
-.nav-mark svg{width:44px;height:44px;display:block;}
-.nav-mark img{width:76px;height:38px;display:block;}
-.nav-text{display:flex;flex-direction:column;gap:2px;}
-.nav-brand{font-family:'Roboto',sans-serif;font-weight:700;font-size:var(--text-h3);letter-spacing:2.5px;text-transform:uppercase;color:#FFFFFF;line-height:1;}
-.nav-tagline{font-size:var(--text-caption);letter-spacing:2px;text-transform:uppercase;color:var(--teal);}
-.nav-links-panel{
-  background:var(--navy);
-  flex:1;
-  display:flex;align-items:center;justify-content:flex-end;
-  padding:0 47px;
-  gap:6px;
-}
-.nav-link{
-  padding:10px 24px;border-radius:10px;
-  font-size:var(--text-body);font-weight:500;
-  color:#FFFFFF;
-  border:1px solid transparent;
-  cursor:pointer;transition:all .2s;
-  text-decoration:none;white-space:nowrap;
-}
-.nav-link:hover{color:#FFFFFF;border-color:rgba(255,255,255,0.12);}
-.nav-link.active{color:var(--teal);border-color:rgba(73,172,181,0.28);background:rgba(73,172,181,0.08);}
-.nav-toggle-checkbox{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none;}
-.nav-toggle{display:none;background:none;border:none;padding:0 29px;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
-.nav-toggle-icon{width:31px;height:22px;position:relative;}
-.nav-toggle-icon span{position:absolute;left:0;right:0;height:2px;background:#fff;border-radius:2px;transition:transform .2s,opacity .2s;}
-.nav-toggle-icon span:nth-child(1){top:0;}
-.nav-toggle-icon span:nth-child(2){top:10px;}
-.nav-toggle-icon span:nth-child(3){top:20px;}
-.nav-toggle-checkbox:checked ~ .nav-toggle .nav-toggle-icon span:nth-child(1){transform:translateY(10px) rotate(45deg);}
-.nav-toggle-checkbox:checked ~ .nav-toggle .nav-toggle-icon span:nth-child(2){opacity:0;}
-.nav-toggle-checkbox:checked ~ .nav-toggle .nav-toggle-icon span:nth-child(3){transform:translateY(-10px) rotate(-45deg);}
-
-/* ── SHARED ── */
-.section-tag{font-size:var(--text-caption);letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:12px;font-weight:500;}
+/* Home page - page-specific rules only. Reset, tokens, nav and footer
+   basics come from src/styles/site.css. */
 
 /* ══════════════════════════════
    S1 - HERO  (dark navy)
@@ -271,7 +196,7 @@ nav{
 }
 
 /* Narrow-desktop fix: the hero's right panel used to be a hard-fixed 559px
-   card with no reflow rule below 1150px, so any window in the 768-1150px
+   card with no reflow rule below 1150px, so any window in the 761-1150px
    gap (e.g. a 13" laptop at 125% OS scaling, ~1090px real viewport) squeezed
    hero-left into whatever space was left over. The base rule above is now
    fluid (minmax(360px,559px)) so the card can shrink gracefully instead of
@@ -279,7 +204,7 @@ nav{
    - 1000-1149px: still side-by-side, but the pattern list's icons/diagrams
      shrink a notch so they keep fitting next to their text as the card
      narrows towards its 360px floor.
-   - 769-999px: even the shrunk card no longer leaves hero-left enough room
+   - 761-999px: even the shrunk card no longer leaves hero-left enough room
      side-by-side - unlike S3's stat-row, hero-left has no natural wrap
      floor (tc-big alone forces single-word lines below ~350px), so this
      one has to stack rather than stay consistent with wider screens. */
@@ -294,7 +219,7 @@ nav{
   .pattern-flow-lg{width:130px;height:50px;}
   .pattern-flow-xl{width:130px;height:80px;}
 }
-@media (min-width:769px) and (max-width:999px){
+@media (min-width:761px) and (max-width:999px){
   .hero-main{grid-template-columns:1fr;gap:48px;}
   .hero-left{max-width:100%;}
   .contra-wrap{max-width:620px;width:100%;margin:0 auto;}
@@ -340,10 +265,10 @@ nav{
 
 /* Narrow-desktop fix: three equal fr columns means every card narrows
    together as the viewport shrinks, wrapping their text into more lines
-   and growing past the min-height:100vh budget well before the 768px
+   and growing past the min-height:100vh budget well before the 760px
    mobile stack (e.g. on a 13" laptop around 1000-1100px wide). Trim the
    card's own padding/spacing here to compensate. */
-@media (max-width:1150px) and (min-width:769px){
+@media (max-width:1150px) and (min-width:761px){
   .pcard{padding:18px 20px 16px;}
   .p-tag{margin-bottom:8px;}
   .p-headline{margin-bottom:10px;}
@@ -433,7 +358,7 @@ nav{
    laptop widths (~1000-1100px) the right column is tight. stat-row stays
    the same 3-card grid as everywhere else (consistency matters more here
    than the extra text wrap this causes at these widths). */
-@media (max-width:1150px) and (min-width:769px){
+@media (max-width:1150px) and (min-width:761px){
   .s3-inner{gap:40px;}
   .timeline{padding-left:28px;}
   .tl-item{padding-bottom:18px;}
@@ -473,7 +398,7 @@ nav{
    into more lines instead, which grows every card and can push the third
    card past the min-height:100vh budget on common 13" laptop widths.
    Trim the card's own padding/type-size a notch here to compensate. */
-@media (max-width:1300px) and (min-width:769px){
+@media (max-width:1300px) and (min-width:761px){
   .rc-left{padding:8px 16px;}
   .rc-situation{font-size:var(--text-caption);}
   .rc-mid{padding:6px 16px;}
@@ -483,7 +408,7 @@ nav{
 }
 /* Below ~1050px even that trim isn't enough - the sides are still fixed
    width, so narrow them further here too, giving rc-mid more room back. */
-@media (max-width:1060px) and (min-width:769px){
+@media (max-width:1060px) and (min-width:761px){
   .rcard{grid-template-columns:190px 1fr 160px;}
   .rc-left{padding:6px 12px;}
   .rc-situation{margin-bottom:4px;}
@@ -590,56 +515,13 @@ nav{
    widths that don't hit the 760px mobile stack but are too narrow for
    brand + all 4 links on one line reflow onto a second line instead of
    flexbox squeezing everything into it. */
-.site-footer{position:relative;margin-top:auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:14px;padding:20px 76px 88px;border-top:1px solid rgba(73,172,181,0.1);}
-.foot-brand{font-family:'Roboto',sans-serif;font-size:var(--text-body);letter-spacing:2px;text-transform:uppercase;color:#FFFFFF;}
+.site-footer{background:none;position:relative;margin-top:auto;padding:20px 76px 88px;z-index:auto;}
 .foot-latin{font-size:var(--text-body);color:#FFFFFF;font-style:italic;}
-.foot-links{display:flex;flex-wrap:wrap;gap:14px 29px;}
-.foot-link{font-size:var(--text-body);color:#FFFFFF;text-decoration:none;transition:color .2s;}
-.foot-link:hover{color:#FFFFFF;}
-
-/* LOGO SVG INLINE */
-.logo-eye svg{width:44px;height:44px;display:block;}
 
 /* ══════════════════════════════
-   NAV - overflow fix
-   The logo block + all 7 links need ~1397px of unbroken width at their
-   full desktop size (nav-links-panel can't shrink below its own
-   min-content, since links use white-space:nowrap and the panel doesn't
-   wrap). Below that, the trailing links (About, Talk to Us) render past
-   the right edge of the actual browser window - invisible and unclickable,
-   not just visually squeezed. That's every 13" laptop at common
-   resolutions (1366x768 and narrower), even though nothing looked wrong
-   on a wider 14"+ screen. Two tiers fix it:
-   - 1000-1399px: shrink the logo/link sizing enough to keep the full
-     horizontal nav without overflowing.
-   - <1000px: even shrunk, 7 full-text links don't fit - fall back to the
-     hamburger menu (previously this only kicked in at 768px).
+   MOBILE  (max-width:760px)
 ══════════════════════════════ */
-@media(max-width:1399px) and (min-width:1000px){
-  .nav-logo-panel{padding:0 20px;gap:8px;}
-  .nav-mark img{width:56px;height:28px;}
-  .nav-tagline{display:none;}
-  .nav-links-panel{padding:0 20px;gap:2px;}
-  .nav-link{padding:8px 12px;font-size:var(--text-caption);}
-}
-@media(max-width:999px){
-  nav{justify-content:space-between;}
-  .nav-logo-panel{padding:0 24px;}
-  .nav-toggle{display:flex;}
-  .nav-links-panel{
-    position:fixed;top:68px;left:0;right:0;z-index:199;
-    flex-direction:column;align-items:stretch;justify-content:flex-start;
-    background:var(--navy);padding:0 29px;gap:2px;
-    max-height:0;overflow:hidden;transition:max-height .25s ease;
-  }
-  .nav-toggle-checkbox:checked ~ .nav-links-panel{max-height:70vh;overflow-y:auto;padding:22px 29px 34px;box-shadow:0 12px 24px rgba(45,43,85,0.25);}
-  .nav-link{padding:20px 22px;font-size:var(--text-h3);}
-}
-
-/* ══════════════════════════════
-   MOBILE  (max-width:768px)
-══════════════════════════════ */
-@media(max-width:768px){
+@media(max-width:760px){
   #s1{min-height:auto;}
   .hero-main{grid-template-columns:1fr;padding:130px 29px 59px;gap:53px;}
   .hero-left{max-width:100%;}

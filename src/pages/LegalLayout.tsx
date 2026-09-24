@@ -1,6 +1,6 @@
-import { useEffect, useRef, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import PageLayout, { PageHero } from '../components/PageLayout';
 import './Legal.css';
-import { navLogo } from '../lib/logo';
 
 interface LegalLayoutProps {
   title: string;
@@ -8,68 +8,17 @@ interface LegalLayoutProps {
   children: ReactNode;
 }
 
-// Shared shell for the legal pages (Privacy / Terms / Cookies): same nav as the
-// main pages, a navy hero band, light content body, and the site footer.
+// Shared shell for the legal pages (Privacy / Terms / Cookies): the standard
+// page layout with a navy hero band showing the title + last-updated date.
 export default function LegalLayout({ title, updated, children }: LegalLayoutProps) {
-  const navToggleRef = useRef<HTMLInputElement>(null);
-
-  const closeMenu = () => {
-    if (navToggleRef.current) navToggleRef.current.checked = false;
-  };
-
-  useEffect(() => {
-    document.title = `Simplicytas | ${title}`;
-  }, [title]);
-
   return (
-    <>
-      <nav>
-        <a className="nav-logo-panel" href="/#s1">
-          <div className="nav-mark">
-            <img src={navLogo} alt="Simplicytas eye mark" />
-          </div>
-          <div className="nav-text">
-            <div className="nav-brand">{"Simplicytas"}</div>
-            <div className="nav-tagline">{"See what others miss"}</div>
-          </div>
-        </a>
-        <input type="checkbox" id="navToggle" className="nav-toggle-checkbox" ref={navToggleRef} />
-        <label htmlFor="navToggle" className="nav-toggle" aria-label="Menu">
-          <span className="nav-toggle-icon">
-            <span />
-            <span />
-            <span />
-          </span>
-        </label>
-        <div className="nav-links-panel">
-          <a className="nav-link" href="/#s1" onClick={closeMenu}>{"The Problem"}</a>
-          <a className="nav-link" href="/#s2-inner" onClick={closeMenu}>{"Where It Breaks"}</a>
-          <a className="nav-link" href="/#s3-inner" onClick={closeMenu}>{"How We Work"}</a>
-          <a className="nav-link" href="/products.html" onClick={closeMenu}>{"Products"}</a>
-          <a className="nav-link" href="/#s4-inner" onClick={closeMenu}>{"Results"}</a>
-          <a className="nav-link" href="/about.html" onClick={closeMenu}>{"About"}</a>
-          <a className="nav-link" href="/#contact-card" onClick={closeMenu}>{"Talk to Us"}</a>
-        </div>
-      </nav>
-      <section className="legal-hero">
-        <div className="legal-hero-inner">
-          <div className="legal-eyebrow">{"Simplicytas Consulting Pte Ltd"}</div>
-          <h1 className="legal-title">{title}</h1>
-          <div className="legal-updated">{updated}</div>
-        </div>
+    <PageLayout title={title}>
+      <PageHero eyebrow="Simplicytas Consulting Pte Ltd" headline={title}>
+        <div className="legal-updated">{updated}</div>
+      </PageHero>
+      <section className="page-body legal-body">
+        <div className="page-body-inner">{children}</div>
       </section>
-      <section className="legal-body">
-        <div className="legal-body-inner">{children}</div>
-      </section>
-      <footer className="legal-footer">
-        <div className="foot-brand">{"Simplicytas"}</div>
-        <div className="foot-links">
-          <a className="foot-link" href="/privacy.html">{"Privacy Policy"}</a>
-          <a className="foot-link" href="/cookies.html">{"Cookie Policy/Setting"}</a>
-          <a className="foot-link" href="/terms.html">{"Terms of Use"}</a>
-          <a className="foot-link" href="mailto:contact@simplicytas.com">{"contact@simplicytas.com"}</a>
-        </div>
-      </footer>
-    </>
+    </PageLayout>
   );
 }

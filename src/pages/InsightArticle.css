@@ -1,0 +1,86 @@
+/* Insight article pages - page-specific rules only. Nav, footer, hero and
+   body shell come from src/styles/site.css. */
+
+/* ── HERO: three-milestone strip under the headline ── */
+.milestones{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:32px;
+  position:relative;margin-top:56px;
+}
+/* line running through the numbered circles */
+.milestones::before{
+  content:'';position:absolute;top:20px;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,rgba(54,178,176,0.15),rgba(54,178,176,0.55),rgba(54,178,176,0.15));
+}
+.milestone{position:relative;}
+.milestone-num{
+  position:relative;z-index:1;
+  width:40px;height:40px;border-radius:50%;
+  background:var(--navy);border:2px solid var(--teal);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Roboto',sans-serif;font-weight:700;font-size:var(--text-body);color:var(--teal);
+  margin-bottom:18px;
+}
+.milestone:nth-child(2) .milestone-num{border-color:var(--purple-light);color:var(--purple-light);}
+.milestone-tag{font-size:var(--text-caption);letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:6px;}
+.milestone:nth-child(2) .milestone-tag{color:var(--purple-light);}
+.milestone-title{font-family:'Roboto',sans-serif;font-weight:700;font-size:var(--text-h3);color:#fff;line-height:1.3;margin-bottom:8px;}
+.milestone-body{font-size:var(--text-caption);color:rgba(255,255,255,0.8);line-height:1.6;}
+.milestone-source{
+  margin-top:22px;text-align:right;
+  font-size:var(--text-caption);font-style:italic;color:rgba(255,255,255,0.55);
+}
+.insight-hero-close{
+  margin-top:36px;padding-top:22px;
+  border-top:1px solid rgba(255,255,255,0.15);
+  font-size:var(--text-body);font-weight:600;color:#fff;
+}
+
+/* ── BODY: narrow reading column ── */
+.insight-body .page-body-inner{max-width:760px;}
+.insight-back{
+  display:inline-block;margin-bottom:32px;
+  font-size:var(--text-body);font-weight:600;color:var(--purple);text-decoration:none;
+}
+.insight-back:hover{color:var(--teal);}
+.insight-p{font-size:var(--text-body);line-height:1.75;color:var(--text-muted);margin-bottom:16px;}
+.insight-h2{font-family:'Roboto',sans-serif;font-weight:700;font-size:var(--text-h2);color:var(--navy);margin:46px 0 16px;}
+.insight-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:16px;}
+.insight-list li{
+  font-size:var(--text-body);line-height:1.7;color:var(--text-muted);
+  display:flex;gap:16px;align-items:flex-start;
+}
+.insight-list li::before{content:'';width:9px;height:9px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:9px;}
+
+/* stat callout - same treatment as the About/Products pull blocks */
+.insight-stat{
+  margin:32px 0;padding:30px 34px;
+  background:#fff;
+  border-left:3px solid var(--teal);
+  border-radius:0 16px 16px 0;
+}
+.insight-stat-text{font-family:'Roboto',sans-serif;font-weight:600;font-size:var(--text-h3);line-height:1.5;color:var(--navy);}
+.insight-cite{margin-top:10px;font-size:var(--text-caption);font-style:italic;color:var(--text-dim);}
+
+/* key question - navy card */
+.insight-question{
+  margin:36px 0;padding:32px 36px;
+  background:var(--navy);border-radius:16px;
+}
+.insight-question-label{font-size:var(--text-caption);letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:10px;}
+.insight-question-text{font-family:'Roboto',sans-serif;font-weight:700;font-size:var(--text-h3);line-height:1.45;color:#fff;}
+.insight-question-sub{margin-top:12px;font-size:var(--text-body);line-height:1.65;color:rgba(255,255,255,0.85);}
+
+.insight-closing{
+  margin-top:40px;padding-top:28px;
+  border-top:1px solid rgba(87,69,128,0.15);
+  font-family:'Roboto',sans-serif;font-weight:600;font-size:var(--text-h3);line-height:1.5;color:var(--navy);
+}
+.insight-cta-row{margin-top:40px;text-align:center;}
+
+@media (max-width:760px){
+  .milestones{grid-template-columns:1fr;gap:28px;margin-top:40px;}
+  .milestones::before{display:none;}
+  .milestone-source{text-align:left;}
+  .insight-stat{padding:24px 22px;}
+  .insight-question{padding:26px 24px;}
+}

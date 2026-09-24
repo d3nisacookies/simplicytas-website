@@ -1,0 +1,28 @@
+/* Insights index - page-specific rules only. Nav, footer, hero and body
+   shell come from src/styles/site.css. */
+
+.insight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+.insight-card{
+  display:flex;flex-direction:column;
+  background:#fff;border-radius:18px;
+  border:1px solid rgba(54,178,176,0.28);
+  padding:32px 34px 28px;
+  text-decoration:none;
+  transition:border-color .2s,box-shadow .2s;
+}
+.insight-card:hover{border-color:rgba(54,178,176,0.6);box-shadow:0 4px 16px rgba(45,43,85,0.08);}
+.insight-card-tag{font-size:var(--text-caption);letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:12px;}
+.insight-card-title{font-family:'Roboto',sans-serif;font-weight:700;font-size:var(--text-h2);color:var(--navy);line-height:1.2;margin-bottom:12px;}
+.insight-card-teaser{font-size:var(--text-body);color:var(--text-muted);line-height:1.65;margin-bottom:22px;}
+.insight-card-cta{
+  margin-top:auto;display:inline-flex;align-items:center;gap:10px;
+  font-size:var(--text-body);font-weight:600;color:var(--purple);
+}
+.insight-card:hover .insight-card-cta{color:var(--teal);}
+.insight-card-arrow{transition:transform .2s;}
+.insight-card:hover .insight-card-arrow{transform:translateX(4px);}
+
+@media (max-width:760px){
+  .insight-grid{grid-template-columns:1fr;}
+  .insight-card{padding:26px 24px 22px;}
+}
