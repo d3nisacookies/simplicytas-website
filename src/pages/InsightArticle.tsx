@@ -1,4 +1,5 @@
 import PageLayout, { PageHero } from '../components/PageLayout';
+import { CONTACT_URL } from '../components/SiteNav';
 import { insights, type Insight, type InsightBlock } from '../content/insights';
 import './InsightArticle.css';
 
@@ -60,11 +61,11 @@ function Article({ article }: { article: Insight }) {
       </PageHero>
       <section className="page-body insight-body">
         <div className="page-body-inner">
-          <a className="insight-back" href="/insights.html">{"← All insights"}</a>
+          <a className="insight-back" href="/insights/">{"← All insights"}</a>
           {article.body.map((b, i) => <Block block={b} key={i} />)}
           <p className="insight-closing">{article.closing}</p>
           <div className="insight-cta-row">
-            <a className="cta-btn" href="/#contact-card">{article.ctaLabel}{" →"}</a>
+            <a className="cta-btn" href={CONTACT_URL}>{article.ctaLabel}{" →"}</a>
           </div>
         </div>
       </section>
@@ -72,13 +73,13 @@ function Article({ article }: { article: Insight }) {
   );
 }
 
-// One component serves every /insights/<slug>.html page: the slug comes
-// from the URL, so each article's HTML entry just mounts this.
+// One component serves every /insights/<sector>/<slug>/ page: the slug is
+// the URL's last path segment, so each article's HTML entry just mounts this.
 export default function InsightArticle() {
-  const slug = window.location.pathname.split('/').pop()?.replace(/\.html$/, '');
+  const slug = window.location.pathname.split('/').filter(Boolean).pop();
   const article = insights.find((a) => a.slug === slug);
   if (!article) {
-    window.location.replace('/insights.html');
+    window.location.replace('/insights/');
     return null;
   }
   return <Article article={article} />;

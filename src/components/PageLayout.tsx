@@ -1,5 +1,5 @@
 import { useEffect, type ReactNode } from 'react';
-import SiteNav, { type NavKey } from './SiteNav';
+import SiteNav, { CONTACT_URL, type NavKey } from './SiteNav';
 import SiteFooter from './SiteFooter';
 
 interface PageLayoutProps {
@@ -16,6 +16,14 @@ export default function PageLayout({ title, active = null, children }: PageLayou
   useEffect(() => {
     document.title = `Simplicytas | ${title}`;
   }, [title]);
+
+  // Links like /about/#contact arrive before React has rendered the target,
+  // so the browser's own jump-to-anchor finds nothing. Do it once mounted.
+  useEffect(() => {
+    if (window.location.hash) {
+      document.getElementById(window.location.hash.slice(1))?.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }
+  }, []);
 
   return (
     <>
@@ -61,13 +69,13 @@ interface PageCtaProps {
   buttonHref?: string;
 }
 
-// Navy close-out call to action, pointing at the Home page contact form by default.
+// Navy close-out call to action, pointing at the About page contact form by default.
 export function PageCta({
   heading,
   body,
   bullets = [],
   buttonLabel = 'Start the conversation →',
-  buttonHref = '/#contact-card',
+  buttonHref = CONTACT_URL,
 }: PageCtaProps) {
   return (
     <section className="page-cta">

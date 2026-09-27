@@ -1,9 +1,14 @@
 import PageLayout, { PageHero } from '../components/PageLayout';
-import { insights, insightUrl } from '../content/insights';
+import { insights, insightUrl, sectors } from '../content/insights';
 import './Insights.css';
 
-// Insights index: one card per article in src/content/insights.ts.
+// Insights index: articles from src/content/insights.ts, grouped by sector.
+// Sectors with no articles yet are left out.
 export default function Insights() {
+  const groups = sectors
+    .map((sector) => ({ sector, articles: insights.filter((a) => a.sector === sector.id) }))
+    .filter((g) => g.articles.length > 0);
+
   return (
     <PageLayout title="Insights" active="insights">
       <PageHero
@@ -14,19 +19,24 @@ export default function Insights() {
       </PageHero>
       <section className="page-body">
         <div className="page-body-inner">
-          <div className="insight-grid">
-            {insights.map((a) => (
-              <a className="insight-card" href={insightUrl(a.slug)} key={a.slug}>
-                <div className="insight-card-tag">{a.eyebrow}</div>
-                <h2 className="insight-card-title">{a.title}</h2>
-                <p className="insight-card-teaser">{a.heroSub}</p>
-                <span className="insight-card-cta">
-                  {"Read the insight"}
-                  <span className="insight-card-arrow">{"→"}</span>
-                </span>
-              </a>
-            ))}
-          </div>
+          {groups.map(({ sector, articles }) => (
+            <div className="insight-sector" key={sector.id} id={sector.id}>
+              <h2 className="insight-sector-title">{sector.label}</h2>
+              <div className="insight-grid">
+                {articles.map((a) => (
+                  <a className="insight-card" href={insightUrl(a)} key={a.slug}>
+                    <div className="insight-card-tag">{a.eyebrow}</div>
+                    <h3 className="insight-card-title">{a.title}</h3>
+                    <p className="insight-card-teaser">{a.heroSub}</p>
+                    <span className="insight-card-cta">
+                      {a.cardCta}
+                      <span className="insight-card-arrow">{"→"}</span>
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </PageLayout>

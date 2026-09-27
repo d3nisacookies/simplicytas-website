@@ -1,16 +1,17 @@
 import PageLayout, { PageHero, PageCta } from '../components/PageLayout';
 import './Products.css';
 
+// "How We Help" page (/how-we-help/) - the Intelligence360 Suite products.
 // Converted 1:1 from simplicytas_products_v3.html
 export default function Products() {
   return (
-    <PageLayout title="Intelligence360 Suite" active="products">
+    <PageLayout title="How We Help" active="help">
       <PageHero
         eyebrow="Simplicytas Intelligence360 Suite"
         headline={<>{"Four products."}<br /><span className="teal">{"One operating model."}</span></>}
         scrollHint
       >
-        <div className="page-hero-sub">{"Four distinct products under the Intelligence360 Suite, each built to close one structural gap."}</div>
+        <div className="page-hero-sub">{"Simplicytas helps complex organisations discover, reconcile and govern fragmented data, giving leaders a trusted view for better decisions and controlled execution."}</div>
       </PageHero>
       <section className="page-body">
           <div className="page-body-inner">

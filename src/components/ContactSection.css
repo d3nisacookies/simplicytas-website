@@ -1,0 +1,44 @@
+/* Navy "Start here" contact section with the enquiry form. Moved from the
+   Home page's old #s5; now sits at the bottom of the About page. */
+.contact-section{background:var(--navy);padding:94px 76px;position:relative;overflow:hidden;}
+.contact-gl{position:absolute;inset:0;background-image:linear-gradient(rgba(73,172,181,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(73,172,181,0.04) 1px,transparent 1px);background-size:72px 72px;pointer-events:none;}
+.contact-pg{position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:70%;height:80%;background:radial-gradient(ellipse at center,rgba(35,33,70,0.6) 0%,transparent 70%);pointer-events:none;}
+.contact-inner{max-width:1055px;margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:1fr minmax(340px,453px);gap:70px;align-items:center;width:100%;}
+.contact-tag{font-size:var(--text-caption);letter-spacing:3px;text-transform:uppercase;color:var(--teal);opacity:0.7;margin-bottom:10px;}
+.contact-heading{font-family:'Roboto',sans-serif;font-weight:700;font-size:clamp(var(--text-h2),3.2vw,var(--text-h1));color:#fff;line-height:1.08;margin-bottom:14px;}
+.contact-heading span{color:var(--teal);}
+.contact-body{font-size:var(--text-body);color:#FFFFFF;line-height:1.6;margin-bottom:12px;max-width:527px;}
+.wit-label{font-size:var(--text-caption);letter-spacing:2.5px;text-transform:uppercase;color:#FFFFFF;margin-bottom:8px;}
+.what-it-is{display:flex;flex-direction:column;gap:8px;}
+.wit-row{display:flex;align-items:flex-start;gap:12px;}
+.wit-check{width:21px;height:21px;border-radius:50%;border:1px solid rgba(73,172,181,0.4);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.wit-check::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--teal);}
+.wit-text{font-size:var(--text-caption);color:#FFFFFF;line-height:1.45;}
+.wit-text strong{color:#FFFFFF;font-weight:500;}
+.contact-card{background:rgba(45,43,85,0.4);border:1px solid rgba(73,172,181,0.2);border-radius:18px;padding:22px 26px;}
+.cc-head{margin-bottom:10px;padding-bottom:9px;border-bottom:1px solid rgba(73,172,181,0.12);}
+.cc-name{font-family:'Roboto',sans-serif;font-weight:700;font-size:var(--text-h3);color:#fff;margin-bottom:3px;}
+.cc-role{font-size:var(--text-caption);color:#FFFFFF;letter-spacing:0.5px;}
+.cc-form{display:flex;flex-direction:column;gap:9px;margin-bottom:9px;}
+.cc-field{display:flex;flex-direction:column;gap:5px;}
+.cc-label{font-size:var(--text-caption);letter-spacing:1.5px;text-transform:uppercase;color:#FFFFFF;}
+.cc-input{padding:11px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(73,172,181,0.2);border-radius:9px;font-family:'Open Sans',sans-serif;font-size:var(--text-caption);color:#fff;outline:none;transition:border-color .2s,background .2s;}
+.cc-input::placeholder{color:rgba(255,255,255,0.4);}
+.cc-input:focus{border-color:rgba(73,172,181,0.5);background:rgba(73,172,181,0.05);}
+.cc-textarea{padding:11px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(73,172,181,0.2);border-radius:9px;font-family:'Open Sans',sans-serif;font-size:var(--text-caption);color:#fff;outline:none;resize:vertical;min-height:72px;width:100%;transition:border-color .2s,background .2s;}
+.cc-textarea::placeholder{color:rgba(255,255,255,0.4);}
+.cc-textarea:focus{border-color:rgba(73,172,181,0.5);background:rgba(73,172,181,0.05);}
+.cc-submit{width:100%;padding:15px;background:var(--teal);color:var(--navy);font-family:'Roboto',sans-serif;font-weight:700;font-size:var(--text-body);letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:10px;cursor:pointer;transition:background .2s;margin-bottom:8px;}
+.cc-submit:hover{background:var(--teal-light);}
+.cc-submit:disabled{opacity:0.6;cursor:not-allowed;}
+.cc-status{font-size:var(--text-caption);line-height:1.4;margin-bottom:10px;}
+.cc-status.success{color:var(--teal);}
+.cc-status.error{color:#ff8a8a;}
+.cc-pdpa{font-size:var(--text-caption);color:#FFFFFF;line-height:1.45;}
+
+@media (max-width:900px){
+  .contact-inner{grid-template-columns:1fr;gap:48px;}
+}
+@media (max-width:760px){
+  .contact-section{padding:70px 36px;}
+}

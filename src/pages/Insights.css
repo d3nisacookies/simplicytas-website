@@ -1,6 +1,12 @@
 /* Insights index - page-specific rules only. Nav, footer, hero and body
    shell come from src/styles/site.css. */
 
+.insight-sector + .insight-sector{margin-top:64px;}
+.insight-sector-title{
+  font-family:'Roboto',sans-serif;font-weight:700;font-size:var(--text-h2);color:var(--navy);
+  margin-bottom:20px;padding-bottom:14px;
+  border-bottom:1px solid rgba(87,69,128,0.15);
+}
 .insight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
 .insight-card{
   display:flex;flex-direction:column;

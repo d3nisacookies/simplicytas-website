@@ -1,5 +1,15 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "installCommand": "npm install"
+  "installCommand": "npm install",
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/products.html", "destination": "/how-we-help/", "permanent": true },
+    { "source": "/about.html", "destination": "/about/", "permanent": true },
+    { "source": "/insights.html", "destination": "/insights/", "permanent": true },
+    { "source": "/insights/875-billion-comes-due-this-year.html", "destination": "/insights/ground-truth/875-billion-comes-due-this-year/", "permanent": true },
+    { "source": "/insights/6-9-billion-requested-4-9-billion-raised.html", "destination": "/insights/ground-truth/6-9-billion-requested-4-9-billion-raised/", "permanent": true },
+    { "source": "/insights/ilpa-voluntary-not-optional.html", "destination": "/insights/ground-truth/ilpa-voluntary-not-optional/", "permanent": true },
+    { "source": "/insights/ownership-changes-overnight-one-view-takes-years.html", "destination": "/insights/ground-truth/ownership-changes-overnight-one-view-takes-years/", "permanent": true }
+  ]
 }

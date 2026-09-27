@@ -1,6 +1,15 @@
-// Insight articles shown on /insights.html and /insights/<slug>.html.
+// Insight articles shown on /insights/ and /insights/<sector>/<slug>/.
 // Add a new article by appending an entry here and adding its HTML entry
-// (insights/<slug>.html + vite.config.ts input). See AGENTS.md.
+// (insights/<sector>/<slug>/index.html + vite.config.ts input). See AGENTS.md.
+
+// Sectors in the order the Insights page lists them. A sector only shows
+// on the page once at least one article is tagged with it.
+export const sectors = [
+  { id: 'ground-truth', label: 'Ground Truth' },
+  { id: 'risk-compliance', label: 'Risk & Compliance' },
+  { id: 'manufacturing', label: 'Manufacturing' },
+] as const;
+export type SectorId = (typeof sectors)[number]['id'];
 
 export type InsightBlock =
   | { type: 'p'; text: string }
@@ -12,7 +21,10 @@ export type InsightBlock =
 
 export interface Insight {
   slug: string;
+  sector: SectorId;
   title: string;
+  /** Link text on the article's card on the Insights page. */
+  cardCta: string;
   eyebrow: string;
   headline: string;
   headlineAccent: string;
@@ -28,7 +40,9 @@ export interface Insight {
 export const insights: Insight[] = [
   {
     "slug": "875-billion-comes-due-this-year",
+    "sector": "ground-truth",
     "title": "$875 Billion Comes Due This Year",
+    "cardCta": "See what's at risk",
     "eyebrow": "Private Credit & Commercial Real Estate",
     "headline": "Every loan has a maturity date.",
     "headlineAccent": "The market doesn't negotiate with the calendar.",
@@ -111,7 +125,9 @@ export const insights: Insight[] = [
   },
   {
     "slug": "6-9-billion-requested-4-9-billion-raised",
+    "sector": "ground-truth",
     "title": "$6.9 Billion Requested. $4.9 Billion Raised.",
+    "cardCta": "Understand the shortfall",
     "eyebrow": "Private Credit & Real Estate",
     "headline": "For the first time on record.",
     "headlineAccent": "More came out than went in.",
@@ -195,7 +211,9 @@ export const insights: Insight[] = [
   },
   {
     "slug": "ilpa-voluntary-not-optional",
+    "sector": "ground-truth",
     "title": "Voluntary Doesn't Mean Optional",
+    "cardCta": "Why this matters now",
     "eyebrow": "Private Markets",
     "headline": "Three ILPA milestones.",
     "headlineAccent": "A clearer road ahead.",
@@ -282,7 +300,9 @@ export const insights: Insight[] = [
   },
   {
     "slug": "ownership-changes-overnight-one-view-takes-years",
+    "sector": "ground-truth",
     "title": "Ownership Changes Overnight. One View Takes Years.",
+    "cardCta": "See the integration risk",
     "eyebrow": "Private Credit & Real Estate",
     "headline": "M&A deal volume up 46%.",
     "headlineAccent": "Integration timelines measured in years.",
@@ -364,4 +384,4 @@ export const insights: Insight[] = [
   }
 ];
 
-export const insightUrl = (slug: string) => `/insights/${slug}.html`;
+export const insightUrl = (a: Pick<Insight, 'sector' | 'slug'>) => `/insights/${a.sector}/${a.slug}/`;

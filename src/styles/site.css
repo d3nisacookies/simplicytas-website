@@ -7,8 +7,8 @@
    only add page-specific rules in their own stylesheet.
 
    Breakpoints (use the same ones in page CSS):
-   - max-width:1579px  nav links shrink to fit
-   - max-width:1119px  nav collapses to the hamburger menu
+   - max-width:1319px  nav links shrink to fit
+   - max-width:939px   nav collapses to the hamburger menu
    - max-width:760px   phone layout: single column, 36px side padding
 ══════════════════════════════ */
 
@@ -90,23 +90,23 @@ nav{
 .nav-toggle-checkbox:checked ~ .nav-toggle .nav-toggle-icon span:nth-child(2){opacity:0;}
 .nav-toggle-checkbox:checked ~ .nav-toggle .nav-toggle-icon span:nth-child(3){transform:translateY(-10px) rotate(-45deg);}
 
-/* NAV overflow fix - the logo + all 8 links need ~1525px of unbroken
+/* NAV overflow fix - the logo + all 6 links need ~1280px of unbroken
    width at full size (links use white-space:nowrap and the panel can't
    shrink below its own min-content). Below that the trailing links
    render past the right edge of the window. Media widths include the
    ~15px scrollbar, so each threshold leaves room for it:
-   - 1120-1579px: shrink logo/link sizing to keep the horizontal nav
-     (needs ~1085px at this size).
-   - <1120px: fall back to the hamburger menu.
+   - 940-1319px: shrink logo/link sizing to keep the horizontal nav
+     (needs ~900px at this size).
+   - <940px: fall back to the hamburger menu.
    Adding another nav link means re-measuring both thresholds. */
-@media(max-width:1579px) and (min-width:1120px){
+@media(max-width:1319px) and (min-width:940px){
   .nav-logo-panel{padding:0 20px;gap:8px;}
   .nav-mark img{width:56px;height:28px;}
   .nav-tagline{display:none;}
   .nav-links-panel{padding:0 20px;gap:2px;}
   .nav-link{padding:8px 12px;font-size:var(--text-caption);}
 }
-@media(max-width:1119px){
+@media(max-width:939px){
   nav{justify-content:space-between;}
   .nav-logo-panel{padding:0 24px;}
   .nav-toggle{display:flex;background:var(--navy);}

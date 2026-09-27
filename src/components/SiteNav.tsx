@@ -1,17 +1,18 @@
 import { useRef, type MouseEvent } from 'react';
 import { navLogo } from '../lib/logo';
 
-export type NavKey = 's1' | 's2' | 's3' | 'products' | 's4' | 'about' | 'insights' | 'contact';
+export type NavKey = 's1' | 's2' | 'help' | 'results' | 'insights' | 'about';
+
+/** The contact form lives at the bottom of the About page. */
+export const CONTACT_URL = '/about/#contact';
 
 const LINKS: { key: NavKey; label: string; href: string }[] = [
   { key: 's1', label: 'The Problem', href: '/#s1' },
   { key: 's2', label: 'Where It Breaks', href: '/#s2-inner' },
-  { key: 's3', label: 'How We Work', href: '/#s3-inner' },
-  { key: 'products', label: 'Products', href: '/products.html' },
-  { key: 's4', label: 'Results', href: '/#s4-inner' },
-  { key: 'about', label: 'About', href: '/about.html' },
-  { key: 'insights', label: 'Insights', href: '/insights.html' },
-  { key: 'contact', label: 'Talk to Us', href: '/#contact-card' },
+  { key: 'help', label: 'How We Help', href: '/how-we-help/' },
+  { key: 'results', label: 'Results', href: '/results/' },
+  { key: 'insights', label: 'Insights', href: '/insights/' },
+  { key: 'about', label: 'About', href: '/about/' },
 ];
 
 interface SiteNavProps {

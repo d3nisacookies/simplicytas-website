@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState, type ChangeEvent, type SubmitEvent } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './Home.css';
-import SiteNav, { type NavKey } from '../components/SiteNav';
+import SiteNav, { CONTACT_URL, type NavKey } from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
-import { sendContactEmail } from '../lib/email';
 import targetIcon from '../../assets/target.png';
 import transformationIcon from '../../assets/transformation_icon.png';
 import dataReportingIcon from '../../assets/data_and_reporting_icon.png';
@@ -20,40 +19,27 @@ const patterns = [
 ];
 
 // Which nav link to highlight for the section currently in view.
+// How We Work (#s3) is part of Where It Breaks now, so it highlights that link.
 const NAV_KEY_BY_SECTION: Record<string, NavKey> = {
-  '#s1': 's1', '#s2': 's2', '#s3': 's3', '#s4': 's4', '#s5': 'contact',
+  '#s1': 's1', '#s2': 's2', '#s3': 's2',
 };
 // On Home, these nav links smooth-scroll to their in-page target
 // (centered in the viewport) instead of doing a plain hash jump.
 const NAV_SCROLL_TARGETS: Partial<Record<NavKey, string>> = {
-  s2: 's2-inner', s3: 's3-inner', s4: 's4-inner', contact: 'contact-card',
+  s2: 's2-inner',
+};
+
+// Results, case studies and the contact form used to live on Home. Old
+// links to their anchors (in emails, bookmarks) forward to the new pages.
+const MOVED_ANCHORS: Record<string, string> = {
+  '#s4': '/results/', '#s4-inner': '/results/',
+  '#s5': CONTACT_URL, '#contact-card': CONTACT_URL,
 };
 
 export default function Home() {
   const overlayRef = useRef<HTMLDivElement>(null);
   const [overlayIndex, setOverlayIndex] = useState<number | null>(null);
   const [activeSection, setActiveSection] = useState<string>('#s1');
-  const [contactForm, setContactForm] = useState({ name: '', email: '', phone: '', message: '' });
-  const [contactStatus, setContactStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-  const [contactError, setContactError] = useState('');
-
-  const updateContactField = (field: keyof typeof contactForm) =>
-    (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-      setContactForm(prev => ({ ...prev, [field]: e.target.value }));
-
-  const submitContactForm = async (e: SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setContactStatus('sending');
-    setContactError('');
-    try {
-      await sendContactEmail(contactForm);
-      setContactStatus('success');
-      setContactForm({ name: '', email: '', phone: '', message: '' });
-    } catch (err) {
-      setContactStatus('error');
-      setContactError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
-    }
-  };
 
   // Every section is min-height:100vh with its content top-aligned inside
   // (no vertical centering of its own), so on any screen taller than that
@@ -64,8 +50,8 @@ export default function Home() {
   // since iOS Safari's address bar resizes the viewport mid-scroll.
   // Centering the target fixes both - except plain block:'center' doesn't
   // know about the section it lives in: since the target usually isn't
-  // flush with its section's own edges (contact-card sits well inside
-  // #s5, and the cards grid inside #s2 has a heading above it), centering
+  // flush with its section's own edges (the cards grid inside #s2 has a
+  // heading above it), centering
   // it can land with the section's top OR bottom edge still inside the
   // viewport, exposing a sliver of the section before or after it.
   // Compute the scroll delta by hand instead, clamped so the enclosing
@@ -102,7 +88,6 @@ export default function Home() {
       history.pushState(null, '', '#' + targetId);
     }
   };
-  const scrollToContactCard = scrollToCentered('contact-card');
 
   // Original script: openOverlay(i) / closeOverlay()
   const openOverlay = (i: number) => setOverlayIndex(i);
@@ -170,8 +155,6 @@ export default function Home() {
     const sectionTargets: Record<string, string> = {
       '#s2': 's2-inner',
       '#s3': 's3-inner',
-      '#s4': 's4-inner',
-      '#s5': 'contact-card',
     };
     let debounceId: number | undefined;
     let settleId: number | undefined;
@@ -205,11 +188,16 @@ export default function Home() {
     };
   }, []);
 
-  // Cross-page links (e.g. /#contact-card from Products/About) land here before
+  // Cross-page links (e.g. /#s2-inner from other pages' nav) land here before
   // the browser's native hash-scroll fires, since the target doesn't exist in the
   // static HTML yet. Scroll to it manually once mounted, via the same
   // centerOnElement logic scrollToCentered above uses.
   useEffect(() => {
+    const moved = MOVED_ANCHORS[window.location.hash];
+    if (moved) {
+      window.location.replace(moved);
+      return;
+    }
     if (window.location.hash) {
       const el = document.querySelector(window.location.hash);
       if (el) centerOnElement(el, 'auto');
@@ -340,7 +328,7 @@ export default function Home() {
                 {"See Where It Breaks "}
                 <span className="btn-arrow">{"→"}</span>
               </a>
-              <a href="#contact-card" className="btn-secondary" onClick={scrollToContactCard}>
+              <a href={CONTACT_URL} className="btn-secondary">
                 {"Talk to Us "}
                 <span className="btn-arrow">{"→"}</span>
               </a>
@@ -488,7 +476,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* S3 HOW WE WORK */}
+      {/* S3 HOW WE WORK - part of "Where It Breaks" in the nav */}
       <section id="s3">
         <div className="s3-inner" id="s3-inner">
           <div>
@@ -537,7 +525,7 @@ export default function Home() {
               <div className="diff-text">
                 {"Every engagement draws on four products, Procurement360, Data360, Portfolio Management360, and Governance360, each built on the same nine-module diagnostic sequence, from source data classification through to business case and roadmap. The products are the scaffold. What we bring is the judgment to know which findings matter, which numbers are telling the truth, and what to do about it first."}
               </div>
-              <a className="case-cta" href="/products.html" style={{ marginTop: "16px" }}>
+              <a className="case-cta" href="/how-we-help/" style={{ marginTop: "16px" }}>
                 {"See the Intelligence360 Suite "}
                 <span className="case-arrow">{"→"}</span>
               </a>
@@ -571,204 +559,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* S4 RESULTS */}
-      <section id="s4">
-        <div className="s4-inner" id="s4-inner">
-          <div className="section-tag">{"Results"}</div>
-          <div className="sh-light" style={{ marginBottom: "6px" }}>
-            {"It has worked before."}
-            <br />
-            <span>{"Here is what that looked like."}</span>
-          </div>
-          <div style={{ fontSize: "var(--text-caption)", color: "rgba(45,43,85,0.82)", lineHeight: "1.65", marginBottom: "14px", maxWidth: "520px" }}>
-            {"Three situations. Three different regions. The same gap between what the data showed and what was actually happening, and the same outcome when someone stayed long enough to close it."}
-          </div>
-          <div className="results-stack">
-            <div className="rcard">
-              <div className="rc-left">
-                <div className="rc-sector">{"Commercial Real Estate · Americas"}</div>
-                <div className="rc-situation">{"$6B in acquired assets. No reporting layer anyone trusted."}</div>
-                <div className="rc-tag">
-                  <div className="rc-tag-dot" />
-                  {"Data visibility"}
-                </div>
-              </div>
-              <div className="rc-mid">
-                <div className="rc-before">
-                  {"Fragmented data across systems and geographies. Unable to report to lenders or investors. No visibility over day-to-day operations."}
-                </div>
-                <div className="rc-arrow">{"↓"}</div>
-                <div className="rc-after">
-                  {"End-to-end reporting built from scratch. Lender, investor, tax, and regulatory reporting delivered accurately and on time, for the first time. Manual remediation fully automated."}
-                </div>
-              </div>
-              <div className="rc-right">
-                <div className="rc-stat">
-                  {"$6"}
-                  <span>{"B"}</span>
-                </div>
-                <div className="rc-stat-label">{"in assets. First reliable reporting layer delivered within the engagement."}</div>
-              </div>
-            </div>
-            <div className="rcard">
-              <div className="rc-left">
-                <div className="rc-sector">{"Technology · APAC"}</div>
-                <div className="rc-situation">{"Finance teams scattered across eight countries. No shared model, rising costs."}</div>
-                <div className="rc-tag">
-                  <div className="rc-tag-dot" />
-                  {"Platform adoption"}
-                </div>
-              </div>
-              <div className="rc-mid">
-                <div className="rc-before">
-                  {"Dispersed finance teams across eight APAC countries, each running inconsistent processes. Regulatory complexity across five markets. Costs climbing with no scalable structure to support growth."}
-                </div>
-                <div className="rc-arrow">{"↓"}</div>
-                <div className="rc-after">
-                  {"In-house finance shared service centres built in Malaysia and China. Restructuring executed with full change management across all eight countries. Standardised processes, stronger talent retention, and a model built to scale."}
-                </div>
-              </div>
-              <div className="rc-right">
-                <div className="rc-stat">
-                  {"25"}
-                  <span>{"%"}</span>
-                </div>
-                <div className="rc-stat-label">
-                  {"reduction in transactional accounting costs. Shared service centres built across Malaysia and China."}
-                </div>
-              </div>
-            </div>
-            <div className="rcard">
-              <div className="rc-left">
-                <div className="rc-sector">{"Financial Services · Europe"}</div>
-                <div className="rc-situation">{"Lean programme approved. Global operations. Change not happening."}</div>
-                <div className="rc-tag">
-                  <div className="rc-tag-dot" />
-                  {"Stalled transformation"}
-                </div>
-              </div>
-              <div className="rc-mid">
-                <div className="rc-before">
-                  {"Major European investment bank needed transformation across global equities middle and back office. London, New York, and India. Tangible results needed fast."}
-                </div>
-                <div className="rc-arrow">{"↓"}</div>
-                <div className="rc-after">
-                  {"10%+ capacity reduction in six months. 500+ staff trained globally. Lean mindset embedded. Not handed over. Long-term operational resilience established across all three locations."}
-                </div>
-              </div>
-              <div className="rc-right">
-                <div className="rc-stat">
-                  {"10"}
-                  <span>{"%+"}</span>
-                </div>
-                <div className="rc-stat-label">{"capacity reduction in 6 months. 500 staff trained. Change embedded, not handed over."}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* CASE STUDIES */}
-      <section className="case-section">
-        <div className="case-note-solo">
-          <div className="case-note-label">{"Case studies"}</div>
-          <div className="case-note-num">
-            {"18 "}
-            <span>{"total"}</span>
-          </div>
-          <div className="case-note-text">
-            {"Across financial services, commercial real estate, logistics, technology, and industrial sectors. The three above are a representative sample. Tell us what you're dealing with below, and we'll send the ones most relevant to your situation, or set up time to talk it through."}
-          </div>
-          <a className="case-cta" href="#contact-card" onClick={scrollToContactCard}>
-            {"Get the relevant case studies, or start a conversation "}
-            <span className="case-arrow">{"→"}</span>
-          </a>
-        </div>
-      </section>
-      {/* S5 CONTACT */}
-      <section id="s5">
-        <div className="s5-gl" />
-        <div className="s5-pg" />
-        <div className="s5-inner">
-          <div>
-            <div className="s5-tag">{"Start here"}</div>
-            <div className="s5-heading">
-              {"If you recognise"}
-              <br />
-              {"the problem,"}
-              <br />
-              <span>{"let's talk about it."}</span>
-            </div>
-            <div className="s5-body">
-              {"Tell us what you're dealing with. We'll follow up by email or phone with whichever is the better next step. The case studies closest to your situation, or a short conversation. Either way, it starts with the same form."}
-            </div>
-            <div className="what-it-is">
-              <div className="wit-label">{"If it turns into a conversation"}</div>
-              <div className="wit-row">
-                <div className="wit-check" />
-                <div className="wit-text">
-                  <strong>{"30 minutes."}</strong>
-                  {" No more unless you want to continue."}
-                </div>
-              </div>
-              <div className="wit-row">
-                <div className="wit-check" />
-                <div className="wit-text">
-                  <strong>{"No deck."}</strong>
-                  {" We listen first."}
-                </div>
-              </div>
-              <div className="wit-row">
-                <div className="wit-check" />
-                <div className="wit-text">
-                  <strong>{"No proposal."}</strong>
-                  {" We will tell you honestly whether this is something we can help with."}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="contact-card" id="contact-card">
-              <div className="cc-head">
-                <div className="cc-name">{"Start the conversation"}</div>
-                <div className="cc-role">{"See what others miss"}</div>
-              </div>
-              <form onSubmit={submitContactForm}>
-                <div className="cc-form">
-                  <div className="cc-field">
-                    <div className="cc-label">{"Your name"}</div>
-                    <input className="cc-input" type="text" placeholder="Name" required value={contactForm.name} onChange={updateContactField('name')} />
-                  </div>
-                  <div className="cc-field">
-                    <div className="cc-label">{"Your email"}</div>
-                    <input className="cc-input" type="email" placeholder="email@company.com" required value={contactForm.email} onChange={updateContactField('email')} />
-                  </div>
-                  <div className="cc-field">
-                    <div className="cc-label">{"Your phone (optional)"}</div>
-                    <input className="cc-input" type="tel" placeholder="Include country code" value={contactForm.phone} onChange={updateContactField('phone')} />
-                  </div>
-                  <div className="cc-field">
-                    <div className="cc-label">{"What you are dealing with"}</div>
-                    <textarea className="cc-textarea" placeholder="A few lines is enough. Tell us the situation, or just ask for case studies. We'll read it before we get back to you." required value={contactForm.message} onChange={updateContactField('message')} />
-                  </div>
-                </div>
-                {contactStatus === 'success' && (
-                  <div className="cc-status success">{"Thanks — we've got it and will follow up soon."}</div>
-                )}
-                {contactStatus === 'error' && (
-                  <div className="cc-status error">{contactError}</div>
-                )}
-                <button className="cc-submit" type="submit" disabled={contactStatus === 'sending'}>
-                  {contactStatus === 'sending' ? "Sending…" : "Get in touch →"}
-                </button>
-              </form>
-              <div className="cc-pdpa">
-                {"We will use your details to follow up by email or phone, with relevant case studies, a conversation, or both. We will not share your information with third parties."}
-              </div>
-            </div>
-          </div>
-        </div>
-        <SiteFooter />
-      </section>
+      <SiteFooter />
     </>
   );
 }
