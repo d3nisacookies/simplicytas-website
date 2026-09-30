@@ -1,6 +1,10 @@
 /* Results page - page-specific rules only. Nav, footer, hero, body shell
    and CTA come from src/styles/site.css. */
 
+/* Near-white page background: on the standard lavender, the cards'
+   lavender side panels (rc-left / rc-right) blended into the page. */
+.results-body{background:var(--lavender-pale);}
+
 /* ── RESULT CARDS (moved from the Home page) ── */
 .results-stack{display:flex;flex-direction:column;gap:18px;}
 .rcard{background:#fff;border-radius:16px;border:1px solid var(--lavender-mid);overflow:hidden;display:grid;grid-template-columns:250px 1fr 220px;transition:border-color .2s,box-shadow .2s;}

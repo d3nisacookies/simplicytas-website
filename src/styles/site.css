@@ -26,6 +26,7 @@ body{font-family:'Open Sans',sans-serif;color:#2D2B55;overflow-x:hidden;}
   --lavender:#EEE9F8;
   --lavender-light:#EDE8F5;
   --lavender-mid:#D8D0EE;
+  --lavender-pale:#FAF9FD; /* near-white page background where lavender panels need to stand out */
   --teal-bg:#E8F6F7;
   --grey-bg:#E0DFE3;
   --nav-bg:#E4EDF8;
