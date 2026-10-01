@@ -42,6 +42,7 @@ function Article({ article }: { article: Insight }) {
   return (
     <PageLayout title={article.title} active="insights">
       <PageHero
+        className="insight-hero"
         eyebrow={article.eyebrow}
         headline={<>{article.headline}<br /><span className="teal">{article.headlineAccent}</span></>}
       >
@@ -64,6 +65,10 @@ function Article({ article }: { article: Insight }) {
           <a className="insight-back" href="/insights/">{"← All insights"}</a>
           {article.body.map((b, i) => <Block block={b} key={i} />)}
           <p className="insight-closing">{article.closing}</p>
+          <div className="insight-affecting">
+            <p className="insight-affecting-q">{"Could this be affecting your organisation?"}</p>
+            <p className="insight-affecting-text">{"Simplicytas helps you establish what data is reliable, what is unclear and what needs attention before reporting, investment or operational decisions are made."}</p>
+          </div>
           <div className="insight-cta-row">
             <a className="cta-btn" href={CONTACT_URL}>{article.ctaLabel}{" →"}</a>
           </div>

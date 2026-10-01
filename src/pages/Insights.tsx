@@ -1,4 +1,4 @@
-import PageLayout, { PageHero } from '../components/PageLayout';
+import PageLayout, { PageHero, PageCta, READY_CTA } from '../components/PageLayout';
 import { insights, insightUrl, sectors } from '../content/insights';
 import './Insights.css';
 
@@ -39,6 +39,7 @@ export default function Insights() {
           ))}
         </div>
       </section>
+      <PageCta {...READY_CTA} />
     </PageLayout>
   );
 }

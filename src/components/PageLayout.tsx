@@ -44,12 +44,14 @@ interface PageHeroProps {
   scrollHint?: boolean;
   /** Render the headline as the page's <h1> (default) or a plain div. */
   as?: 'h1' | 'div';
+  /** Extra class on the section, for page-specific hero tweaks. */
+  className?: string;
 }
 
 // Navy hero band with the faint grid texture.
-export function PageHero({ eyebrow, headline, children, scrollHint = false, as: Tag = 'h1' }: PageHeroProps) {
+export function PageHero({ eyebrow, headline, children, scrollHint = false, as: Tag = 'h1', className }: PageHeroProps) {
   return (
-    <section className="page-hero">
+    <section className={className ? `page-hero ${className}` : 'page-hero'}>
       <div className="hero-gl" />
       <div className="page-hero-inner">
         <div className="page-eyebrow">{eyebrow}</div>
@@ -67,7 +69,19 @@ interface PageCtaProps {
   bullets?: ReactNode[];
   buttonLabel?: string;
   buttonHref?: string;
+  id?: string;
 }
+
+// The standard "Ready to see..." banner wording, shared by Where It Breaks
+// (Home), Results and Insights: <PageCta {...READY_CTA} />.
+export const READY_CTA = {
+  heading: 'Ready to see what your organisation is missing?',
+  body: 'For CEOs, CFOs, and COOs who want operators in the room, not consultants studying it from outside, the next step is simple:',
+  bullets: [
+    'Tell us where head office and the ground floor disagree.',
+    'We respond with the judgment call, not a framework.',
+  ],
+};
 
 // Navy close-out call to action, pointing at the About page contact form by default.
 export function PageCta({
@@ -76,9 +90,10 @@ export function PageCta({
   bullets = [],
   buttonLabel = 'Start the conversation →',
   buttonHref = CONTACT_URL,
+  id,
 }: PageCtaProps) {
   return (
-    <section className="page-cta">
+    <section className="page-cta" id={id}>
       <div className="hero-gl" />
       <div className="page-cta-inner">
         <div>

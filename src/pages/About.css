@@ -61,20 +61,8 @@
 .person-bio{font-size:var(--text-body);color:var(--text-muted);line-height:1.75;margin-bottom:14px;}
 .person-bio:last-child{margin-bottom:0;}
 
-/* rest of the team - name + role only */
-.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:22px;}
-.team-card{
-  display:flex;align-items:center;gap:16px;
-  background:#fff;border-radius:16px;
-  border:1px solid rgba(54,178,176,0.28);
-  padding:20px 22px;
-}
-.team-card .person-init{width:48px;height:48px;font-size:var(--text-body);margin-bottom:0;}
-.team-card .person-role{margin-bottom:0;}
-
 @media (max-width:760px){
   .person{grid-template-columns:1fr;}
   .person-side{border-right:none;border-bottom:1px solid rgba(54,178,176,0.18);}
   .about-body{padding-top:28px;}
-  .team-grid{grid-template-columns:1fr;}
 }

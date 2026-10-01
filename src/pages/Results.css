@@ -43,6 +43,11 @@
 
 /* ── STORY (moved from the About page) ── */
 .results-body .page-lede{padding-top:56px;border-top:1px solid rgba(87,69,128,0.15);}
+/* Story text spans the full column so every paragraph lines up with the
+   edges of the stat strip (the About page used a narrower 750px measure). */
+.results-body .page-lede,
+.results-body .body-para,
+.results-body .pull-block{max-width:none;}
 .body-para{
   font-size:var(--text-body);line-height:1.55;
   color:var(--navy);

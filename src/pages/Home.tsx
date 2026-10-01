@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import './Home.css';
 import SiteNav, { CONTACT_URL, type NavKey } from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
+import { PageCta, READY_CTA } from '../components/PageLayout';
 import targetIcon from '../../assets/target.png';
 import transformationIcon from '../../assets/transformation_icon.png';
 import dataReportingIcon from '../../assets/data_and_reporting_icon.png';
@@ -21,7 +22,7 @@ const patterns = [
 // Which nav link to highlight for the section currently in view.
 // How We Work (#s3) is part of Where It Breaks now, so it highlights that link.
 const NAV_KEY_BY_SECTION: Record<string, NavKey> = {
-  '#s1': 's1', '#s2': 's2', '#s3': 's2',
+  '#s1': 's1', '#s2': 's2', '#s3': 's2', '#home-cta': 's2',
 };
 // On Home, these nav links smooth-scroll to their in-page target
 // (centered in the viewport) instead of doing a plain hash jump.
@@ -523,7 +524,7 @@ export default function Home() {
             <div className="diff-block">
               <div className="diff-label">{"What makes this different"}</div>
               <div className="diff-text">
-                {"Every engagement draws on four products, Procurement360, Data360, Portfolio Management360, and Governance360, each built on the same nine-module diagnostic sequence, from source data classification through to business case and roadmap. The products are the scaffold. What we bring is the judgment to know which findings matter, which numbers are telling the truth, and what to do about it first."}
+                {"Every engagement draws on four products, Data360, Procure360, Portfolio360, and Governance360, each built on the same nine-module diagnostic sequence, from source data classification through to business case and roadmap. The products are the scaffold. What we bring is the judgment to know which findings matter, which numbers are telling the truth, and what to do about it first."}
               </div>
               <a className="case-cta" href="/how-we-help/" style={{ marginTop: "16px" }}>
                 {"See the Intelligence360 Suite "}
@@ -559,6 +560,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Bottom banner, same as How We Help / Results / Insights */}
+      <PageCta {...READY_CTA} id="home-cta" />
       <SiteFooter />
     </>
   );

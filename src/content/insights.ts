@@ -67,7 +67,7 @@ export const insights: Insight[] = [
     "milestoneSource": "Source: Mortgage Bankers Association, 2025 CRE Survey of Loan Maturity Volumes; Kidder Mathews, Nov 2025",
     "heroClose": "A dated event isn't a warning. It's a test with a fixed start time.",
     "closing": "$1.26 trillion doesn't clear on hope. It clears loan by loan, on data the lender trusts as much as you do.",
-    "ctaLabel": "See where your book sits",
+    "ctaLabel": "See Where Your Book Sits",
     "body": [
       {
         "type": "p",
@@ -152,7 +152,7 @@ export const insights: Insight[] = [
     "milestoneSource": "Source: Robert A. Stanger & Co., Q1 2026 Non-Listed BDC Report; Blackstone SEC Schedule TO-I/A, filed March 2, 2026; Ares Strategic Income Fund SEC Schedule TO-I/A exhibits, filed March 24 and June 25, 2026; Apollo Debt Solutions BDC Regulation FD disclosure and SEC filing, reported by Reuters, June 22, 2026",
     "heroClose": "A gate raised is not a gate broken. But it is a signal worth reading closely.",
     "closing": "$6.9 billion moved out faster than $4.9 billion moved in. That gap doesn't close itself. It closes on data someone can stand behind.",
-    "ctaLabel": "See your valuation gap",
+    "ctaLabel": "See Your Valuation Gap",
     "body": [
       {
         "type": "p",
@@ -238,7 +238,7 @@ export const insights: Insight[] = [
     "milestoneSource": "Source: ILPA.org, all three milestones",
     "heroClose": "Standards don't just change reports. They change conversations.",
     "closing": "The first live delivery to LPs lands Q1 2027. Whatever's being done manually today has one more quarter before it's tested for real. If you're not confident your firm could answer that question this quarter, that's worth a conversation.",
-    "ctaLabel": "See your ILPA reporting gap",
+    "ctaLabel": "See Your ILPA Reporting Gap",
     "body": [
       {
         "type": "p",
@@ -327,7 +327,7 @@ export const insights: Insight[] = [
     "milestoneSource": "Source: Deloitte 2026 Investment Management Outlook; Nuveen/Schroders Scheme Document, filed 12 March 2026",
     "heroClose": "Ownership can change overnight. Establishing one defensible view across the combined business can take years.",
     "closing": "The deal announcement takes a day. The 12 to 18 month assessment period is real, and it's the exact window where the reporting gap either gets closed on purpose or discovered by accident.",
-    "ctaLabel": "See your integration gap",
+    "ctaLabel": "See Your Integration Gap",
     "body": [
       {
         "type": "p",

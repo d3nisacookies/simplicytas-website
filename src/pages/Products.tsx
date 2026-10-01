@@ -21,17 +21,6 @@ export default function Products() {
             <div className="product-stack">
               <div className="product-card">
                 <div className="product-side">
-                  <div className="product-name">{"Procurement360"}</div>
-                </div>
-                <div className="product-main">
-                  <div className="product-tagline">{"Turns procurement into a source of value, not a cost centre to manage."}</div>
-                  <div className="product-body">
-                    {"Procurement360 sharpens supplier performance, sourcing effectiveness, contract compliance, and spend visibility, then uses that visibility to surface savings other teams miss. For the CFO, that means clean, defensible numbers on where cash is going. For the COO, shorter procurement cycles and suppliers held to account instead of managed on trust."}
-                  </div>
-                </div>
-              </div>
-              <div className="product-card">
-                <div className="product-side">
                   <div className="product-name">{"Data360"}</div>
                 </div>
                 <div className="product-main">
@@ -43,14 +32,25 @@ export default function Products() {
               </div>
               <div className="product-card">
                 <div className="product-side">
-                  <div className="product-name">{"Portfolio Management360"}</div>
+                  <div className="product-name">{"Procure360"}</div>
+                </div>
+                <div className="product-main">
+                  <div className="product-tagline">{"Turns procurement into a source of value, not a cost centre to manage."}</div>
+                  <div className="product-body">
+                    {"Procure360 sharpens supplier performance, sourcing effectiveness, contract compliance, and spend visibility, then uses that visibility to surface savings other teams miss. For the CFO, that means clean, defensible numbers on where cash is going. For the COO, shorter procurement cycles and suppliers held to account instead of managed on trust."}
+                  </div>
+                </div>
+              </div>
+              <div className="product-card">
+                <div className="product-side">
+                  <div className="product-name">{"Portfolio360"}</div>
                 </div>
                 <div className="product-main">
                   <div className="product-tagline">
                     {"Gives AI and transformation portfolios the visibility capital allocation decisions actually need."}
                   </div>
                   <div className="product-body">
-                    {"Portfolio Management360 tracks priorities, resources, dependencies, risk, cost, and benefit across every initiative in the portfolio. For the CFO, a clear line from spend to return across every AI and transformation bet. For the CEO, the ability to redirect scarce resources before a stalled programme becomes a write-off."}
+                    {"Portfolio360 tracks priorities, resources, dependencies, risk, cost, and benefit across every initiative in the portfolio. For the CFO, a clear line from spend to return across every AI and transformation bet. For the CEO, the ability to redirect scarce resources before a stalled programme becomes a write-off."}
                   </div>
                 </div>
               </div>

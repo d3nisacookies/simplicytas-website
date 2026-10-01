@@ -1,4 +1,4 @@
-import PageLayout, { PageHero, PageCta } from '../components/PageLayout';
+import PageLayout, { PageHero, PageCta, READY_CTA } from '../components/PageLayout';
 import { CONTACT_URL } from '../components/SiteNav';
 import './Results.css';
 
@@ -164,14 +164,7 @@ export default function Results() {
           </div>
         </div>
       </section>
-      <PageCta
-        heading={"Ready to see what your organisation is missing?"}
-        body={"For CEOs, CFOs, and COOs who want operators in the room, not consultants studying it from outside, the next step is simple:"}
-        bullets={[
-          "Tell us where head office and the ground floor disagree.",
-          "We respond with the judgment call, not a framework.",
-        ]}
-      />
+      <PageCta {...READY_CTA} />
     </PageLayout>
   );
 }
