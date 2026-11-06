@@ -23,10 +23,10 @@
 .brand-sign-mark img{width:68px;height:34px;display:block;}
 .brand-sign-text{display:flex;flex-direction:column;gap:1px;}
 .brand-sign-name{font-family:'Roboto',sans-serif;font-weight:700;font-size:var(--text-body);letter-spacing:2px;text-transform:uppercase;color:var(--navy);}
-.brand-sign-tag{font-size:var(--text-caption);letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);}
+.brand-sign-tag{font-size:var(--text-caption);letter-spacing:1.5px;text-transform:uppercase;color:var(--teal-text);}
 
 /* WHO WORKS ON THIS */
-.team-label{font-size:var(--text-caption);letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:10px;}
+.team-label{font-size:var(--text-caption);letter-spacing:2.5px;text-transform:uppercase;color:var(--teal-text);margin-bottom:10px;}
 .team-heading{font-family:'Roboto',sans-serif;font-weight:700;font-size:clamp(var(--text-h3),3vw,var(--text-h2));color:var(--navy);line-height:1.15;margin-bottom:10px;}
 .team-sub{font-size:var(--text-body);color:var(--text-muted);line-height:1.7;margin-bottom:28px;}
 .people-stack{display:flex;flex-direction:column;gap:22px;}

@@ -80,27 +80,27 @@ export default function ContactSection() {
             <form onSubmit={submit}>
               <div className="cc-form">
                 <div className="cc-field">
-                  <div className="cc-label">{"Your name"}</div>
-                  <input className="cc-input" type="text" placeholder="Name" required value={form.name} onChange={update('name')} />
+                  <label className="cc-label" htmlFor="cc-name">{"Your name"}</label>
+                  <input className="cc-input" id="cc-name" name="name" autoComplete="name" type="text" placeholder="Name" required value={form.name} onChange={update('name')} />
                 </div>
                 <div className="cc-field">
-                  <div className="cc-label">{"Your email"}</div>
-                  <input className="cc-input" type="email" placeholder="email@company.com" required value={form.email} onChange={update('email')} />
+                  <label className="cc-label" htmlFor="cc-email">{"Your email"}</label>
+                  <input className="cc-input" id="cc-email" name="email" autoComplete="email" type="email" placeholder="email@company.com" required value={form.email} onChange={update('email')} />
                 </div>
                 <div className="cc-field">
-                  <div className="cc-label">{"Your phone (optional)"}</div>
-                  <input className="cc-input" type="tel" placeholder="Include country code" value={form.phone} onChange={update('phone')} />
+                  <label className="cc-label" htmlFor="cc-phone">{"Your phone (optional)"}</label>
+                  <input className="cc-input" id="cc-phone" name="phone" autoComplete="tel" type="tel" placeholder="Include country code" value={form.phone} onChange={update('phone')} />
                 </div>
                 <div className="cc-field">
-                  <div className="cc-label">{"What you are dealing with"}</div>
-                  <textarea className="cc-textarea" placeholder="A few lines is enough. Tell us the situation, or just ask for case studies. We'll read it before we get back to you." required value={form.message} onChange={update('message')} />
+                  <label className="cc-label" htmlFor="cc-message">{"What you are dealing with"}</label>
+                  <textarea className="cc-textarea" id="cc-message" name="message" placeholder="A few lines is enough. Tell us the situation, or just ask for case studies. We'll read it before we get back to you." required value={form.message} onChange={update('message')} />
                 </div>
               </div>
               {status === 'success' && (
-                <div className="cc-status success">{"Thanks — we've got it and will follow up soon."}</div>
+                <div className="cc-status success" role="status" aria-live="polite">{"Thanks — we've got it and will follow up soon."}</div>
               )}
               {status === 'error' && (
-                <div className="cc-status error">{error}</div>
+                <div className="cc-status error" role="alert">{error}</div>
               )}
               <button className="cc-submit" type="submit" disabled={status === 'sending'}>
                 {status === 'sending' ? "Sending…" : "Get in touch →"}

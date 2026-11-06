@@ -104,11 +104,11 @@ export default function Cookies() {
       <h2 className="legal-h2">{"Information about cookies"}</h2>
       <p className="legal-p">
         {"Useful information about cookies can be found at: "}
-        <a href="http://www.allaboutcookies.org/" target="_blank" rel="noreferrer">{"allaboutcookies.org"}</a>
+        <a href="https://www.allaboutcookies.org/" target="_blank" rel="noopener noreferrer">{"allaboutcookies.org"}</a>
       </p>
       <p className="legal-p">
         {"A guide to behavioural advertising and online privacy has been produced by the internet advertising industry which can be found at: "}
-        <a href="http://www.youronlinechoices.eu/" target="_blank" rel="noreferrer">{"youronlinechoices.eu"}</a>
+        <a href="https://www.youronlinechoices.eu/" target="_blank" rel="noopener noreferrer">{"youronlinechoices.eu"}</a>
       </p>
 
       <h2 className="legal-h2">{"How to contact us"}</h2>

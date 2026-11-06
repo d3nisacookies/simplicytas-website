@@ -3,7 +3,7 @@ import LegalLayout from './LegalLayout';
 // Content converted from the live simplicytas.com Privacy Policy page.
 export default function Privacy() {
   return (
-    <LegalLayout title="Privacy Policy" updated="Updated: 1 September 2024">
+    <LegalLayout title="Privacy Policy" updated="Updated: 6 November 2026">
       <h2 className="legal-h2">{"Introduction"}</h2>
       <p className="legal-p">{"We are a privacy conscious organisation. This Privacy Policy explains how we collect, use and disclose your personal data that is in our possession when you use our website or provide personal information to us through our website. It also describes the rights you have with respect to your personal data."}</p>
       <p className="legal-p">{"This Privacy Policy applies only to SIMPLICYTAS Consulting Pte Ltd (“SIMPLICYTAS”/”we”/”us”) in Singapore."}</p>
@@ -40,6 +40,11 @@ export default function Privacy() {
       <h2 className="legal-h2">{"Access to and amendment of information"}</h2>
       <p className="legal-p">{"You may request access to your personal data and information, request to correct your personal data and information if you believe that it is incorrect, by contacting us at the email address below. In all cases, we will treat requests to access personal information or for correction of personal information in accordance with applicable legal requirements, regulations and guidelines."}</p>
       <p className="legal-p">{"You may withdraw consent at any time where we are relying on your consent to process your personal data and information. However, this will not affect the lawfulness of any processing carried out before you withdraw your consent. If you withdraw your consent to any or all use of your personal data, depending on the nature of your request, we may not be able to provide or continue providing our services to you, or administer any contractual relationship already in place. You understand and agree that in such instances where you withdraw your consent, we cannot be held liable for breach of our contractual agreement or our obligations in providing any services. Our legal rights and remedies in such event are expressly reserved."}</p>
+
+      <h2 className="legal-h2">{"Our website and service providers"}</h2>
+      <p className="legal-p">{"When you send us an enquiry through the contact form on this website, the details you enter (your name, email address, telephone number if you provide one, and your message) are transmitted to us by email using the EmailJS service, with email delivery handled by Mailgun. These providers process that information on our behalf only to deliver your enquiry to us."}</p>
+      <p className="legal-p">{"This website loads its typefaces from Google Fonts. When a page loads, your browser requests the font files from Google, which means Google receives your IP address and browser details in the course of that request."}</p>
+      <p className="legal-p">{"This website is hosted by Vercel Inc., which processes standard server and log information (such as IP address and browser type) in order to deliver the website to you."}</p>
 
       <h2 className="legal-h2">{"Changes to this Policy"}</h2>
       <p className="legal-p">{"We may modify or amend this Privacy Policy from time to time at our discretion to reflect our current privacy and data protection practices. When we make changes to this Policy, we will amend the revision date at the top of this page and such modified or amended Privacy Policy shall be effective as of that revision date. We encourage you to periodically review this Privacy Policy to be informed about how we are protecting your personal data and information."}</p>

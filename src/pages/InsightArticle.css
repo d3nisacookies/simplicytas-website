@@ -27,9 +27,9 @@
   font-family:'Roboto',sans-serif;font-weight:700;font-size:var(--text-body);color:var(--teal);
   margin-bottom:18px;
 }
-.milestone:nth-child(2) .milestone-num{border-color:var(--purple-light);color:var(--purple-light);}
+.milestone:nth-child(2) .milestone-num{border-color:var(--purple-light);color:#B79CF7;}
 .milestone-tag{font-size:var(--text-caption);letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:6px;}
-.milestone:nth-child(2) .milestone-tag{color:var(--purple-light);}
+.milestone:nth-child(2) .milestone-tag{color:#B79CF7;}
 .milestone-title{font-family:'Roboto',sans-serif;font-weight:700;font-size:var(--text-h3);color:#fff;line-height:1.3;margin-bottom:8px;}
 .milestone-body{font-size:var(--text-caption);color:rgba(255,255,255,0.8);line-height:1.6;}
 .milestone-source{
@@ -99,3 +99,5 @@
   .insight-stat{padding:24px 22px;}
   .insight-question{padding:26px 24px;}
 }
+
+.insight-stat-text .teal{color:var(--teal-text);}

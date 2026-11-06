@@ -52,7 +52,7 @@ function Article({ article }: { article: Insight }) {
             <div className="milestone" key={i}>
               <div className="milestone-num">{i + 1}</div>
               <div className="milestone-tag">{m.tag}</div>
-              <h3 className="milestone-title">{m.title}</h3>
+              <h2 className="milestone-title">{m.title}</h2>
               <p className="milestone-body">{m.body}</p>
             </div>
           ))}

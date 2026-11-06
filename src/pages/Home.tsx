@@ -253,6 +253,7 @@ export default function Home() {
           })()}
         </div>
       </div>
+      <main id="main">
       {/* S1 HERO */}
       <section id="s1">
         <div className="hero-gl" />
@@ -564,6 +565,7 @@ export default function Home() {
       {/* Bottom banner, same as How We Help / Results / Insights */}
       <AiLine />
       <PageCta {...READY_CTA} id="home-cta" />
+      </main>
       <SiteFooter />
     </>
   );

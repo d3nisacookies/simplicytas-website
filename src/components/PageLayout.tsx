@@ -30,7 +30,7 @@ export default function PageLayout({ title, documentTitle, active = null, childr
   return (
     <>
       <SiteNav active={active} />
-      {children}
+      <main id="main">{children}</main>
       <SiteFooter />
     </>
   );

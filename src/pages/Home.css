@@ -50,7 +50,7 @@
 .btn-secondary:hover{border-color:var(--teal);background:rgba(73,172,181,0.08);}
 .btn-arrow{transition:transform .2s;}
 .btn-primary:hover .btn-arrow,.btn-secondary:hover .btn-arrow{transform:translateX(3px);}
-.tl.tc{color:var(--teal);opacity:0.8;}
+.tl.tc{color:var(--teal);}
 .tc-dim{font-family:'Roboto',sans-serif;font-weight:500;font-size:clamp(var(--text-h3),2vw,var(--text-h2));color:#FFFFFF;line-height:1.15;}
 .tc-mid{font-family:'Roboto',sans-serif;font-weight:700;font-size:clamp(var(--text-h3),3.2vw,var(--text-h1));color:#FFFFFF;line-height:1.08;}
 .tc-mid .teal{color:var(--teal);}
@@ -119,7 +119,7 @@
 .cf-icon{width:38px;height:38px;border-radius:50%;border:1px solid rgba(73,172,181,0.22);color:var(--teal);flex-shrink:0;display:flex;align-items:center;justify-content:center;}
 .cf-icon svg{width:19px;height:19px;}
 .foot-q{font-size:var(--text-body);color:#FFFFFF;line-height:1.5;}
-.foot-q-top{display:inline-block;text-transform:uppercase;letter-spacing:1.5px;font-size:var(--text-caption);color:#2C8986;margin-bottom:2px;}
+.foot-q-top{display:inline-block;text-transform:uppercase;letter-spacing:1.5px;font-size:var(--text-caption);color:var(--teal);margin-bottom:2px;}
 .foot-q strong{color:#FFFFFF;font-style:normal;}
 
 .hero-foot{
@@ -312,7 +312,7 @@
 #s3{background:var(--lavender-light);padding:75px 76px 35px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;}
 .s3-inner{max-width:1332px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start;width:100%;}
 .sh-light{font-family:'Roboto',sans-serif;font-weight:700;font-size:clamp(var(--text-h2),2.8vw,var(--text-h1));color:var(--navy);line-height:1.08;margin-bottom:30px;}
-.sh-light span{color:var(--teal);}
+.sh-light span{color:var(--teal-text);}
 .timeline{display:flex;flex-direction:column;position:relative;padding-left:36px;}
 .timeline::before{content:'';position:absolute;left:10px;top:12px;bottom:12px;width:1px;background:linear-gradient(to bottom,var(--teal),rgba(73,172,181,0.1));}
 .tl-item{position:relative;padding-bottom:28px;}
@@ -322,7 +322,7 @@
 .tl-item:hover .tl-node{background:var(--teal);transform:scale(1.15);}
 .tl-item:hover .tl-node::after{background:var(--lavender-light);}
 .tl-stage{font-family:'Roboto',sans-serif;font-weight:700;font-size:var(--text-h3);color:var(--navy);line-height:1.1;margin-bottom:7px;padding-left:14px;}
-.tl-stage span{color:var(--teal);}
+.tl-stage span{color:var(--teal-text);}
 .tl-body{font-size:var(--text-caption);color:var(--text-muted);line-height:1.6;max-width:471px;padding-left:14px;}
 .s3-right{display:flex;flex-direction:column;gap:26px;padding-top:0;}
 .diff-block{padding:28px 30px;background:#fff;border-left:3px solid var(--teal);border-radius:0 16px 16px 0;border-top:1px solid var(--lavender-mid);border-right:1px solid var(--lavender-mid);border-bottom:1px solid var(--lavender-mid);}
@@ -331,13 +331,13 @@
 .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
 .stat-cell{background:#fff;border:1px solid var(--lavender-mid);border-radius:13px;padding:19px 20px;}
 .stat-num{font-family:'Roboto',sans-serif;font-weight:700;font-size:var(--text-h2);color:var(--navy);line-height:1;margin-bottom:4px;}
-.stat-num span{color:var(--teal);}
+.stat-num span{color:var(--teal-text);}
 .stat-label{font-size:var(--text-caption);color:var(--text-dim);line-height:1.35;}
 .method-link{display:flex;align-items:center;justify-content:space-between;padding:23px 29px;background:#E4EDF8;border:1px solid var(--lavender-mid);border-radius:13px;text-decoration:none;transition:border-color .2s,background .2s;}
 .method-link:hover{border-color:rgba(73,172,181,0.4);background:rgba(73,172,181,0.06);}
 .method-link-label{font-size:var(--text-caption);letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:4px;}
 .method-link-text{font-size:var(--text-body);color:var(--navy);font-weight:500;}
-.method-arrow{font-size:var(--text-h3);color:var(--teal);transition:transform .2s;}
+.method-arrow{font-size:var(--text-h3);color:var(--teal-text);transition:transform .2s;}
 .method-link:hover .method-arrow{transform:translateX(4px);}
 
 /* Short-viewport fix (see S2's note above) */
@@ -416,3 +416,6 @@
   .cols,.metrics{grid-template-columns:1fr;}
   .stat-row{grid-template-columns:1fr;}
 }
+
+/* section-tag on the lavender "How we work" section needs the darker teal */
+#s3 .section-tag{color:var(--teal-text);}

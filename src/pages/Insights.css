@@ -17,7 +17,7 @@
   transition:border-color .2s,box-shadow .2s;
 }
 .insight-card:hover{border-color:rgba(54,178,176,0.6);box-shadow:0 4px 16px rgba(45,43,85,0.08);}
-.insight-card-tag{font-size:var(--text-caption);letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:12px;}
+.insight-card-tag{font-size:var(--text-caption);letter-spacing:2.5px;text-transform:uppercase;color:var(--teal-text);font-weight:600;margin-bottom:12px;}
 .insight-card-title{font-family:'Roboto',sans-serif;font-weight:700;font-size:var(--text-h2);color:var(--navy);line-height:1.2;margin-bottom:12px;}
 .insight-card-teaser{font-size:var(--text-body);color:var(--text-muted);line-height:1.65;margin-bottom:22px;}
 .insight-card-cta{

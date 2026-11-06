@@ -9,12 +9,12 @@
 .legal-h2{font-family:'Roboto',sans-serif;font-weight:700;font-size:var(--text-h2);color:var(--navy);margin:46px 0 16px;}
 .legal-h2:first-child{margin-top:0;}
 .legal-p{font-size:var(--text-body);line-height:1.75;color:var(--text-muted);margin-bottom:16px;}
-.legal-p a{color:var(--teal);text-decoration:none;}
+.legal-p a{color:var(--teal-text);text-decoration:underline;}
 .legal-p a:hover{text-decoration:underline;}
 .legal-ul{margin:0 0 16px 24px;}
 .legal-ul li{font-size:var(--text-body);line-height:1.75;color:var(--text-muted);margin-bottom:10px;}
 .legal-address{font-size:var(--text-body);line-height:1.75;color:var(--text-muted);font-style:normal;margin-bottom:16px;}
-.legal-address a{color:var(--teal);text-decoration:none;}
+.legal-address a{color:var(--teal-text);text-decoration:underline;}
 .legal-address a:hover{text-decoration:underline;}
 
 /* Cookie table */

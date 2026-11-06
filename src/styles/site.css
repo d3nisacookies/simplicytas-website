@@ -24,6 +24,7 @@ body{font-family:'Open Sans',sans-serif;color:#2D2B55;overflow-x:hidden;}
 :root{
   --navy:#2D2B55;
   --teal:#3AB6B3;
+  --teal-text:#177370; /* teal for text on white / lavender (5:1+); plain --teal is for navy backgrounds and fills */
   --teal-light:#4FC5C2;
   --purple:#574580;
   --purple-light:#8C5CF3;
@@ -36,7 +37,7 @@ body{font-family:'Open Sans',sans-serif;color:#2D2B55;overflow-x:hidden;}
   --nav-bg:#E4EDF8;
   --white:#FFFFFF;
   --text-muted:rgba(45,43,85,0.82);
-  --text-dim:rgba(45,43,85,0.68);
+  --text-dim:rgba(45,43,85,0.76);
 
   /* ── TYPE SCALE ── one scale, five steps, everything else pulls from
      these instead of one-off px values per section. Headings that should
