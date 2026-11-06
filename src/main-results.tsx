@@ -1,10 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './styles/site.css';
 import Results from './pages/Results';
+import { mount } from './lib/mount';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <Results />
-  </React.StrictMode>
-);
+mount(<Results />);

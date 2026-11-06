@@ -36,13 +36,13 @@ export default function ContactSection() {
       <div className="contact-inner">
         <div>
           <div className="contact-tag">{"Start here"}</div>
-          <div className="contact-heading">
-            {"If you recognise"}
+          <h2 className="contact-heading">
+            {"If you recognise "}
             <br />
-            {"the problem,"}
+            {"the problem, "}
             <br />
             <span>{"let's talk about it."}</span>
-          </div>
+          </h2>
           <div className="contact-body">
             {"Tell us what you're dealing with. We'll follow up by email or phone with whichever is the better next step. The case studies closest to your situation, or a short conversation. Either way, it starts with the same form."}
           </div>

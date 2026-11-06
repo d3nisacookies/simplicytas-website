@@ -80,11 +80,12 @@ function Article({ article }: { article: Insight }) {
 
 // One component serves every /insights/<sector>/<slug>/ page: the slug is
 // the URL's last path segment, so each article's HTML entry just mounts this.
-export default function InsightArticle() {
-  const slug = window.location.pathname.split('/').filter(Boolean).pop();
+export default function InsightArticle({ slug: slugProp }: { slug?: string }) {
+  // The pre-render step passes the slug in; in the browser it comes from the URL.
+  const slug = slugProp ?? window.location.pathname.split('/').filter(Boolean).pop();
   const article = insights.find((a) => a.slug === slug);
   if (!article) {
-    window.location.replace('/insights/');
+    if (typeof window !== 'undefined') window.location.replace('/insights/');
     return null;
   }
   return <Article article={article} />;

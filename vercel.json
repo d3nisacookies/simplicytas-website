@@ -10,6 +10,12 @@
     { "source": "/insights/875-billion-comes-due-this-year.html", "destination": "/insights/ground-truth/875-billion-comes-due-this-year/", "permanent": true },
     { "source": "/insights/6-9-billion-requested-4-9-billion-raised.html", "destination": "/insights/ground-truth/6-9-billion-requested-4-9-billion-raised/", "permanent": true },
     { "source": "/insights/ilpa-voluntary-not-optional.html", "destination": "/insights/ground-truth/ilpa-voluntary-not-optional/", "permanent": true },
-    { "source": "/insights/ownership-changes-overnight-one-view-takes-years.html", "destination": "/insights/ground-truth/ownership-changes-overnight-one-view-takes-years/", "permanent": true }
+    { "source": "/insights/ownership-changes-overnight-one-view-takes-years.html", "destination": "/insights/ground-truth/ownership-changes-overnight-one-view-takes-years/", "permanent": true },
+    { "source": "/our-insights/case-studies", "destination": "/results/", "permanent": true },
+    { "source": "/our-insights/case-studies/", "destination": "/results/", "permanent": true },
+    { "source": "/category/our-approach", "destination": "/how-we-help/", "permanent": true },
+    { "source": "/category/our-approach/", "destination": "/how-we-help/", "permanent": true },
+    { "source": "/category/insights", "destination": "/insights/", "permanent": true },
+    { "source": "/category/insights/", "destination": "/insights/", "permanent": true }
   ]
 }

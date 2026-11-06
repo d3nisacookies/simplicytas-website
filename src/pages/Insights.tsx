@@ -1,4 +1,5 @@
 import PageLayout, { PageHero, PageCta, READY_CTA } from '../components/PageLayout';
+import { pageSeo } from '../seo';
 import { insights, insightUrl, sectors } from '../content/insights';
 import './Insights.css';
 
@@ -10,10 +11,10 @@ export default function Insights() {
     .filter((g) => g.articles.length > 0);
 
   return (
-    <PageLayout title="Insights" active="insights">
+    <PageLayout title="Insights" documentTitle={pageSeo['/insights/'].title} active="insights">
       <PageHero
         eyebrow="Simplicytas Insights"
-        headline={<>{"What the numbers are saying."}<br /><span className="teal">{"Before the market says it for you."}</span></>}
+        headline={<>{"What the numbers are saying. "}<br /><span className="teal">{"Before the market says it for you."}</span></>}
       >
         <div className="page-hero-sub">{"Short reads on the structural shifts in private credit, real estate and private markets, and what they mean for the data behind your book."}</div>
       </PageHero>

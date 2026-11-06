@@ -9,6 +9,7 @@ export default function SiteFooter() {
         <a className="foot-link" href="/terms.html">{"Terms of Use"}</a>
         <a className="foot-link" href="mailto:contact@simplicytas.com">{"contact@simplicytas.com"}</a>
       </div>
+      <div className="foot-address">{"Simplicytas Consulting Pte. Ltd. 138 Market Street, #24-01 CapitaGreen, Singapore 048946"}</div>
     </footer>
   );
 }

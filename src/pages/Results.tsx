@@ -1,4 +1,5 @@
-import PageLayout, { PageHero, PageCta, READY_CTA } from '../components/PageLayout';
+import PageLayout, { PageHero, PageCta, AiLine, READY_CTA } from '../components/PageLayout';
+import { pageSeo } from '../seo';
 import { CONTACT_URL } from '../components/SiteNav';
 import './Results.css';
 
@@ -6,10 +7,10 @@ import './Results.css';
 // followed by the "Most consulting firms..." story from the old About page.
 export default function Results() {
   return (
-    <PageLayout title="Results" active="results">
+    <PageLayout title="Results" documentTitle={pageSeo['/results/'].title} active="results">
       <PageHero
         eyebrow="Results"
-        headline={<>{"It has worked before."}<br /><span className="teal">{"Here is what that looked like."}</span></>}
+        headline={<>{"It has worked before. "}<br /><span className="teal">{"Here is what that looked like."}</span></>}
       >
         <div className="page-hero-sub">{"Three situations. Three different regions. The same gap between what the data showed and what was actually happening, and the same outcome when someone stayed long enough to close it."}</div>
       </PageHero>
@@ -19,7 +20,7 @@ export default function Results() {
             <div className="rcard">
               <div className="rc-left">
                 <div className="rc-sector">{"Commercial Real Estate · Americas"}</div>
-                <div className="rc-situation">{"$6B in acquired assets. No reporting layer anyone trusted."}</div>
+                <h2 className="rc-situation">{"$6B in acquired assets. No reporting layer anyone trusted."}</h2>
                 <div className="rc-tag">
                   <div className="rc-tag-dot" />
                   {"Data visibility"}
@@ -45,7 +46,7 @@ export default function Results() {
             <div className="rcard">
               <div className="rc-left">
                 <div className="rc-sector">{"Technology · APAC"}</div>
-                <div className="rc-situation">{"Finance teams scattered across eight countries. No shared model, rising costs."}</div>
+                <h2 className="rc-situation">{"Finance teams scattered across eight countries. No shared model, rising costs."}</h2>
                 <div className="rc-tag">
                   <div className="rc-tag-dot" />
                   {"Platform adoption"}
@@ -73,7 +74,7 @@ export default function Results() {
             <div className="rcard">
               <div className="rc-left">
                 <div className="rc-sector">{"Financial Services · Europe"}</div>
-                <div className="rc-situation">{"Lean programme approved. Global operations. Change not happening."}</div>
+                <h2 className="rc-situation">{"Lean programme approved. Global operations. Change not happening."}</h2>
                 <div className="rc-tag">
                   <div className="rc-tag-dot" />
                   {"Stalled transformation"}
@@ -98,7 +99,7 @@ export default function Results() {
             </div>
           </div>
           <div className="case-note">
-            <div className="case-note-label">{"Case studies"}</div>
+            <h2 className="case-note-label">{"Case studies"}</h2>
             <div className="case-note-text">
               {"Across financial services, commercial real estate, logistics, technology, and industrial sectors. The three above are a representative sample. Tell us what you're dealing with below, and we'll send the ones most relevant to your situation, or set up time to talk it through."}
             </div>
@@ -164,6 +165,7 @@ export default function Results() {
           </div>
         </div>
       </section>
+      <AiLine />
       <PageCta {...READY_CTA} />
     </PageLayout>
   );

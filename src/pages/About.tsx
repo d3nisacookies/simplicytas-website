@@ -1,4 +1,5 @@
 import PageLayout, { PageHero } from '../components/PageLayout';
+import { pageSeo } from '../seo';
 import ContactSection from '../components/ContactSection';
 import './About.css';
 
@@ -7,16 +8,18 @@ import './About.css';
 // The "Most consulting firms..." story moved to the Results page.
 export default function About() {
   return (
-    <PageLayout title="About" active="about">
+    <PageLayout title="About" documentTitle={pageSeo['/about/'].title} active="about">
       <PageHero
         eyebrow="About Simplicytas"
         headline={<><span className="teal">{"Judgment,"}</span>{" not a framework."}</>}
         scrollHint
-      />
+      >
+        <div className="page-hero-sub">{"Simplicytas is a consultancy and a solution for organisations whose numbers do not agree. We help customers build trust in their data by building a confidence level for every number, as high as the evidence allows. Software, method and people together. Simplicytas Consulting Pte. Ltd. was founded in 2024 and is headquartered in Singapore. It is led by John Culleton, who has more than 30 years of experience leading transformation, operational excellence and performance improvement."}</div>
+      </PageHero>
       <section className="page-body about-body">
         <div className="page-body-inner">
           <div className="team-label">{"Who works on this"}</div>
-          <div className="team-heading">{"Judgment is not a methodology."}</div>
+          <h2 className="team-heading">{"Judgment is not a methodology."}</h2>
           <div className="team-sub">
             {"The people who run every engagement are chosen for what they have seen before, not what they know in theory. Between them, they cover four regions and every functional layer an engagement touches."}
           </div>
@@ -24,7 +27,7 @@ export default function About() {
             <div className="person">
               <div className="person-side">
                 <div className="person-init">{"JC"}</div>
-                <div className="person-name">{"John Culleton"}</div>
+                <h3 className="person-name">{"John Culleton"}</h3>
                 <div className="person-role">{"CEO, Global Head of Strategy"}</div>
               </div>
               <div className="person-main">
@@ -37,7 +40,7 @@ export default function About() {
             <div className="person">
               <div className="person-side">
                 <div className="person-init">{"JJ"}</div>
-                <div className="person-name">{"Jim Jones"}</div>
+                <h3 className="person-name">{"Jim Jones"}</h3>
                 <div className="person-role">{"Senior Advisor, CRE"}</div>
               </div>
               <div className="person-main">
@@ -49,7 +52,7 @@ export default function About() {
             <div className="person">
               <div className="person-side">
                 <div className="person-init">{"IJ"}</div>
-                <div className="person-name">{"Ian Jackson"}</div>
+                <h3 className="person-name">{"Ian Jackson"}</h3>
                 <div className="person-role">{"Senior Advisor, Finance"}</div>
               </div>
               <div className="person-main">
@@ -61,7 +64,7 @@ export default function About() {
             <div className="person">
               <div className="person-side">
                 <div className="person-init">{"RS"}</div>
-                <div className="person-name">{"René Schuster"}</div>
+                <h3 className="person-name">{"René Schuster"}</h3>
                 <div className="person-role">{"Senior Advisor, Emerging Technology"}</div>
               </div>
               <div className="person-main">
@@ -74,7 +77,7 @@ export default function About() {
             <div className="person">
               <div className="person-side">
                 <div className="person-init">{"DM"}</div>
-                <div className="person-name">{"Danny Maylin"}</div>
+                <h3 className="person-name">{"Danny Maylin"}</h3>
                 <div className="person-role">{"Head of Program Delivery"}</div>
               </div>
               <div className="person-main">

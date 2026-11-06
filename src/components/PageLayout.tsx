@@ -3,8 +3,10 @@ import SiteNav, { CONTACT_URL, type NavKey } from './SiteNav';
 import SiteFooter from './SiteFooter';
 
 interface PageLayoutProps {
-  /** Page name for the browser tab: "Simplicytas | {title}". */
+  /** Page name for the browser tab: "Simplicytas | {title}" (unless documentTitle is given). */
   title: string;
+  /** Full browser-tab title, used verbatim. Comes from src/seo.ts so it matches the pre-rendered <title>. */
+  documentTitle?: string;
   /** Nav link to highlight, if this page has one. */
   active?: NavKey | null;
   children: ReactNode;
@@ -12,10 +14,10 @@ interface PageLayoutProps {
 
 // Shell for every inner page: shared nav on top, shared footer at the bottom.
 // Put a <PageHero>, a .page-body section and (optionally) a <PageCta> inside.
-export default function PageLayout({ title, active = null, children }: PageLayoutProps) {
+export default function PageLayout({ title, documentTitle, active = null, children }: PageLayoutProps) {
   useEffect(() => {
-    document.title = `Simplicytas | ${title}`;
-  }, [title]);
+    document.title = documentTitle ?? `Simplicytas | ${title}`;
+  }, [title, documentTitle]);
 
   // Links like /about/#contact arrive before React has rendered the target,
   // so the browser's own jump-to-anchor finds nothing. Do it once mounted.
@@ -76,12 +78,21 @@ interface PageCtaProps {
 // (Home), Results and Insights: <PageCta {...READY_CTA} />.
 export const READY_CTA = {
   heading: 'Ready to see what your organisation is missing?',
-  body: 'For CEOs, CFOs, and COOs who want operators in the room, not consultants studying it from outside, the next step is simple:',
+  body: 'For CEOs, CFOs, and COOs who want people working inside the operation, not studying it from outside, the next step is simple:',
   bullets: [
     'Tell us where head office and the ground floor disagree.',
     'We respond with the judgment call, not a framework.',
   ],
 };
+
+// One-line positioning strip shown above the final call to action on Home and Results.
+export function AiLine() {
+  return (
+    <section className="ai-line">
+      <p className="ai-line-text">{"AI reports on whatever data you feed it. We fix the data first."}</p>
+    </section>
+  );
+}
 
 // Navy close-out call to action, pointing at the About page contact form by default.
 export function PageCta({
@@ -97,7 +108,7 @@ export function PageCta({
       <div className="hero-gl" />
       <div className="page-cta-inner">
         <div>
-          <div className="cta-heading">{heading}</div>
+          <h2 className="cta-heading">{heading}</h2>
           <div className="cta-body">{body}</div>
           {bullets.length > 0 && (
             <div className="cta-bullets">

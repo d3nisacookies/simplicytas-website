@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import './Home.css';
 import SiteNav, { CONTACT_URL, type NavKey } from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
-import { PageCta, READY_CTA } from '../components/PageLayout';
+import { PageCta, AiLine, READY_CTA } from '../components/PageLayout';
+import { pageSeo } from '../seo';
 import targetIcon from '../../assets/target.png';
 import transformationIcon from '../../assets/transformation_icon.png';
 import dataReportingIcon from '../../assets/data_and_reporting_icon.png';
@@ -122,7 +123,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    document.title = "Simplicytas | See What Others Miss";
+    document.title = pageSeo['/'].title;
   }, []);
 
   // centerOnElement's scroll offset is computed once, from the viewport
@@ -306,7 +307,7 @@ export default function Home() {
             </p>
             <div className="value-bullets">
               <div className="value-bullet">
-                {"We step inside the operation to find where data, execution, and transformation are breaking. We fix it with operators who've run organisations at your scale, not consultants who've studied them."}
+                {"We are a consultancy that steps inside the operation to find where your data disagrees with itself. We give every number a confidence score, name an owner for the answer, and stay until it holds. We fix it with operators who've run organisations at your scale."}
               </div>
             </div>
             <div className="tl-row" style={{ marginBottom: "8px" }}>
@@ -318,12 +319,12 @@ export default function Home() {
               </span>
               <span className="stance-label" style={{ marginBottom: "0" }}>{"What we do"}</span>
             </div>
-            <div className="stance-text">
-              {"We see what others miss,"}
+            <h1 className="stance-text">
+              {"We see what others miss, "}
               <br />
               {"and "}
               <span className="teal">{"stay until it's fixed."}</span>
-            </div>
+            </h1>
             <div className="hero-cta-row">
               <a href="#s2-inner" className="btn-primary" onClick={scrollToCentered('s2-inner')}>
                 {"See Where It Breaks "}
@@ -340,7 +341,7 @@ export default function Home() {
             <div className="contra-card">
               <div className="card-header">
                 <img className="ch-icon" src={targetIcon} alt="Target icon" />
-                <div className="card-title">{"Where It's Actually Breaking"}</div>
+                <h2 className="card-title">{"Where It's Actually Breaking"}</h2>
               </div>
               <div className="pattern-list">
                 <div className="pattern-row">
@@ -405,19 +406,19 @@ export default function Home() {
         <div className="s2-gl" />
         <div className="s2-inner" id="s2-inner">
           <div className="section-tag">{"Where it breaks"}</div>
-          <div className="sh-dark">
-            {"Three situations."}
+          <h2 className="sh-dark">
+            {"Three situations. "}
             <br />
             <span>{"One common gap."}</span>
-          </div>
+          </h2>
           <div className="cards-grid">
             <div className="pcard" onClick={() => openOverlay(0)}>
               <div className="p-tag">{"Does this sound familiar?"}</div>
-              <div className="p-headline">
-                {"You have the data."}
+              <h3 className="p-headline">
+                {"You have the data. "}
                 <br />
                 <span className="teal">{"Nobody trusts it."}</span>
-              </div>
+              </h3>
               <div className="p-signals">
                 <div className="p-signal">{"Lenders or investors asking questions you can't answer"}</div>
                 <div className="p-signal">{"Reports that don't reconcile across entities"}</div>
@@ -434,11 +435,11 @@ export default function Home() {
             </div>
             <div className="pcard" onClick={() => openOverlay(1)}>
               <div className="p-tag">{"Does this sound familiar?"}</div>
-              <div className="p-headline">
-                {"The platform exists."}
+              <h3 className="p-headline">
+                {"The platform exists. "}
                 <br />
                 <span className="teal">{"The operation didn't follow."}</span>
-              </div>
+              </h3>
               <div className="p-signals">
                 <div className="p-signal">{"Investment made, infrastructure not built to match"}</div>
                 <div className="p-signal">{"Stakeholders expecting transparency with no layer to deliver it"}</div>
@@ -455,11 +456,11 @@ export default function Home() {
             </div>
             <div className="pcard" onClick={() => openOverlay(2)}>
               <div className="p-tag">{"Does this sound familiar?"}</div>
-              <div className="p-headline">
-                {"The programme is running."}
+              <h3 className="p-headline">
+                {"The programme is running. "}
                 <br />
                 <span className="teal">{"Nothing has changed."}</span>
-              </div>
+              </h3>
               <div className="p-signals">
                 <div className="p-signal">{"Budget spent, activity high, outcomes thin"}</div>
                 <div className="p-signal">{"Board asking why the investment hasn't produced visible change"}</div>
@@ -482,11 +483,11 @@ export default function Home() {
         <div className="s3-inner" id="s3-inner">
           <div>
             <div className="section-tag">{"How we work"}</div>
-            <div className="sh-light">
-              {"Three stages."}
+            <h2 className="sh-light">
+              {"Three stages. "}
               <br />
               <span>{"One commitment."}</span>
-            </div>
+            </h2>
             <div className="timeline">
               <div className="tl-item">
                 <div className="tl-node" />
@@ -522,12 +523,12 @@ export default function Home() {
           </div>
           <div className="s3-right">
             <div className="diff-block">
-              <div className="diff-label">{"What makes this different"}</div>
+              <h2 className="diff-label">{"What makes this different"}</h2>
               <div className="diff-text">
-                {"Every engagement draws on four products, Data360, Procure360, Portfolio360, and Governance360, each built on the same nine-module diagnostic sequence, from source data classification through to business case and roadmap. The products are the scaffold. What we bring is the judgment to know which findings matter, which numbers are telling the truth, and what to do about it first."}
+                {"Every engagement starts with Data360. Portfolio360 and Governance360 are coming. The products are the scaffold. What we bring is the judgment to know which findings matter, which numbers are telling the truth, and what to do about it first."}
               </div>
               <a className="case-cta" href="/how-we-help/" style={{ marginTop: "16px" }}>
-                {"See the Intelligence360 Suite "}
+                {"See the Enterprise360 Suite "}
                 <span className="case-arrow">{"→"}</span>
               </a>
             </div>
@@ -561,6 +562,7 @@ export default function Home() {
         </div>
       </section>
       {/* Bottom banner, same as How We Help / Results / Insights */}
+      <AiLine />
       <PageCta {...READY_CTA} id="home-cta" />
       <SiteFooter />
     </>

@@ -1,38 +1,40 @@
 import PageLayout, { PageHero, PageCta } from '../components/PageLayout';
+import { pageSeo } from '../seo';
 import './Products.css';
 
-// "How We Help" page (/how-we-help/) - the Intelligence360 Suite products.
+// "How We Help" page (/how-we-help/) - the Enterprise360 Suite products.
 // Converted 1:1 from simplicytas_products_v3.html
 export default function Products() {
   return (
-    <PageLayout title="How We Help" active="help">
+    <PageLayout title="How We Help" documentTitle={pageSeo['/how-we-help/'].title} active="help">
       <PageHero
-        eyebrow="Simplicytas Intelligence360 Suite"
-        headline={<>{"Four products."}<br /><span className="teal">{"One operating model."}</span></>}
+        eyebrow="Simplicytas Enterprise360 Suite"
+        headline={<>{"Start with Data360. "}<br /><span className="teal">{"Add what you need."}</span></>}
         scrollHint
       >
-        <div className="page-hero-sub">{"Simplicytas helps complex organisations discover, reconcile and govern fragmented data, giving leaders a trusted view for better decisions and controlled execution."}</div>
+        <div className="page-hero-sub">{"Simplicytas helps complex organisations find what their data is hiding, reconcile it, and put a name against the answer, so that leaders can sign numbers they can explain and trust."}</div>
       </PageHero>
       <section className="page-body">
           <div className="page-body-inner">
             <div className="page-lede">
-              {"Each product solves one structural problem: procurement, data, portfolios, or governance. Start with one, or run all four together."}
+              {"Every client starts with Data360 in one function. Add what you need as priorities emerge."}
             </div>
             <div className="product-stack">
               <div className="product-card">
                 <div className="product-side">
-                  <div className="product-name">{"Data360"}</div>
+                  <h2 className="product-name">{"Data360"}</h2>
                 </div>
                 <div className="product-main">
-                  <div className="product-tagline">{"Replaces fragmented, siloed data with one version of the truth the business can act on."}</div>
+                  <div className="product-tagline">{"Finds where your data disagrees with itself, puts a confidence score on every number, and names an owner for the answer."}</div>
                   <div className="product-body">
-                    {"Data360 brings ingestion, validation, lineage, governance, analytics, and reporting into a single system, so the numbers reconcile before they reach the top. For the CFO, board and investor reporting that does not need reconciling twice. For the CEO, one number everyone in the room already agrees on."}
+                    {"Data360 brings ingestion, validation, lineage, governance, analytics, and reporting into one solution, so the numbers reconcile before they reach the top. For the CFO, board and investor reporting that does not need reconciling twice. For the CEO, one number everyone in the room already agrees on."}
                   </div>
+                  <div className="product-proof">{"$6B in acquired assets. First reliable reporting layer delivered within the engagement."}</div>
                 </div>
               </div>
               <div className="product-card">
                 <div className="product-side">
-                  <div className="product-name">{"Procure360"}</div>
+                  <h2 className="product-name">{"Procure360"}</h2>
                 </div>
                 <div className="product-main">
                   <div className="product-tagline">{"Turns procurement into a source of value, not a cost centre to manage."}</div>
@@ -43,7 +45,7 @@ export default function Products() {
               </div>
               <div className="product-card">
                 <div className="product-side">
-                  <div className="product-name">{"Portfolio360"}</div>
+                  <h2 className="product-name">{"Portfolio360"}</h2>
                 </div>
                 <div className="product-main">
                   <div className="product-tagline">
@@ -56,7 +58,7 @@ export default function Products() {
               </div>
               <div className="product-card">
                 <div className="product-side">
-                  <div className="product-name">{"Governance360"}</div>
+                  <h2 className="product-name">{"Governance360"}</h2>
                 </div>
                 <div className="product-main">
                   <div className="product-tagline">{"Builds trust, control, and accountability into how AI gets used, not around it."}</div>
@@ -67,7 +69,7 @@ export default function Products() {
               </div>
             </div>
             <div className="pull-block">
-              <div className="pull-label">{"Together"}</div>
+              <h2 className="pull-label">{"Together"}</h2>
               <div className="body-para">
                 {"Together, the four products form one operating model connecting data, procurement, portfolios, and governance. Every product runs on the same nine-module diagnostic sequence, from source data to business case. The result: stronger controls, better investment decisions, and faster value realisation across the organisation."}
               </div>

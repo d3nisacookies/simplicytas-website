@@ -20,6 +20,7 @@
 .product-main{padding:34px 56px;background:#fff;display:flex;flex-direction:column;justify-content:center;}
 .product-tagline{font-family:'Roboto',sans-serif;font-weight:600;font-size:var(--text-h3);color:var(--purple);line-height:1.45;margin-bottom:16px;}
 .product-body{font-size:var(--text-body);color:var(--text-muted);line-height:1.65;}
+.product-proof{margin-top:18px;padding-top:16px;border-top:1px solid rgba(54,178,176,0.28);font-family:'Roboto',sans-serif;font-weight:600;font-size:var(--text-body);color:var(--navy);line-height:1.5;}
 
 .pull-block{
   margin:64px 0 0;
