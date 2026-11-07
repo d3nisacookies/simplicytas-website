@@ -109,6 +109,7 @@ export default function ContactSection() {
             <div className="cc-pdpa">
               {"We will use your details to follow up by email or phone, with relevant case studies, a conversation, or both. We will not share your information with third parties."}
             </div>
+            <div className="cc-privacy"><a href="/privacy.html">{"Privacy Policy"}</a></div>
           </div>
         </div>
       </div>

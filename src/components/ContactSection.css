@@ -42,3 +42,6 @@
 @media (max-width:760px){
   .contact-section{padding:70px 36px;}
 }
+.cc-privacy{margin-top:8px;font-size:var(--text-caption);}
+.cc-privacy a{color:#FFFFFF;text-decoration:underline;}
+.cc-privacy a:hover{color:var(--teal);}
